@@ -2,17 +2,71 @@
 <html>
 <head>
   <title>MAPO Alfath Maret</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f5f5f5;
+    }
+    .header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      background: #25D366;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<body style="text-align:center; font-family:sans-serif;">
 
-<h1>MAPO Alfath Maret</h1>
-<p>Toko kebutuhan harian</p>
+<body>
 
-<button onclick="window.location.href='https://wa.me/6287762803657'" 
-style="padding:10px 20px; font-size:16px;">
-Pesan via WhatsApp
-</button>
+<div class="header">
+  <h1>MAPO Alfath</h1>
+  <p>Toko Kebutuhan Harian</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Beras 5Kg</h3>
+    <p>Harga: Rp 70.000</p>
+    <a class="btn" href="https://wa.me/6287762803657?text=Saya%20mau%20pesan%20Beras%205Kg">Pesan via WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <h3>Minyak Goreng</h3>
+    <p>Harga: Rp 20.000</p>
+    <a class="btn" href="https://wa.me/6287762803657?text=Saya%20mau%20pesan%20Minyak%20Goreng">Pesan via WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <h3>Gula Pasir</h3>
+    <p>Harga: Rp 15.000</p>
+    <a class="btn" href="https://wa.me/6287762803657?text=Saya%20mau%20pesan%20Gula%20Pasir">Pesan via WhatsApp</a>
+  </div>
+
+</div>
 
 </body>
 </html>
-
