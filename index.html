@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,26 +18,21 @@
       padding: 15px;
     }
 
-   .logo {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  margin-bottom: 5px;
-} .container {
+    .container {
       padding: 10px;
     }
 
     .grid {
-      display: display:grid;
-      grid-template-columns: ( 1fr 1fr);
-      gap: 10px;>
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       align-items: stretch;
     }
 
     .card {
-      background: #fff;
-      border-radius: 5px;
-      padding: 5px;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -46,10 +40,9 @@
 
     .card img {
       width: 100%;
-      heigh: 120px;
-      aspect-ratio: 1 / 1;
+      height: 150px;
       object-fit: cover;
-      
+      border-radius: 8px;
     }
 
     .card h4 {
@@ -57,7 +50,7 @@
       height: 40px;
       line-height: 20px;
       overflow: hidden;
-      margin: 0px 0 0px0;
+      margin: 5px 0;
     }
 
     .card p {
@@ -81,46 +74,78 @@
 <body>
 
   <div class="header">
-      <img src="./mapologo.jpg" class="logo">
-
     <h2>MAPO Alfath Maret</h2>
-    <p>Toko Kebutuhan Harian</p>
-    <p>Mudah Dijangkau & Harga Terjangkau</p>
+    <p>Belanja Mudah & Harga Terjangkau</p>
   </div>
 
   <div class="container">
     <div class="grid">
 
       <!-- BERAS 5KG -->
-  <div class="produk">
+      <div class="card">
+        <img src="./beras.jpg">
+        <h4>Beras Dua Merpati 5 Kg</h4>
+        <p>Rp 83.000</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan beras 5kg" class="btn">
+          Pesan
+        </a>
+      </div>
 
-  <div class="card">
-    <img src="beras.jpg">
-    <h4>Beras Dua Merpati 5 Kg</h4>
-    <p>Rp 83.000</p>
-    <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan beras 5kg">Pesan</a>
+      <!-- BERAS 2KG -->
+      <div class="card">
+        <img src="./beras.jpg">
+        <h4>Beras Dua Merpati 2 Kg</h4>
+        <p>Rp 32.000</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan beras 2kg" class="btn">
+          Pesan
+        </a>
+      </div>
+
+      <!-- MINYAK -->
+      <div class="card">
+        <img src="./minyak.jpg">
+        <h4>Minyak Kelapa 1 Kg</h4>
+        <p>Rp 15.000</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan minyak 1kg" class="btn">
+          Pesan
+        </a>
+      </div>
+
+      <!-- GULA -->
+      <div class="card">
+        <img src="./gula.jpg">
+        <h4>Gula Pasir 1 Kg</h4>
+        <p>Rp 12.000</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan gula 1kg" class="btn">
+          Pesan
+        </a>
+      </div>
+
+      <!-- PUYU -->
+      <div class="card">
+        <img src="./puyu.jpg">
+        <h4>Telur Puyuh</h4>
+        <p>Rp 11.950</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan telur puyuh" class="btn">
+          Pesan
+        </a>
+      </div>
+
+      <!-- AIR -->
+      <div class="card">
+        <img src="./air.jpg">
+        <h4>Air Mineral</h4>
+        <p>Rp 5.000</p>
+        <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan air" class="btn">
+          Pesan
+        </a>
+      </div>
+
+    </div>
   </div>
 
-  <div class="card">
-    <img src="beras2.jpg">
-    <h4>Beras 2 Kg</h4>
-    <p>Rp 35.000</p>
-    <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan beras 2kg">Pesan</a>
-  </div>
-
-  <div class="card">
-    <img src="gula.jpg">
-    <h4>Gula</h4>
-    <p>Rp 15.000</p>
-    <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan gula">Pesan</a>
-  </div>
-
-  <div class="card">
-    <img src="puyu.jpg">
-    <h4>Puyu</h4>
-    <p>Rp ...</p>
-    <a href="https://api.whatsapp.com/send?phone=6287762803657&text=Saya mau pesan puyu">Pesan</a>
-  </div>
+</body>
+</html>
 
   </div>
     </div>
