@@ -110,7 +110,48 @@ margin-top: 5px;
   <h2 style="text-align:center;">Daftar Menu</h2>
 <div style="background:white; color:black; padding:10px; margin:10px; border-radius:8px;">
   
+<h1>MAPO Alfath Maret</h1>
 
+<!-- tombol download -->
+
+<!-- 🔥 KERANJANG TARUH DI SINI -->
+<div style="background:#fff; padding:15px; border-radius:10px; margin:10px;">
+
+  <h3>🛒 Keranjang Belanja</h3>
+
+  <ul id="listKeranjang"></ul>
+
+  <button onclick="kirimWA()" style="
+  background-color:green;
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  ">
+  📲 Pesan via WhatsApp
+  </button>
+
+</div>
+<div style="background:#fff; padding:15px; border-radius:10px; margin:10px;">
+
+  <h3>🛒 Keranjang Belanja</h3>
+
+  <ul id="listKeranjang"></ul>
+
+  <button onclick="kirimWA()" style="
+  background-color:green;
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  ">
+  📲 Pesan via WhatsApp
+  </button>
+
+</div>
+<h2>Daftar Menu</h2>
+
+<!-- produk-produk -->
   <button onclick="tambahKeranjang('Beras')"
     style="background-color:orange; color:white; border:none; padding:8px; border-radius:5px;">
     🛒 Tambah ke Keranjang
@@ -181,7 +222,39 @@ Pesan
 
 </div>
 </div>
+<script>
+let keranjang = [];
 
+function tambahKeranjang(nama, harga) {
+  keranjang.push({nama, harga});
+  tampilkanKeranjang();
+}
+
+function tampilkanKeranjang() {
+  let list = document.getElementById("listKeranjang");
+  list.innerHTML = "";
+
+  keranjang.forEach((item, index) => {
+    let li = document.createElement("li");
+    li.innerHTML = item.nama + " - Rp " + item.harga;
+    list.appendChild(li);
+  });
+}
+
+function kirimWA() {
+  let pesan = "Pesanan saya:%0A";
+  let total = 0;
+
+  keranjang.forEach((item, i) => {
+    pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
+    total += item.harga;
+  });
+
+  pesan += "%0ATotal: Rp " + total;
+
+  window.open("https://wa.me/6287762803657?text=" + pesan);
+}
+</script>
 </body>
 </html>
 
