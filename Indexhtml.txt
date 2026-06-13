@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MAPO</title>
+</head>
+<body>
+
+<h1>MAPO ALFATH</h1>
+<p>Website sudah aktif</p>
+
+</body>
+</html>
