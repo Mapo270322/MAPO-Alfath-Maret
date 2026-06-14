@@ -26,16 +26,13 @@ padding: 10px;
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 10px;
-align-items: stretch;
 }
 
 .card {
 background: white;
 border-radius: 10px;
 padding: 10px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card img {
@@ -47,25 +44,22 @@ border-radius: 8px;
 
 .card h4 {
 font-size: 14px;
-height: 40px;
-line-height: 20px;
-overflow: hidden;
 margin: 5px 0;
 }
 
 .card p {
 margin: 5px 0;
 font-weight: bold;
+color: #28a745;
 }
 
-.btn {
-display: block;
-background: green;
+button {
+width: 100%;
+background: orange;
 color: white;
-text-align: center;
-padding: 6px;
-border-radius: 6px;
-text-decoration: none;
+border: none;
+padding: 10px;
+border-radius: 8px;
 margin-top: 5px;
 }
 </style>
@@ -74,249 +68,102 @@ margin-top: 5px;
 <body>
 
 <div class="header">
-<img src="./logo.png" class="logo">
 <h2>MAPO Alfath Maret</h2>
-  <p>Toko Kebutuhan Harian</p>
-<p>Mudah Dijankau & Harga Terjangkau</p>
+<p>Toko Kebutuhan Harian</p>
 </div>
-<audio id="mapoSound">
-<source src="mapo.mp3" type="audio/mpeg">
-</audio>
 
-<button onclick="document.getElementById('mapoSound').play()">
-▶️ Putar Lagu MAPO
-</button>
 <div class="container">
+
+<!-- DOWNLOAD -->
+<div style="text-align:center; margin-bottom:10px;">
+<a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk" target="_blank">
+<button style="background:green;">📥 Download Aplikasi</button>
+</a>
+</div>
+
+<!-- KERANJANG -->
+<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
+<h3>🛒 Keranjang</h3>
+<ul id="listKeranjang"></ul>
+<button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
+</div>
+
+<!-- JUDUL -->
+<div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
+<h3 style="text-align:center;">Daftar Menu</h3>
+</div>
+
+<!-- PRODUK -->
 <div class="grid">
-  
-<div style="text-align:center; margin-top:15px;">
-  <a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk" target="_blank">
-    <button style="
-      padding:12px 20px;
-      font-size:16px;
-      border:none;
-      border-radius:8px;
-      background-color:green;
-      color:white;
-      cursor:pointer;
-    ">
-      📥 Download Aplikasi MAPO Alfath
-    </button>
-  </a>
-</div>
-</a>
-<div style="background-color:#28a745; padding:15px; border-radius:10px; color:white;">
 
-  <h2 style="text-align:center;">Daftar Menu</h2>
-<div style="background:white; color:black; padding:10px; margin:10px; border-radius:8px;">
-  
-<h1>MAPO Alfath Maret</h1>
-
-<!-- tombol download -->
-
-
-<!-- ✅ KERANJANG DI SINI -->
-<div style="background:#fff; padding:15px; border-radius:10px; margin:10px;">
-  <h3>🛒 Keranjang Belanja</h3>
-  <ul id="listKeranjang"></ul>
-  <button onclick="kirimWA(087762803657)">Pesan via WhatsApp</button>
-</div>
-
-<!-- ✅ BARU DAFTAR MENU -->
-<div style="background-color:#28a745;">
-  <h2>Daftar Menu</h2>
-</div>
-
-
-  </button>
-
-</div>
-
-</div>
-
-
-<!-- produk-produk -->
-  <button onclick="tambahKeranjang('Beras')"
-    style="background-color:orange; color:white; border:none; padding:8px; border-radius:5px;">
-    🛒 Tambah ke Keranjang
-  </button>
-</div>
-  <!-- isi menu tetap di sini -->
-
-</div>
-<!-- BERAS 5KG -->
-<div style="
-background:white;
-border-radius:12px;
-padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-">
-<div style="
-display:grid;
-grid-template-columns:repeat(2, 1fr);
-gap:12px;
-">
-
-  <h3 style="font-size:14px;">Beras Dua Merpati 5 Kg</h3>
-
-  <p style="font-weight:bold; color:#28a745;">
-  Rp 77.000
-  </p>
-<img src="minyakgoreng.jpg" style="width:100%; border-radius:10px;">
-  <button onclick="tambahKeranjang('Beras Dua Merpati 5 Kg',83000)"
-  style="
-  width:100%;
-  background-color:orange;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:8px;
-  ">
-  🛒 Tambah
-  </button>
-
-</div>
-
-</div>
-
-<!-- BERAS 2KG -->
-<div style="
-background:white;
-border-radius:12px;
-padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-">
-<img src="minyakgoreng.jpg" style="width:100%; border-radius:10px;">
-  <h3 style="font-size:14px;">Beras Dua Merpati 2 Kg</h3>
-
-  <p style="font-weight:bold; color:#28a745;">
-  Rp 34.100
-  </p>
-
-  <button onclick="tambahKeranjang('Beras Dua Merpati 2 Kg',83000)"
-  style="
-  width:100%;
-  background-color:orange;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:8px;
-  ">
-  🛒 Tambah
-  </button>
-
-</div>
-</a>
-</div>
-
-<!-- MINYAK -->
-<div class="card" style="
-background:white;
-border-radius:12px;
-padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-">
-
-  <img src="minyakgoreng.jpg" style="width:100%; border-radius:10px;">
-
-
-<!-- MINYAK -->
-<div class="card" style="
-background:white;
-border-radius:12px;
-padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-">
-
-  <img src="minyakgoreng.jpg" style="width:100%; border-radius:10px;">
-
-  <h4>Minyak Kelapa 1 Kg</h4>
-  <p style="color:#28a745; font-weight:bold;">Rp 15.000</p>
-
-  <button onclick="tambahKeranjang('Minyak Kelapa 1 Kg',15000)"
-  style="width:100%; background-color:orange; color:white; border:none; padding:10px; border-radius:8px;">
-  🛒 Tambah ke Keranjang
-  </button>
-
-</div>
-
-<!-- GULA -->
-<div class="card" style="
-background:white;
-border-radius:12px;
-padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-">
-
-  <img src="gulapasir.jpg" style="width:100%; border-radius:10px;">
-
-  <h4>Gula Pasir 1 Kg</h4>
-  <p style="color:#28a745; font-weight:bold;">Rp 12.000</p>
-
-  <button onclick="tambahKeranjang('Gula Pasir 1 Kg',12000)"
-  style="width:100%; background-color:orange; color:white; border:none; padding:10px; border-radius:8px;">
-  🛒 Tambah ke Keranjang
-  </button>
-
-</div>
-</div>
-</div>
-
-<!-- PUYU -->
 <div class="card">
-<img src="./telurpuyu.jpg">
-<h4>Telur Puyuh</h4>
-<p>Rp 11.950</p>
-  <button onclick="tambahKeranjang('Telur Puyuh',12000)">
-🛒 Tambah ke Keranjang
-</a>
+<img src="https://via.placeholder.com/150">
+<h4>Beras Dua Merpati 5 Kg</h4>
+<p>Rp 83.000</p>
+<button onclick="tambahKeranjang('Beras 5 Kg',83000)">🛒 Tambah</button>
 </div>
 
-<!-- AIR -->
 <div class="card">
-<img src="./airmineral.jpg">
-<h4>Air Mineral</h4>
-<p>Rp 5.000</p>
-  <button onclick="tambahKeranjang('Air Mineral',12000)">
-🛒 Tambah ke Keranjang
-</a>
+<img src="https://via.placeholder.com/150">
+<h4>Beras Dua Merpati 2 Kg</h4>
+<p>Rp 32.000</p>
+<button onclick="tambahKeranjang('Beras 2 Kg',32000)">🛒 Tambah</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Minyak Kelapa 1 Kg</h4>
+<p>Rp 15.000</p>
+<button onclick="tambahKeranjang('Minyak',15000)">🛒 Tambah</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Gula Pasir 1 Kg</h4>
+<p>Rp 12.000</p>
+<button onclick="tambahKeranjang('Gula',12000)">🛒 Tambah</button>
 </div>
 
 </div>
+
 </div>
+
 <script>
 let keranjang = [];
 
 function tambahKeranjang(nama, harga) {
-  keranjang.push({nama, harga});
-  tampilkanKeranjang();
+keranjang.push({nama, harga});
+tampilkanKeranjang();
 }
 
 function tampilkanKeranjang() {
-  let list = document.getElementById("listKeranjang");
-  list.innerHTML = "";
+let list = document.getElementById("listKeranjang");
+list.innerHTML = "";
 
-  keranjang.forEach((item, index) => {
-    let li = document.createElement("li");
-    li.innerHTML = item.nama + " - Rp " + item.harga;
-    list.appendChild(li);
-  });
+keranjang.forEach((item) => {
+let li = document.createElement("li");
+li.innerHTML = item.nama + " - Rp " + item.harga;
+list.appendChild(li);
+});
 }
 
 function kirimWA() {
-  let pesan = "Pesanan saya:%0A";
-  let total = 0;
+let pesan = "Pesanan saya:%0A";
+let total = 0;
 
-  keranjang.forEach((item, i) => {
-    pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
-    total += item.harga;
-  });
+keranjang.forEach((item, i) => {
+pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
+total += item.harga;
+});
 
-  pesan += "%0ATotal: Rp " + total;
+pesan += "%0ATotal: Rp " + total;
 
-  window.open("https://wa.me/6287762803657?text=" + pesan);
+window.open("https://wa.me/6287762803657?text=" + pesan);
 }
 </script>
+
+</body>
+</html>
 </body>
 </html>
 
