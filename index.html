@@ -1,48 +1,167 @@
-<body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAPO Alfath Maret</title>
 
-<!-- HEADER -->
-<div class="header">
-  <img src="logo.png">
-  <h2>MAPO Alfath Maret</h2>
-  <p>Toko Kebutuhan Harian</p>
-</div>
+<style>
+body {
+margin: 0;
+font-family: Arial;
+background: #f5f5f5;
+}
 
-<div class="container">
+.header {
+background: green;
+color: white;
+text-align: center;
+padding: 15px;
+}
 
-<!-- KERANJANG -->
-<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
-  <h3>🛒 Keranjang</h3>
-  <ul id="listKeranjang"></ul>
-  <button onclick="kirimWA()">Pesan via WhatsApp</button>
-</div>
+.container {
+padding: 10px;
+}
 
-<!-- JUDUL -->
-<div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
-  <h3 style="text-align:center;">Daftar Menu</h3>
-</div>
 .grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 10px;
 }
-<!-- GRID PRODUK -->
+
+.card {
+background: white;
+border-radius: 10px;
+padding: 10px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+width: 100%;
+height: 150px;
+object-fit: cover;
+border-radius: 8px;
+}
+
+.card h4 {
+font-size: 14px;
+margin: 5px 0;
+}
+
+.card p {
+margin: 5px 0;
+font-weight: bold;
+color: #28a745;
+}
+
+button {
+width: 100%;
+background: orange;
+color: white;
+border: none;
+padding: 10px;
+border-radius: 8px;
+margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h2>MAPO Alfath Maret</h2>
+<p>Toko Kebutuhan Harian</p>
+</div>
+
+<div class="container">
+
+<!-- DOWNLOAD -->
+<div style="text-align:center; margin-bottom:10px;">
+<a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk" target="_blank">
+<button style="background:green;">📥 Download Aplikasi</button>
+</a>
+</div>
+
+<!-- KERANJANG -->
+<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
+<h3>🛒 Keranjang</h3>
+<ul id="listKeranjang"></ul>
+<button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
+</div>
+
+<!-- JUDUL -->
+<div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
+<h3 style="text-align:center;">Daftar Menu</h3>
+</div>
+
+<!-- PRODUK -->
 <div class="grid">
 
-  <div class="card">
-    <img src="minyakgoreng.jpg">
-    <h4>Minyak Kelapa 1 Kg</h4>
-    <p>Rp 15.000</p>
-    <button onclick="tambahKeranjang('Minyak Kelapa 1 Kg',15000)">🛒 Tambah</button>
-  </div>
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Beras Dua Merpati 5 Kg</h4>
+<p>Rp 83.000</p>
+<button onclick="tambahKeranjang('Beras 5 Kg',83000)">🛒 Tambah</button>
+</div>
 
-  <div class="card">
-    <img src="gulapasir.jpg">
-    <h4>Gula Pasir 1 Kg</h4>
-    <p>Rp 12.000</p>
-    <button onclick="tambahKeranjang('Gula Pasir 1 Kg',12000)">🛒 Tambah</button>
-  </div>
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Beras Dua Merpati 2 Kg</h4>
+<p>Rp 32.000</p>
+<button onclick="tambahKeranjang('Beras 2 Kg',32000)">🛒 Tambah</button>
+</div>
 
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Minyak Kelapa 1 Kg</h4>
+<p>Rp 15.000</p>
+<button onclick="tambahKeranjang('Minyak',15000)">🛒 Tambah</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<h4>Gula Pasir 1 Kg</h4>
+<p>Rp 12.000</p>
+<button onclick="tambahKeranjang('Gula',12000)">🛒 Tambah</button>
 </div>
 
 </div>
+
+</div>
+
+<script>
+let keranjang = [];
+
+function tambahKeranjang(nama, harga) {
+keranjang.push({nama, harga});
+tampilkanKeranjang();
+}
+
+function tampilkanKeranjang() {
+let list = document.getElementById("listKeranjang");
+list.innerHTML = "";
+
+keranjang.forEach((item) => {
+let li = document.createElement("li");
+li.innerHTML = item.nama + " - Rp " + item.harga;
+list.appendChild(li);
+});
+}
+
+function kirimWA() {
+let pesan = "Pesanan saya:%0A";
+let total = 0;
+
+keranjang.forEach((item, i) => {
+pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
+total += item.harga;
+});
+
+pesan += "%0ATotal: Rp " + total;
+
+window.open("https://wa.me/6287762803657?text=" + pesan);
+}
+</script>
+
+</body>
+</html>
 
