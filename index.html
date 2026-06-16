@@ -30,7 +30,6 @@ gap: 6px;
 }
 
 .card {
-  .card {
   position: relative;
 }
 background: white;
@@ -84,19 +83,28 @@ border-radius: 20px;
 margin-top: 5px;
   kursor: pointer;
   transition: 0.2s;
+
 }
 
 button:hover {
   background: #e6b800;
   .badge {
   position: absolute;
+  left: 8px;
   background: red;
   color: white;
   font-size: 10px;
   padding: 3px 6px;
   border-radius: 6px;
   top: 8px;
-  left: 8px;
+  bottom: 8px;
+  opocity : 0;
+  transform: translate Y (10px);
+  transition: 0,3s;
+  .card:hover .badge {
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 </style>
 </head>
