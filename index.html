@@ -114,7 +114,10 @@ button:hover {
 </head>
 
 <body>
-
+  
+h1, h2, h4, p {
+  margin: 5px 0;
+}
 <div class="header">
 
 <img src="logo.png" style="
@@ -123,9 +126,10 @@ height:100px;
 object-fit:cover;
 margin-bottom:10px;
 ">
-<h2>MAPO Mart</h2>
-<p>Toko Kebutuhan Harian</p>
-  <p>Mudah Dijangkau & Harga Terjangka</p>
+<h1 class="judul"MAPO Mart</h1>
+<p class="sub1"Toko Kebutuhan Harian</p>
+  <p class="sub2"Mudah Dijangkau & Harga Terjangka</p>
+  <p class="sub3"Jl.Sungai Siak Ketang Baru Manado</p>
 </div>
 <audio id="lagu">
   <source src="mapo.mp3" type="audio/mpeg">
@@ -147,7 +151,7 @@ margin-bottom:10px;
 <div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
 <h3>🛒 Keranjang</h3>
 <ul id="listKeranjang"></ul>
-<button onclick="kirimWA()"> Tekan disin 📲 Pesan via WhatsApp</button>
+<button onclick="kirimWA()"> Tekan disin >      📲 Pesan via WhatsApp</button>
 </div>
 
 <!-- JUDUL -->
