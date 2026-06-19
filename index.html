@@ -1,78 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>MAPO Mart</title>
+<meta charset="UTF-8">
+<title>MAPO Alfath Maret</title>
 
-  <style>
-    body {
-    <head>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f5f5f5;
-    }
+<style>
+body {
+margin: 0;
+font-family: Arial;
+background: #f5f5f5;
+}
 
-    .header {
-      background: green;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
+.header {
+background: green;
+color: white;
+text-align: center;
+padding: 15px;
+}
 
-    /* ⬇️ TEMPATKAN DI SINI */
-    .keranjang-box {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+.container {
+padding: 10px;
+}
 
-    .keranjang-box h3 {
-      margin-bottom: 10px;
-    }
+.grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
 
-    #listKeranjang {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 10px;
-    }
+.card {
+background: white;
+border-radius: 10px;
+padding: 10px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-    #listKeranjang li {
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
-    }
+.card img {
+width: 100%;
+height: 150px;
+object-fit: cover;
+border-radius: 8px;
+}
 
-    .wa-btn {
-      display: block;
-      width: 100%;
-      background: orange;
-      color: black;
-      text-align: center;
-      padding: 12px;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+.card h4 {
+font-size: 14px;
+margin: 5px 0;
+}
 
-    .btn {
-      background: orange;
-      color: black;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 20px;
-      font-weight: bold;
-      margin-top: 5px;
-    }
+.card p {
+margin: 5px 0;
+font-weight: bold;
+color: #28a745;
+}
 
-  </style>
-</head>
+button {
+width: 100%;
+background: orange;
+color: white;
+border: none;
+padding: 10px;
+border-radius: 8px;
+margin-top: 5px;
+}
 </style>
 </head>
-</body>
+
+<body>
 
 <div class="header">
 <img src="logo.png" style="
@@ -81,18 +74,23 @@ height:100px;
 object-fit:cover;
 margin-bottom:10px;
 ">
-  <h1 class="judul">MAPO Maret</h1>
-  <p class="sub1">Toko Kebutuhan Harian</p>
-  <p class="sub2">Mudah Dijangkau & Harga Terjangkau</p>
-  <p class="sub3">Jl.Sungai Siak 611 Ketang Baru Manado</p>
+
+<h2>MAPO Alfath Maret</h2>
+<p>Toko Kebutuhan Harian</p>
+
+</div>
+
+<h2>MAPO Alfath Maret</h2>
+<p>Toko Kebutuhan Harian</p>
 </div>
 <audio id="lagu">
-  <source src="mapo.mp3" type="audio/mpeg">
+<source src="mapo.mp3" type="audio/mpeg">
 </audio>
 
 <button onclick="document.getElementById('lagu').play()">
-  ▶️ Putar Lagu MAPO
+▶️ Putar Lagu MAPO
 </button>
+
 <div class="container">
 
 <!-- DOWNLOAD -->
@@ -103,12 +101,12 @@ margin-bottom:10px;
 </div>
 
 <!-- KERANJANG -->
+<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
+<h3>🛒 Keranjang</h3>
+<ul id="listKeranjang"></ul>
+<button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
+</div>
 
-  .btn:active {
-  transform: scale(0.97);
-    <a href="#" style="display:block;width:100%;background:orange;color:black;text-align:center;padding:12px;border-radius:25px;">
-📲 Pesan via WhatsApp
-}
 <!-- JUDUL -->
 <div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
 <h3 style="text-align:center;">Daftar Menu</h3>
