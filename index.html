@@ -340,10 +340,19 @@ margin-top: 5px;
   }, 2000);
 }
 let keranjang = [];
-
 function tambahKeranjang(nama, harga) {
-keranjang.push({nama, harga});
+  let item = keranjang.find(p=> p.nama=== nama);
+  if (item) {
+    item.jumlah += 1 ;
+  } else {
+keranjang.push({
+  nama: nama,
+  harga: harga,
+jumlah : 1
+});
+}
 tampilkanKeranjang();
+  tampil Notif (nama + " ditambahkan ke keranjang ");
 }
 
 function tampilkanKeranjang() {
