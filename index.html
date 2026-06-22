@@ -95,6 +95,7 @@ margin-top: 5px;
   display: none;
   font-weight: bold;
   z-index: 999;
+    transition : all 0.3s easee;
 }
 </style>
 </head>
@@ -135,7 +136,7 @@ margin-top: 5px;
 <ul id="listKeranjang"></ul>
 <button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
 </div>
-
+<div id="notif" class="notif">Produk ditambahkan!</div>
 <!-- JUDUL -->
 <div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
 <h3 style="text-align:center;">Daftar Menu</h3>
@@ -361,7 +362,7 @@ pesan += "%0ATotal: Rp " + total;
 window.open("https://wa.me/6287762803657?text=" + pesan);
 }
 </script>
-<div id="notif" class="notif">Produk ditambahkan!</div>
+
 </body>
 </html>
 
