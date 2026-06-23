@@ -95,6 +95,13 @@ margin-top: 5px;
   display: none;
   font-weight: bold;
   z-index: 999;
+    .notif {
+  opacity: 0;
+}
+
+.notif.show {
+  opacity: 1;
+}
     transition : all 0.3s easee;
 }
 </style>
@@ -334,8 +341,10 @@ margin-top: 5px;
   let notif = document.getElementById("notif");
   notif.innerText = teks;
   notif.style.display = "block";
+    notif.classList.add ("show");
 
   setTimeout(() => {
+    notif.classList.remov ("show")
     notif.style.display = "none";
   }, 2000);
 }
@@ -362,6 +371,7 @@ list.innerHTML = "";
 keranjang.forEach((item) => {
 let li = document.createElement("li");
 li.innerHTML = item.nama + " - Rp " + item.harga;
+li.innerHTML = item.nama + " x" + item.jumlah + " - Rp " + (item.harga * item.jumlah);
 list.appendChild(li);
 });
 }
