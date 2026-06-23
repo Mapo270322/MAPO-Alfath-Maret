@@ -85,16 +85,17 @@ margin-top: 5px;
 }
   .notif {
   position: fixed;
-  top: 20px;
-  right: -300px
-  background: #28a745;
+    bottom: 20px;
+    left: 50%;
+    transform: tramslateX(-50%);
+  background: #28a745;;
   color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
   font-weight: bold;
   z-index: 999;
   opacity: 0;
-    transition : all 0.4s ease;
+    transition : all 0.3s ease;
   }
     .notif.show {
       right: 20px
@@ -346,14 +347,9 @@ margin-top: 5px;
   let notif = document.getElementById("notif");
   notif.innerText = teks;
   notif.style.display = "block";
-    notif.classList.add ("show");
-  document.get.ElementById("notifSound").play();
-    if (navigator.vibrate) {
-      navigator.vibrate(100);
-    }
-
+  
   setTimeout(() => {
-    notif.classList.remove ("show");
+    notif.class.display = "none";
   }, 2000);
 }
 let keranjang = [];
@@ -362,13 +358,10 @@ function tambahKeranjang(nama, harga) {
   if (item) {
     item.jumlah += 1 ;
   } else {
-keranjang.push({
-  nama: nama,
-  harga: harga,
-jumlah : 1
-});
+keranjang.push({nama, harga, jumlah : 1});
 }
-tampilkanKeranjang();
+simpanKeranjang ():
+  tampilkanKeranjang();
    tampilNotif(nama + " ditambahkan ke keranjang 🛒"); (nama + " ditambahkan ke keranjang ");
 }
 
