@@ -343,35 +343,11 @@ margin-top: 5px;
   </body>
 </div>
 <script>
-  let keranjang = ;
-  fuction tambaKeranjang(nama, harga){
-    keranjang.push({nama,harga});
-    tampilkanKeranjang();
-  function tampilNotif(teks) {
-  let notif = document.getElementById("notif");
-  notif.innerText = teks;
-  notif.style.display = "block";
-    notif.classList.add("show");
-  
-  setTimeout(() => {
-    notif.classList.remove("show");
-    notif.class.display = "none";
-  }, 2000);
-}
-let keranjang = [];
+  let keranjang = [];
+
 function tambahKeranjang(nama, harga) {
-  let item = keranjang.find(p=> p.nama=== nama);
-  if (item) {
-    item.jumlah += 1 ;
-  } else {
-keranjang.push({
-  nama: nama, 
-  harga: harga, 
-  jumlah : 1
-});
-}
-tampilkanKeranjang ();
-   tampilNotif(nama + " ditambahkan ke keranjang ");
+keranjang.push({nama, harga});
+tampilkanKeranjang();
 }
 
 function tampilkanKeranjang() {
@@ -380,8 +356,7 @@ list.innerHTML = "";
 
 keranjang.forEach((item) => {
 let li = document.createElement("li");
-li.innerHTML = item.nama + " x" +
-item.jumlah + - Rp " + (item.harga * item.jumlah);;
+li.innerHTML = item.nama + " - Rp " + item.harga;
 list.appendChild(li);
 });
 }
@@ -403,4 +378,6 @@ window.open("https://wa.me/6287762803657?text=" + pesan);
 
 </body>
 </html>
+
+
 
