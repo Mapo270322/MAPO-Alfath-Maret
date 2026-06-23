@@ -85,8 +85,8 @@ margin-top: 5px;
 }
   .notif {
   position: fixed;
-    bottom: 20px;
-    left: 50%;
+    top: 20px;
+    right: 20px;
     transform: tramslateX(-50%);
   background: #28a745;;
   color: white;
@@ -358,11 +358,14 @@ function tambahKeranjang(nama, harga) {
   if (item) {
     item.jumlah += 1 ;
   } else {
-keranjang.push({nama, harga, jumlah : 1});
+keranjang.push({
+  nama: nama, 
+  harga: harga, 
+  jumlah : 1
+});
 }
-simpanKeranjang ():
-  tampilkanKeranjang();
-   tampilNotif(nama + " ditambahkan ke keranjang 🛒"); (nama + " ditambahkan ke keranjang ");
+tampilkanKeranjang ();
+   tampilNotif(nama + " ditambahkan ke keranjang ");
 }
 
 function tampilkanKeranjang() {
