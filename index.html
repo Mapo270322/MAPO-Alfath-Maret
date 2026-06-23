@@ -87,7 +87,7 @@ margin-top: 5px;
   position: fixed;
     bottom: 20px;
     left: 20px;
-    transform: none;
+    transform: translateX(-50%);;
   background: black;
   color: white;
   padding: 10px 20px;
@@ -105,7 +105,7 @@ margin-top: 5px;
 </head>
 
 <body>
-
+<div id="notif">Produk ditambahkan!</div>div>
 <div class="header">
 <div class="logo-row">
     <img src="fifa26.jpg" class="logo-kiri">
@@ -343,11 +343,24 @@ margin-top: 5px;
   </body>
 </div>
 <script>
+  function tampilNotif(teks) {
+    let notif = document.getElementById("notif");
+    notif.innerText = teks;
+    notif.syle.display = "block";
+    setTimout (() => {
+      notif.style.display = "none";
+    }' 2000);
   let keranjang = [];
-
 function tambahKeKeranjang(nama, harga) {
-keranjang.push({nama, harga});
+  let item = keranjang.find(p => p.nama === nama
+    if (item) {
+    item.jumlah += 1;
+    ] else {
+keranjang.push({nama, harga, jumlah:1});
+    ]
+    simpanKeranjang();
 tampilkanKeranjang();
+    tampilNotif(nama + " ditambahkan ke keranjang ");
 }
 
 function tampilkanKeranjang() {
