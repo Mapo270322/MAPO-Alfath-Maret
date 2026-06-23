@@ -98,11 +98,9 @@ margin-top: 5px;
     .notif {
   opacity: 0;
 }
-
-.notif.show {
+    transition : all 0.3s ease;
+    .notif.show {
   opacity: 1;
-}
-    transition : all 0.3s easee;
 }
 </style>
 </head>
@@ -344,7 +342,7 @@ margin-top: 5px;
     notif.classList.add ("show");
 
   setTimeout(() => {
-    notif.classList.remov ("show")
+    notif.classList.remove ("show");
     notif.style.display = "none";
   }, 2000);
 }
