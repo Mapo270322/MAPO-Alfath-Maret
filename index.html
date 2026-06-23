@@ -337,62 +337,7 @@ margin-top: 5px;
 <button onclick="tambahKeranjang('Mie Sedap 1 bks',32000)">🛒 Tambah</button>
     <!-- NOTIF -->
    <div id="notif" class"notif"Produk ditambahkan!</div>
-  <!-- AUDIO NOTIF -->
-  <audio id="notifSound">
-  <source
-  src="https://www.soundjay.com/buttons/sounds/button-3.mp3".
-    </audio>
-  </body>
-</div>
-<script>
-  function tampilNotif(teks) {
-    let notif = document.getElementById("notif");
-    notif.innerText = teks;
-    notif.syle.display = "block";
-    setTimout (() => {
-      notif.style.display = "none";
-    }' 2000);
-  let keranjang = [];
-function tambahKeKeranjang(nama, harga, jumlah:1}); }
-  let item = keranjang.find(p => p.nama === nama
-    if (item) {
-    item.jumlah += 1;
-  } else {
-keranjang.push({nama, harga, jumlah:1});
-  }
-    simpanKeranjang();
-tampilkanKeranjang();
-    tampilNotif(nama + " ditambahkan ke keranjang ");
-}
-
-function tampilkanKeranjang() {
-let list = document.getElementById("listKeranjang");
-list.innerHTML = "";
-
-keranjang.forEach((item) => {
-let li = document.createElement("li");
-li.innerHTML = item.nama + " - Rp " + item.harga;
-list.appendChild(li);
-});
-}
-
-function kirimWA() {
-let pesan = "Pesanan saya:%0A";
-let total = 0;
-
-keranjang.forEach((item, i) => {
-pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
-total += item.harga;
-});
-
-pesan += "%0ATotal: Rp " + total;
-
-window.open("https://wa.me/6287762803657?text=" + pesan);
-}
-</script>
-
-</body>
-</html>
+  <!-- AUDIO NOTIF 
 
 
 
