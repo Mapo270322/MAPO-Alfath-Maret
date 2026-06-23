@@ -374,8 +374,8 @@ list.innerHTML = "";
 
 keranjang.forEach((item) => {
 let li = document.createElement("li");
-li.innerHTML = item.nama + " - Rp " + item.harga;
-li.innerHTML = item.nama + " x" + item.jumlah + " - Rp " + (item.harga * item.jumlah);
+li.innerHTML = item.nama + " x" +
+item.jumlah + - Rp " + (item.harga * item.jumlah);;
 list.appendChild(li);
 });
 }
