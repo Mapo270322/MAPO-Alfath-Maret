@@ -357,9 +357,9 @@ function tambahKeKeranjang(nama, harga) {
   let item = keranjang.find(p => p.nama === nama
     if (item) {
     item.jumlah += 1;
-    ] else {
+  } else {
 keranjang.push({nama, harga, jumlah:1});
-    ]
+  }
     simpanKeranjang();
 tampilkanKeranjang();
     tampilNotif(nama + " ditambahkan ke keranjang ");
