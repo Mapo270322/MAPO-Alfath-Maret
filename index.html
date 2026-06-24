@@ -345,36 +345,36 @@ margin-top: 5px;
   </body>
   </div>
 <script>
+  let keranjang = [];
+  function tambahKeKeranjang(nama, harga) {
+keranjang.push({nama, harga});
+tampilkanKeranjang();
+tampilNotif(nama + " ditambahkan ke keranjang ");
+}
   function hapuDariKeranjang(index) {
     keranjang.splice(index, 1);
     tampilkanKeranjang();
-let keranjang = [];
-
-function tambahKeranjang(nama, harga) {
-keranjang.push({nama, harga});
-tampilkanKeranjang();
 }
-
 function tampilkanKeranjang() {
-  let html = "";
-  keranjang.forEach((item. index) => {html + '
+let list = document.getElementById("listKeranjang");
+list.innerHTML = "";
   <div class="keranjang-item">
-  <p>${item.nama}- Rp${item.harga}</p>
-  <button
-  onclik="hapusDariKeranjang($
+  <p>${item.nama}- Rp ${item.harga}</p>
+  <button onclik="hapusDariKeranjang($
   {index})">Hapus>/button>
     </div>
   ';
   });
 
-  document.getElementById("keranjang").innerHTML = html;
-}
-let list = document.getElementById("listKeranjang");
-list.innerHTML = "";
-
-keranjang.forEach((item) => {
+  document.getElementById("keranjang").innerHTML = html "";
+keranjang.forEach((item, index) => {
 let li = document.createElement("li");
-li.innerHTML = item.nama + " - Rp " + item.harga;
+li.innerHTML = 
+  ${item.nama} - Rp ${item.harga}
+  <butto onclik=hapusDariKeranjang($
+  {index})">
+  </button>
+  ';
 list.appendChild(li);
 });
 }
