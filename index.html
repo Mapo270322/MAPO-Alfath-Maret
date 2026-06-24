@@ -347,7 +347,7 @@ tampilkanKeranjang();
 
 }
   function hapusDariKeranjang(index) {
-    alert(Hapus index:"+ index
+    alert("Hapus index:"+ index);
     keranjang.splice(index, 1);
     tampilkanKeranjang();
 }
@@ -357,14 +357,14 @@ document.getElementById("listKeranjang");
 list.innerHTML = "";
   
 keranjang.forEach((item, index) => {
-let li = 
-  document.createElement("li");
+let li = document.createElement("li");
 li.innerHTML = `
   ${item.nama} - Rp ${item.harga}
-  <button 
-  onclik="hapusDariKeranjang($
-  {index})">Hapus</button>
-  stlye="background:red;color:white;">Hapus</button>
+  <button onclick="hapusDariKeranjang($
+  {index})"
+  stlye="background:red;color:white;">
+  Hapus
+  </button>
   `;
 list.appendChild(li);
 });
