@@ -356,14 +356,17 @@ tampilNotif(nama + " ditambahkan ke keranjang  ");
     tampilkanKeranjang();
 }
 function tampilkanKeranjang() {
-let list = document.getElementById("listKeranjang");
+let list = 
+document.getElementById("listKeranjang");
 list.innerHTML = "";
   
 keranjang.forEach((item, index) => {
-let li = document.createElement("li");
-li.innerHTML = 
+let li = 
+document.createElement("li");
+li.innerHTML = '
   ${item.nama} - Rp ${item.harga}
-  <button onclik="hapusDariKeranjang($
+  <button 
+  onclik="hapusDariKeranjang($
   {index})">Hapus</button>
   ';
 list.appendChild(li);
