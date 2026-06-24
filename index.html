@@ -349,7 +349,7 @@ margin-top: 5px;
   function tambahKeKeranjang(nama, harga) {
 keranjang.push({nama, harga});
 tampilkanKeranjang();
-tampilNotif(nama + " ditambahkan ke keranjang  ");
+
 }
   function hapusDariKeranjang(index) {
     keranjang.splice(index, 1);
@@ -361,12 +361,10 @@ document.getElementById("listKeranjang");
 list.innerHTML = "";
   
 keranjang.forEach((item, index) => {
-let li = 
-document.createElement("li");
+let li = document.createElement("li");
 li.innerHTML = '
   ${item.nama} - Rp ${item.harga}
-  <button 
-  onclik="hapusDariKeranjang($
+  <button onclik="hapusDariKeranjang($
   {index})">Hapus</button>
   ';
 list.appendChild(li);
