@@ -347,7 +347,7 @@ tampilkanKeranjang();
 
 }
   function hapusDariKeranjang(index) {
-    alert(Klik hapus index:"+ index):
+    alert(Hapus index:"+ index
     keranjang.splice(index, 1);
     tampilkanKeranjang();
 }
@@ -358,10 +358,10 @@ list.innerHTML = "";
   
 keranjang.forEach((item, index) => {
 let li = document.createElement("li");
-li.innerHTML = '
+li.innerHTML = `
   ${item.nama} - Rp ${item.harga}
   <button onclik="hapusDariKeranjang($
-  {index})"
+  {index})">Hapus</button>
   stlye="background:red;color:white;">Hapus</button>
   `;
 list.appendChild(li);
