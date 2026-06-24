@@ -349,31 +349,22 @@ margin-top: 5px;
   function tambahKeKeranjang(nama, harga) {
 keranjang.push({nama, harga});
 tampilkanKeranjang();
-tampilNotif(nama + " ditambahkan ke keranjang ");
+tampilNotif(nama + " ditambahkan ke keranjang  ");
 }
-  function hapuDariKeranjang(index) {
+  function hapusDariKeranjang(index) {
     keranjang.splice(index, 1);
     tampilkanKeranjang();
 }
 function tampilkanKeranjang() {
 let list = document.getElementById("listKeranjang");
 list.innerHTML = "";
-  <div class="keranjang-item">
-  <p>${item.nama}- Rp ${item.harga}</p>
-  <button onclik="hapusDariKeranjang($
-  {index})">Hapus>/button>
-    </div>
-  ';
-  });
-
-  document.getElementById("keranjang").innerHTML = html "";
+  
 keranjang.forEach((item, index) => {
 let li = document.createElement("li");
 li.innerHTML = 
   ${item.nama} - Rp ${item.harga}
-  <butto onclik=hapusDariKeranjang($
-  {index})">
-  </button>
+  <button onclik=hapusDariKeranjang($
+  {index})">hapus</button>
   ';
 list.appendChild(li);
 });
