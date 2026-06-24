@@ -345,6 +345,9 @@ margin-top: 5px;
   </body>
   </div>
 <script>
+  function hapuDariKeranjang(index) {
+    keranjang.splice(index, 1);
+    tampilkanKeranjang();
 let keranjang = [];
 
 function tambahKeranjang(nama, harga) {
@@ -353,6 +356,19 @@ tampilkanKeranjang();
 }
 
 function tampilkanKeranjang() {
+  let html = "";
+  keranjang.forEach((item. index) => {html + '
+  <div class="keranjang-item">
+  <p>${item.nama}- Rp${item.harga}</p>
+  <button
+  onclik="hapusDariKeranjang($
+  {index})">Hapus>/button>
+    </div>
+  ';
+  });
+
+  document.getElementById("keranjang").innerHTML = html;
+}
 let list = document.getElementById("listKeranjang");
 list.innerHTML = "";
 
