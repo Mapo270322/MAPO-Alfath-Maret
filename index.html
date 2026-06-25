@@ -394,6 +394,7 @@ function tampilkanKeranjang() {
       " - Rp " +
       Number(item.harga).toLocaleString("id-ID");
     let btn = document.createElement("button");
+    btn.innerHTML = "Hapus";
     btn.onclick = function() {
       hapusDariKeranjang(index);
     };
