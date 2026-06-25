@@ -369,13 +369,11 @@ li.innerHTML = `
   </button>
   `;
 list.appendChild(li);
-  total += item.harga;
+  total += number(item.harga);
 });
-let totalElement =
-document.getElementById("totalBelanja");
 
-if(totalElement){
-  totalElement.innerHTML =
+document.getElementById("totalBelanja");.inner HTML=
+
     "<b>Total: Rp " +
     total.tolocaleString('id-ID') + "</b>";
 }
