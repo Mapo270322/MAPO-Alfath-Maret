@@ -392,11 +392,14 @@ function tampilkanKeranjang() {
     li.innerHTML =
       item.nama +
       " - Rp " +
-      Number(item.harga).toLocaleString("id-ID") +
-      ' <button onclick="hapusDariKeranjang(' +
-      index + ')">Hapus</button>';
+      Number(item.harga).toLocaleString("id-ID");
+    let btn = document.createElement("button");
+    btn.onclick = function() {
+      hapusDariKeranjang(index);
+    };
+     
 
-    list.appendChild(li);
+    li.appendChild(btn);
 
     total += Number(item.harga);
   });
