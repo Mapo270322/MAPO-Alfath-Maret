@@ -357,10 +357,12 @@ list.innerHTML = "";
   
 keranjang.forEach((item, index) => {
 let li = document.createElement("li");
+  
 li.innerHTML = 
-  ${item.nama} - Rp ${item.harga}
-  <button onclick="hapusDariKeranjang('
-  {index})">Hapus</button>';
+  item.nama + "  - Rp item.harga +
+ ' <button
+  onclick="hapusDariKeranjang(' + index +
+  ')">Hapus</button>';
 list.appendChild(li);
 });
 }
