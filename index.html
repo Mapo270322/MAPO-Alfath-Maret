@@ -342,60 +342,74 @@ margin-top: 5px;
   </body>
   </div>
 <script>
-  let keranjang = [];
-  function tambahKeKeranjang(nama, harga) {
-keranjang.push({nama: nama, harga: harga});
-tampilkanKeranjang();
 
+let keranjang = [];
+
+function tambahKeKeranjang(nama, harga) {
+  keranjang.push({
+    nama: nama,
+    harga: harga
+  });
+
+  tampilkanKeranjang();
 }
-  function hapusDariKeranjang(index) {
-    alert("Hapus index: " + index);
-    keranjang.splice(index, 1);
-    tampilkanKeranjang();
+
+function hapusDariKeranjang(index) {
+  keranjang.splice(index, 1);
+  tampilkanKeranjang();
 }
+
 function tampilkanKeranjang() {
-let list = 
-document.getElementById("listKeranjang");
-list.innerHTML = "";
+  let list = document.getElementById("listKeranjang");
+  list.innerHTML = "";
 
   let total = 0;
 
-keranjang.forEach((item, index) => {
-let li = document.createElement("li");
-  
-li.innerHTML = `
-  ${item.nama} - Rp ${item.harga}
- <button onclick="hapusDariKeranjang($
-{index})">
-  Hapus
-  </button>
-  `;
-list.appendChild(li);
-  total += Number(item.harga);
-});
+  keranjang.forEach((item, index) => {
 
-document.getElementById("totalBelanja");.innerHTML=
+    let li = document.createElement("li");
+
+    li.innerHTML =
+      item.nama +
+      " - Rp " +
+      item.harga +
+      ' <button onclick="hapusDariKeranjang(' +
+      index +
+      ')">Hapus</button>';
+
+    list.appendChild(li);
+
+    total += Number(item.harga);
+  });
+
+  document.getElementById("totalBelanja").innerHTML =
     "<b>Total: Rp " +
-    total.toLocaleString('id-ID') +"</b>"; 
+    total.toLocaleString("id-ID") +
+    "</b>";
 }
 
 function kirimWA() {
-let pesan = "Pesanan saya:%0A";
-let total = 0;
 
-keranjang.forEach((item, i) => {
-pesan += (i+1) + ". " + item.nama + " - Rp " + item.harga + "%0A";
-total += item.harga;
-});
+  let pesan = "Pesanan saya:%0A";
+  let total = 0;
 
-pesan += "%0ATotal: Rp " + total;
+  keranjang.forEach((item, i) => {
+    pesan +=
+      (i + 1) +
+      ". " +
+      item.nama +
+      " - Rp " +
+      item.harga +
+      "%0A";
 
-window.open("https://wa.me/6287762803657?text=" + pesan);
+    total += Number(item.harga);
+  });
 
-</script>
+  pesan += "%0ATotal: Rp " + total;
 
-</body>
-</html>
-
+  window.open(
+    "https://wa.me/6287762803657?text=" + pesan
+  );
+}
 
 
