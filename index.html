@@ -371,13 +371,13 @@ li.innerHTML = `
   </button>
   `;
 list.appendChild(li);
-  total += number(item.harga);
+  total += Number(item.harga);
 });
 
 document.getElementById("totalBelanja");.inner HTML=
 
     "<b>Total: Rp " +
-    total.tolocaleString('id-ID') + "</b>";
+    total.tolocaleString('id-ID') 
 }
 }
 
