@@ -156,7 +156,7 @@ margin-top: 5px;
 <div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
 <h3>🛒 Keranjang</h3>
 <ul id="listKeranjang"></ul>
-<div id="totalBelanja">
+<div id="totalBelanja"></div>
 <b>Total: Rp 0</b>
 </div>
 <button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
@@ -394,13 +394,13 @@ function tampilkanKeranjang() {
       item.nama +
       " - Rp " +
       Number(item.harga).toLocaleString("id-ID");
-    let btn = document.createElement("button");
+    let btn = 
+      document.createElement("button");
     btn.innerHTML = "Hapus";
     btn.onclick = function() {
       hapusDariKeranjang(index);
     };
      
-
     li.appendChild(btn);
 
     total += Number(item.harga);
