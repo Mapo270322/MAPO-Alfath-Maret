@@ -341,13 +341,12 @@ margin-top: 5px;
 <script>
   let keranjang = [];
   function tambahKeKeranjang(nama, harga) {
-  console.log("MASUK:",nama);
 keranjang.push({nama: nama, harga: harga});
 tampilkanKeranjang();
 
 }
   function hapusDariKeranjang(index) {
-    alert("Hapus index:"+ index);
+    alert("Hapus index: " + index);
     keranjang.splice(index, 1);
     tampilkanKeranjang();
 }
@@ -362,9 +361,6 @@ li.innerHTML = `
   ${item.nama} - Rp ${item.harga}
   <button onclick="hapusDariKeranjang($
   {index})">Hapus</button>
-  stlye="background:red;color:white;">
-  Hapus
-  </button>
   `;
 list.appendChild(li);
 });
