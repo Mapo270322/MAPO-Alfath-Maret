@@ -139,6 +139,9 @@ margin-top: 5px;
 <div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
 <h3>🛒 Keranjang</h3>
 <ul id="listKeranjang"></ul>
+<div id="totalBelanja">
+<b>Total: Rp 0</b>
+</div>
 <button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
 
 
@@ -354,7 +357,7 @@ function tampilkanKeranjang() {
 let list = 
 document.getElementById("listKeranjang");
 list.innerHTML = "";
-  
+let total = 0;
 keranjang.forEach((item, index) => {
 let li = 
   document.createElement("li");
@@ -366,7 +369,16 @@ li.innerHTML = `
   </button>
   `;
 list.appendChild(li);
+  total += item.harga;
 });
+let totalElement =
+document.getElementById("totalBelanja");
+
+if(totalElement){
+  totalElement.innerHTML =
+    "<b>Total: Rp " +
+    total.tolocaleString('id-ID') + "</b>";
+}
 }
 
 function kirimWA() {
