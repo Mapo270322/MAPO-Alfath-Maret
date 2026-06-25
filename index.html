@@ -376,7 +376,7 @@ function tampilkanKeranjang() {
     li.innerHTML =
       item.nama +
       " - Rp " +
-      item.harga +
+      Number(item.harga).toLocalesString("id-ID")
       ' <button onclick="hapusDariKeranjang(' +
       index +
       ')">Hapus</button>';
@@ -393,6 +393,8 @@ function tampilkanKeranjang() {
 }
 
 function kirimWA() {
+  keranjang = [];
+  tampilkamKeranjang();
 
   let pesan = "Pesanan saya:%0A";
   let total = 0;
