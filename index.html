@@ -160,15 +160,19 @@ margin-top: 5px;
 
 
 </div>
-
+<input
+  type="text"
+  id="cariProduk"
+  placeholder="🔍 Cari produk..."
+  onkeyup="cariProduk()"
+  style="width:95%;padding:10px;margin:10px;border-radius:8px;border:1px solid #ccc;">
 <!-- JUDUL -->
 <div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
 <h3 style="text-align:center;">Daftar Menu</h3>
 </div>
 
 <!-- PRODUK -->
-<div class="grid">
- 
+ <div class="grid" id="daftarProduk">
     
    <div class="card">  
   <div class="badge">🔥 Best Seller</div>
@@ -435,6 +439,21 @@ function kirimWA() {
 
   );
 }
+  function cariProduk() {
+  let input = document.getElementById("cariProduk").value.toLowerCase();
+
+  let card = document.querySelectorAll(".card");
+
+  card.forEach(function(item) {
+    let nama = item.querySelector("h4").innerText.toLowerCase();
+
+    if (nama.indexOf(input) > -1) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+  }
 </script>
 
 </body>
