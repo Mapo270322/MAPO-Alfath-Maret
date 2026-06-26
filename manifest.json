@@ -1,1 +1,16 @@
 
+{
+  "name": "MAPO Alfath Maret",
+  "short_name": "MAPO",
+  "start_url": "/MAPO-Alfath-Maret/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a8f08",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
