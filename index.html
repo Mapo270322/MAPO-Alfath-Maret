@@ -159,7 +159,10 @@ margin-top: 5px;
   <div id="totalBelanja"></div>
 </div>
 <button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
-
+  
+<button onclick="kosongkanKeranjang()">
+🗑 Kosongkan Keranjang
+</button>
 
 </div>
 <input
@@ -370,7 +373,22 @@ margin-top: 5px;
 let keranjang = 
   JSON.parse(localStorage.getItem("keranjang")) || [];
 function tambahKeKeranjang(nama, harga) {
-  let produk = keranjang.find(item => item.nama === nama);
+
+  let item = keranjang.find(p => p.nama === nama);
+
+  if (item) {
+    item.jumlah++;
+  } else {
+    keranjang.push({
+      nama: nama,
+      harga: harga,
+      jumlah: 1
+    });
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  tampilkanKeranjang();
+}
 
 if (produk) {
   produk.jumlah++;
@@ -391,13 +409,33 @@ function hapusDariKeranjang(index) {
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
   tampilkanKeranjang();
 }
-  function tambahJumlah(index) {
+  
+function tambahJumlah(index) {
   keranjang[index].jumlah++;
+
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
   tampilkanKeranjang();
 }
 
 function kurangJumlah(index) {
+  if (keranjang[index].jumlah > 1) {
+    keranjang[index].jumlah--;
+  } else {
+    keranjang.splice(index, 1);
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  tampilkanKeranjang();
+}
+
+function kosongkanKeranjang() {
+  if (confirm("Yakin ingin mengosongkan keranjang?")) {
+    keranjang = [];
+    localStorage.removeItem("keranjang");
+    tampilkanKeranjang();
+  
+
+}
   if (keranjang[index].jumlah > 1) {
     keranjang[index].jumlah--;
   } else {
@@ -429,7 +467,7 @@ function tampilkanKeranjang() {
 
     list.appendChild(li);
 
-    total += Number(item.harga) * item.jumlah;
+  total += Number(item.harga) * item.jumlah;
   });
 
   document.getElementById("totalBelanja").innerHTML =
@@ -437,7 +475,7 @@ function tampilkanKeranjang() {
     total.toLocaleString("id-ID") +
     "</b>";
 }
-}
+
 
 function kirimWA() {
   keranjang = [];
