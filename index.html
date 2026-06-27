@@ -413,22 +413,20 @@ function tampilkanKeranjang() {
   list.innerHTML = "";
 
   let total = 0;
-  
+
   keranjang.forEach((item, index) => {
 
     let li = document.createElement("li");
 
     li.innerHTML =
-  "<b>" + item.nama + "</b><br>" +
-  "Rp " + Number(item.harga).toLocaleString("id-ID") +
-  "<br>" +
-  '<button onclick="kurangJumlah(' + index + ')">-</button> ' +
-  item.jumlah +
-  ' <button onclick="tambahJumlah(' + index + ')">+</button> ' +
-  '<button onclick="hapusDariKeranjang(' + index + ')">Hapus</button>';
-    };
-     
-    li.appendChild(btn);
+      "<b>" + item.nama + "</b><br>" +
+      "Rp " + Number(item.harga).toLocaleString("id-ID") +
+      "<br>" +
+      '<button onclick="kurangJumlah(' + index + ')">-</button> ' +
+      item.jumlah +
+      ' <button onclick="tambahJumlah(' + index + ')">+</button> ' +
+      ' <button onclick="hapusDariKeranjang(' + index + ')">Hapus</button>';
+
     list.appendChild(li);
 
     total += Number(item.harga) * item.jumlah;
@@ -436,7 +434,9 @@ function tampilkanKeranjang() {
 
   document.getElementById("totalBelanja").innerHTML =
     "<b>Total: Rp " +
-    total.toLocaleString("id-ID") + "</b>";
+    total.toLocaleString("id-ID") +
+    "</b>";
+}
 }
 
 function kirimWA() {
