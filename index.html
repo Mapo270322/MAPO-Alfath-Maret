@@ -370,17 +370,40 @@ margin-top: 5px;
 let keranjang = 
   JSON.parse(localStorage.getItem("keranjang")) || [];
 function tambahKeKeranjang(nama, harga) {
+  let produk = keranjang.find(item => item.nama === nama);
+
+if (produk) {
+  produk.jumlah++;
+} else {
   keranjang.push({
     nama: nama,
-    harga: harga
+    harga: harga,
+    jumlah: 1
   });
+  }
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
 
   tampilkanKeranjang();
-}
+
 
 function hapusDariKeranjang(index) {
   keranjang.splice(index, 1);
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  tampilkanKeranjang();
+}
+  function tambahJumlah(index) {
+  keranjang[index].jumlah++;
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  tampilkanKeranjang();
+}
+
+function kurangJumlah(index) {
+  if (keranjang[index].jumlah > 1) {
+    keranjang[index].jumlah--;
+  } else {
+    keranjang.splice(index, 1);
+  }
+
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
   tampilkanKeranjang();
 }
@@ -396,20 +419,19 @@ function tampilkanKeranjang() {
     let li = document.createElement("li");
 
     li.innerHTML =
-      item.nama +
-      " - Rp " +
-      Number(item.harga).toLocaleString("id-ID");
-    let btn = 
-      document.createElement("button");
-    btn.innerHTML = "Hapus";
-    btn.onclick = function() {
-      hapusDariKeranjang(index);
+  "<b>" + item.nama + "</b><br>" +
+  "Rp " + Number(item.harga).toLocaleString("id-ID") +
+  "<br>" +
+  '<button onclick="kurangJumlah(' + index + ')">-</button> ' +
+  item.jumlah +
+  ' <button onclick="tambahJumlah(' + index + ')">+</button> ' +
+  '<button onclick="hapusDariKeranjang(' + index + ')">Hapus</button>';
     };
      
     li.appendChild(btn);
     list.appendChild(li);
 
-    total += Number(item.harga);
+    total += Number(item.harga) * item.jumlah;
   });
 
   document.getElementById("totalBelanja").innerHTML =
