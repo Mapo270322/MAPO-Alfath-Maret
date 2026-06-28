@@ -545,6 +545,25 @@ function tampilkanProdukAdmin() {
 
 }
   tampilkanProdukAdmin();
+  async function ambilProduk() {
+
+  try {
+
+    const response = await fetch("produk.json");
+
+    const produk = await response.json();
+
+    console.log(produk);
+
+  } catch (error) {
+
+    console.log("Gagal membaca produk.json", error);
+
+  }
+
+}
+
+ambilProduk();
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 tampilkanKeranjang();
