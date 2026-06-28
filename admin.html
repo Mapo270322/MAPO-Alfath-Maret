@@ -117,7 +117,8 @@ Tambah Produk
 
 <script>
 
-let produk = [];
+let produk = 
+    JSON.parse(localStorage.getItem("produk")) || [];
 
 function tambahProduk(){
 
@@ -135,7 +136,7 @@ produk.push({
     harga:harga,
     gambar:gambar
 });
-
+localStorage.setItem("produk", JSON.stringify(produk));
 tampilkanProduk();
 
 document.getElementById("namaProduk").value="";
@@ -168,10 +169,12 @@ Hapus
 }
 
 function hapusProduk(index){
-produk.splice(index,1);
-tampilkanProduk();
-}
+    produk.splice(index,1);
+    localStorage.setItem("produk", JSON.stringify(produk));
+    tampilkanProduk();
 
+}
+tampilkanProduk();
 </script>
 
 </body>
