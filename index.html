@@ -143,6 +143,7 @@ margin-top: 5px;
 </button>
 
 <div class="container">
+<div class="grid" id="daftarProduk">
 </div>
   
 <!-- DOWNLOAD -->
@@ -515,7 +516,35 @@ function kirimWA() {
     }
   });
   }
+function tampilkanProdukAdmin() {
 
+  let daftar = document.getElementById("daftarProduk");
+
+  if (!daftar) return;
+
+  let produk = JSON.parse(localStorage.getItem("produk")) || [];
+
+  daftar.innerHTML = "";
+
+  produk.forEach(function(item){
+
+    daftar.innerHTML += `
+      <div class="card">
+        <img src="${item.gambar}">
+        <h4>${item.nama}</h4>
+        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+
+        <button onclick="tambahKeKeranjang('${item.nama}', ${item.harga})">
+        🛒 Tambah
+        </button>
+
+      </div>
+    `;
+
+  });
+
+}
+  tampilkanProdukAdmin();
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 tampilkanKeranjang();
