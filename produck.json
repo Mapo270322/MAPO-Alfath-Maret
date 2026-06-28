@@ -1,0 +1,17 @@
+[
+  {
+    "nama": "Beras Dua Merpati 5 Kg",
+    "harga": 85000,
+    "gambar": "duamerpati.jpg"
+  },
+  {
+    "nama": "Gula Pasir 1 Kg",
+    "harga": 14000,
+    "gambar": "gulabulog.jpg"
+  },
+  {
+    "nama": "Minyak Goreng 1 Liter",
+    "harga": 23000,
+    "gambar": "minyak.jpg"
+  }
+]
