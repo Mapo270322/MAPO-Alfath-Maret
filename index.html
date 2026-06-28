@@ -550,18 +550,31 @@ function tampilkanProdukAdmin() {
   try {
 
     const response = await fetch("produk.json");
-
     const produk = await response.json();
 
-    console.log(produk);
+    let daftar = document.getElementById("daftarProduk");
+    daftar.innerHTML = "";
+
+    produk.forEach(item => {
+
+      daftar.innerHTML += `
+      <div class="card">
+        <img src="${item.gambar}">
+        <h4>${item.nama}</h4>
+        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+        <button onclick="tambahKeKeranjang('${item.nama}',${item.harga})">
+        🛒 Tambah
+        </button>
+      </div>
+      `;
+
+    });
 
   } catch (error) {
-
-    console.log("Gagal membaca produk.json", error);
-
+    alert("produk.json gagal dibaca");
   }
 
-}
+  }
 
 ambilProduk();
 if ("serviceWorker" in navigator) {
