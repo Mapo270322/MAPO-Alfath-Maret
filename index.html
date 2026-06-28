@@ -181,8 +181,7 @@ margin-top: 5px;
  <div class="grid" id="daftarProduk">
     
  </div>
-  </body>
-  </div>
+  
 <script>
 
 let keranjang = 
@@ -204,20 +203,6 @@ function tambahKeKeranjang(nama, harga) {
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
   tampilkanKeranjang();
 }
-
-if (produk) {
-  produk.jumlah++;
-} else {
-  keranjang.push({
-    nama: nama,
-    harga: harga,
-    jumlah: 1
-  });
-  }
-  localStorage.setItem("keranjang", JSON.stringify(keranjang));
-
-  tampilkanKeranjang();
-
 
 function hapusDariKeranjang(index) {
   keranjang.splice(index, 1);
