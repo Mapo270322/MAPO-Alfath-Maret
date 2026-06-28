@@ -121,8 +121,55 @@ let produk = [];
 
 function tambahProduk(){
 
-alert("Halaman Admin berhasil dibuat.");
+let nama = document.getElementById("namaProduk").value;
+let harga = document.getElementById("hargaProduk").value;
+let gambar = document.getElementById("gambarProduk").value;
 
+if(nama=="" || harga=="" || gambar==""){
+    alert("Semua data harus diisi!");
+    return;
+}
+
+produk.push({
+    nama:nama,
+    harga:harga,
+    gambar:gambar
+});
+
+tampilkanProduk();
+
+document.getElementById("namaProduk").value="";
+document.getElementById("hargaProduk").value="";
+document.getElementById("gambarProduk").value="";
+}
+
+function tampilkanProduk(){
+
+let daftar=document.getElementById("daftarProduk");
+daftar.innerHTML="";
+
+produk.forEach(function(item,index){
+
+daftar.innerHTML += `
+<div class="card">
+<b>${item.nama}</b><br>
+Rp ${Number(item.harga).toLocaleString("id-ID")}<br>
+${item.gambar}<br><br>
+
+<button onclick="hapusProduk(${index})">
+Hapus
+</button>
+
+</div>
+`;
+
+});
+
+}
+
+function hapusProduk(index){
+produk.splice(index,1);
+tampilkanProduk();
 }
 
 </script>
