@@ -342,39 +342,7 @@ function tampilkanProdukAdmin() {
   });
 
 }
-  tampilkanProdukAdmin();
-  async function ambilProduk() {
-
-  try {
-
-    const response = await fetch("produk.json");
-    const produk = await response.json();
-
-    let daftar = document.getElementById("daftarProduk");
-    daftar.innerHTML = "";
-
-    produk.forEach(item => {
-
-      daftar.innerHTML += `
-      <div class="card">
-        <img src="${item.gambar}">
-        <h4>${item.nama}</h4>
-        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
-        <button onclick="tambahKeKeranjang('${item.nama}',${item.harga})">
-        🛒 Tambah
-        </button>
-      </div>
-      `;
-
-    });
-
-  } catch (error) {
-    alert("produk.json gagal dibaca");
-  }
-
-  }
-
-ambilProduk();
+  
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 tampilkanKeranjang();
