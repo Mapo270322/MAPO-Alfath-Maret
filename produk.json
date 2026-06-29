@@ -12,6 +12,18 @@
   {
     "nama": "Minyak Goreng 1 Liter",
     "harga": 23000,
+    "gambar": "bimoli.jpg"
+  },
+  {
+  "nama": "Minyak Goreng 1 Liter",
+    "harga": 23000,
     "gambar": "minyak.jpg"
-  }
+  },
+  
+  {
+  "nama": "Minyak Goreng 1 Liter",
+    "harga": 23000,
+    "gambar": "minyak.jpg"
+  },
 ]
+
