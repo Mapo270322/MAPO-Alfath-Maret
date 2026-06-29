@@ -121,6 +121,15 @@ let produk =
     JSON.parse(localStorage.getItem("produk")) || [];
 
 function tambahProduk(){
+    function editProduk(index){
+
+  document.getElementById("namaProduk").value = produk[index].nama;
+  document.getElementById("hargaProduk").value = produk[index].harga;
+  document.getElementById("gambarProduk").value = produk[index].gambar;
+
+  editIndex = index;
+
+    }
 
 let nama = document.getElementById("namaProduk").value;
 let harga = document.getElementById("hargaProduk").value;
@@ -130,18 +139,33 @@ if(nama=="" || harga=="" || gambar==""){
     alert("Semua data harus diisi!");
     return;
 }
+if (editIndex == -1) {
 
-produk.push({
-    nama:nama,
-    harga:harga,
-    gambar:gambar
-});
+  produk.push({
+    nama: nama,
+    harga: harga,
+    gambar: gambar
+  });
+
+} else {
+
+  produk[editIndex] = {
+    nama: nama,
+    harga: harga,
+    gambar: gambar
+  };
+
+  editIndex = -1;
+}
+
 localStorage.setItem("produk", JSON.stringify(produk));
 tampilkanProduk();
 
 document.getElementById("namaProduk").value="";
 document.getElementById("hargaProduk").value="";
 document.getElementById("gambarProduk").value="";
+let produk =
+JSON.parse(localStorage.getItem("produk")) || [];
 }
 
 function tampilkanProduk(){
@@ -156,7 +180,9 @@ daftar.innerHTML += `
 <b>${item.nama}</b><br>
 Rp ${Number(item.harga).toLocaleString("id-ID")}<br>
 ${item.gambar}<br><br>
-
+<button onclick="editProduk(${index})">
+✏️ Edit
+</button>
 <button onclick="hapusProduk(${index})">
 Hapus
 </button>
@@ -167,12 +193,23 @@ Hapus
 });
 
 }
+    function editProduk(index) {
+
+  let produk = JSON.parse(localStorage.getItem("produk")) || [];
+
+  document.getElementById("nama").value = produk[index].nama;
+  document.getElementById("harga").value = produk[index].harga;
+  document.getElementById("gambar").value = produk[index].gambar;
+
+  editIndex = index;
+
+    }
 
 function hapusProduk(index){
     produk.splice(index,1);
     localStorage.setItem("produk", JSON.stringify(produk));
     tampilkanProduk();
-
+let editIndex = -1;
 }
 tampilkanProduk();
 </script>
