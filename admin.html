@@ -104,11 +104,11 @@ function simpanData() {
 
 function resetForm() {
 let nama = 
-    document.getElementById("namaProduk").value= "";
+    document.getElementById("namaProduk").value = "";
 let harga = 
-    document.getElementById("hargaProduk").value= "";
+    document.getElementById("hargaProduk").value = "";
     document.getElementById("kategoriProduk").selectedIndex = 0;
-    document.getElementById("kategoriProduk").value= "";
+    document.getElementById("kategoriProduk").value = "";
 let gambar = 
     document.getElementById("gambarProduk").value;
   
@@ -164,16 +164,14 @@ function editProduk(index) {
 }
 
 function hapusProduk(index) {
-
   if (confirm("Yakin ingin menghapus produk ini?")) {
-
     produk.splice(index, 1);
     simpanData();
     tampilkanProduk();
   }
-  }
+}
 
-function tampilkanProduk() ;
+function tampilkanProduk() {
 
   let daftar = document.getElementById("daftarProduk");
   daftar.innerHTML = "";
