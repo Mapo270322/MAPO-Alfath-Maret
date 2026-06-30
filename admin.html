@@ -90,13 +90,21 @@ function simpanData() {
 }
 
 function resetForm() {
-  document.getElementById("namaProduk").value = "";
-  document.getElementById("hargaProduk").value = "";
-  document.getElementById("gambarProduk").value = "";
+let nama = 
+    document.getElementById("namaProduk").value;
+let harga = 
+    document.getElementById("hargaProduk").value;
+let gambar = 
+    document.getElementById("gambarProduk").value;
+  
   editIndex = -1;
 }
 
 function tambahProduk() {
+
+  alert("Tombol bekerja");
+
+  let nama = document.getElementById("namaProduk").value.trim();
 
   let nama = document.getElementById("namaProduk").value;
   let harga = document.getElementById("hargaProduk").value;
@@ -181,3 +189,8 @@ function tampilkanProduk() {
 }
 
 tampilkanProduk();
+
+</script>
+
+</body>
+</html>
