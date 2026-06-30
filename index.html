@@ -322,18 +322,19 @@ function tampilkanProdukAdmin() {
 
   produk.forEach(function(item){
 
-    daftar.innerHTML += `
-      <div class="card">
-        <img src="${item.gambar}">
-        <h4>${item.nama}</h4>
-        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+  daftar.innerHTML += `
+<div class="card">
+<img src="${item.gambar}">
+<h4>${item.nama}</h4>
 
-        <button onclick="tambahKeKeranjang('${item.nama}', ${item.harga})">
-        🛒 Tambah
-        </button>
+<p><b>Kategori: ${item.kategori || "Belum ada"}</b></p>
+<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
-      </div>
-    `;
+<button onclick="tambahKeKeranjang('${item.nama}', ${item.harga})">
+🛒 Tambah
+</button>
+</div>
+`;
 
   });
 
