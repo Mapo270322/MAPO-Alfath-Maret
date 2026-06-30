@@ -151,6 +151,7 @@ function editProduk(index) {
 
   document.getElementById("namaProduk").value = produk[index].nama;
   document.getElementById("hargaProduk").value = produk[index].harga;
+  document.getElementById("kategoriProduk").value = produk[index].kategori;
   document.getElementById("gambarProduk").value = produk[index].gambar;
 
   editIndex = index;
@@ -179,6 +180,7 @@ function tampilkanProduk() {
     <div class="card">
 
       <b>${item.nama}</b><br>
+      Kategori: ${item.kategori}<br>
       Rp ${Number(item.harga).toLocaleString("id-ID")}<br>
       ${item.gambar}<br><br>
 
