@@ -102,13 +102,9 @@ let gambar =
 
 function tambahProduk() {
 
-  alert("Tombol bekerja");
-
   let nama = document.getElementById("namaProduk").value.trim();
-
-  let nama = document.getElementById("namaProduk").value;
-  let harga = document.getElementById("hargaProduk").value;
-  let gambar = document.getElementById("gambarProduk").value;
+  let harga = document.getElementById("hargaProduk").value.trim();
+  let gambar = document.getElementById("gambarProduk").value.trim();
 
   if (nama == "" || harga == "" || gambar == "") {
     alert("Semua data harus diisi!");
@@ -116,21 +112,17 @@ function tambahProduk() {
   }
 
   if (editIndex == -1) {
-
     produk.push({
       nama: nama,
       harga: harga,
       gambar: gambar
     });
-
   } else {
-
     produk[editIndex] = {
       nama: nama,
       harga: harga,
       gambar: gambar
     };
-
   }
 
   simpanData();
