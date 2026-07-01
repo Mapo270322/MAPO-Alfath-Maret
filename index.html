@@ -93,72 +93,7 @@ margin-top: 5px;
   padding: 10px 20px;
   border-radius: 20px;
   display: none;
-  font-weight: bold;
-  z-index: 999;
-  opacity: 0;
-    transition : all 0.3s ease;
-  }
-    .notif.show {
-  opacity: 1;
-  }
-#listKeranjang li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px 0;
-}
-
-#listKeranjang button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  width: auto;
-}
-</style>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a8f08">
-</head>
-
-<body>
-
-<div class="header">
-<div class="logo-row">
-    <img src="fifa26.jpg" class="logo-kiri">
-    <img src="logo8.png" class="logo">
-  </div>
-
-<h2>MAPO Maret</h2>
-<p>Toko Kebutuhan Harian</p>
-<p>Mudah Dijangkau & Harga Terjankau</p>
-  <p>Jl.Sungai Siak 611 Ketang Baru Manado</p>
-</div>
-<audio id="lagu">
-<source src="mapo.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="document.getElementById('lagu').play()">
-▶️ Putar Lagu MAPO
-</button>
-</div>
-  
-<!-- DOWNLOAD -->
-<div style="text-align:center; margin-bottom:10px;">
-<a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk" target="_blank">
-<button style="background:green;">📥 Download Aplikasi</button>
-</a>
-</div>
-
-<!-- KERANJANG -->
-<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
-<h3>🛒 Keranjang</h3>
-<ul id="listKeranjang"></ul>
-  <div id="totalBelanja"></div>
-</div>
-<button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
-  
-<button onclick="kosongkanKeranjang()">
+  ()">
 🗑 Kosongkan Keranjang
 </button>
 
@@ -331,24 +266,6 @@ function kirimWA() {
   kategoriAktif = kategori;
   cariProduk();
   }
-
-  let card = document.querySelectorAll(".card");
-
-  card.forEach(function(item) {
-
-    let teksKategori = item.querySelector("p").innerText;
-
-    if (kategori === "Semua") {
-      item.style.display = "";
-    } else if (teksKategori.includes(kategori)) {
-      item.style.display = "";
-    } else {
-      item.style.display = "none";
-    }
-
-  });
-
-}
 function tampilkanProdukAdmin() {
 
   let daftar = document.getElementById("daftarProduk");
