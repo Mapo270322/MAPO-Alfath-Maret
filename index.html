@@ -242,26 +242,6 @@ function kirimWA() {
 
   let input = document.getElementById("cariProduk").value.toLowerCase();
 
-  let card = document.querySelectorAll(".card");
-
-  card.forEach(function(item) {
-
-    let nama = item.querySelector("h4").innerText.toLowerCase();
-    let kategori = item.querySelector("p").innerText;
-
-    let cocokNama = nama.includes(input);
-    let cocokKategori = (kategoriAktif === "Semua") || kategori.includes(kategoriAktif);
-
-    if (cocokNama && cocokKategori) {
-      item.style.display = "";
-    } else {
-      item.style.display = "none";
-    }
-
-  });
-
-}
-
   function filterKategori(kategori) {
   kategoriAktif = kategori;
   cariProduk();
@@ -296,6 +276,7 @@ function tampilkanProdukAdmin() {
 
 }
   tampilkanProdukAdmin();
+<img src="${item.gambar}" style="width:100%;height:150px;border:2px solid red;">
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");
