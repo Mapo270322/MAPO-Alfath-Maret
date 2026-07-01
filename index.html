@@ -362,16 +362,17 @@ daftar.innerHTML = "";
 
 produk.forEach(function(item){
 
-daftar.innerHTML += &lt;div class="card"&gt; &lt;img src="${item.gambar}">
-<h4>`${item.nama}</h4>
+daftar.innerHTML += `
+<div class="card">
+<img src="${item.gambar}" alt=${item.nama}">
+<h4>${item.nama}</h4>
 
-<p><b>Kategori: 
+<p><b>Kategori:</b> ${item.kategori}</p>
 
-{Number(item.harga).toLocaleString("id-ID")}</p>
+<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
-<button onclick="tambahKeKeranjang('
+<button onclick="tambahKeKeranjang(${index})">
 
-{item.harga})">
 🛒 Tambah
 </button>
 </div>
