@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,51 +9,51 @@
 
 <style>
 body{
-    font-family:Arial,sans-serif;
-    background:#f2f2f2;
-    margin:0;
+font-family:Arial,sans-serif;
+background:#f2f2f2;
+margin:0;
 }
 
 .header{
-    background:green;
-    color:white;
-    text-align:center;
-    padding:15px;
+background:green;
+color:white;
+text-align:center;
+padding:15px;
 }
 
 .container{
-    padding:15px;
+padding:15px;
 }
 
 input{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border-radius:6px;
-    border:1px solid #ccc;
-    box-sizing:border-box;
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+box-sizing:border-box;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    background:orange;
-    color:black;
-    border:none;
-    border-radius:6px;
-    font-weight:bold;
-    margin-top:10px;
+width:100%;
+padding:12px;
+background:orange;
+color:black;
+border:none;
+border-radius:6px;
+font-weight:bold;
+margin-top:10px;
 }
 
 #daftarProduk{
-    margin-top:20px;
+margin-top:20px;
 }
 
 .card{
-    background:white;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
+background:white;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
 }
 </style>
 
@@ -72,23 +73,19 @@ button{
 <input type="number" id="hargaProduk" placeholder="Harga Produk">
 
 <label>Kategori</label>
-    <label>
-<input type="checkbox" id="bestSeller">
- ⭐ Best Seller
-    </label>
 
 <select id="kategoriProduk">
-  <option value="Beras">🌾 Beras</option>
-  <option value="Minyak Goreng">🛢️ Minyak Goreng</option>
-  <option value="Minuman">🥤 Minuman</option>
-  <option value="Mie Instan">🍜 Mie Instan</option>
-  <option value="Biskuit">🍪 Biskuit</option>
-  <option value="Bumbu Dapur">🧂 Bumbu Dapur</option>
-  <option value="Sabun">🧼 Sabun & Deterjen</option>
-  <option value="Lainnya">📦 Lainnya</option>
-   <option value="Telur">📦 Telur</option>
+<option value="Beras">🌾 Beras</option>
+<option value="Minyak Goreng">🛢️ Minyak Goreng</option>
+<option value="Minuman">🥤 Minuman</option>
+<option value="Mie Instan">🍜 Mie Instan</option>
+<option value="Biskuit">🍪 Biskuit</option>
+<option value="Bumbu Dapur">🧂 Bumbu Dapur</option>
+<option value="Sabun">🧼 Sabun & Deterjen</option>
+<option value="Lainnya">📦 Lainnya</option>
+<option value="Telur">📦 Telur</option>
 </select>
-    
+
 <input type="text" id="gambarProduk" placeholder="Nama file gambar, contoh: beras.jpg">
 
 <button onclick="tambahProduk()">
@@ -104,107 +101,106 @@ let produk = JSON.parse(localStorage.getItem("produk")) || [];
 let editIndex = -1;
 
 function simpanData() {
-  localStorage.setItem("produk", JSON.stringify(produk));
+localStorage.setItem("produk", JSON.stringify(produk));
 }
 
 function resetForm() {
-let nama = 
-    document.getElementById("namaProduk").value = "";
-let harga = 
-    document.getElementById("hargaProduk").value = "";
-    document.getElementById("kategoriProduk").selectedIndex = 0;
-    document.getElementById("kategoriProduk").value = "";
-let gambar = 
-    document.getElementById("gambarProduk").value;
-  
-  editIndex = -1;
+let nama =
+document.getElementById("namaProduk").value = "";
+let harga =
+document.getElementById("hargaProduk").value = "";
+document.getElementById("kategoriProduk").selectedIndex = 0;
+document.getElementById("kategoriProduk").value = "";
+let gambar =
+document.getElementById("gambarProduk").value;
+
+editIndex = -1;
 }
 function tambahProduk() {
 
-  let nama = document.getElementById("namaProduk").value.trim();
-  let harga = document.getElementById("hargaProduk").value.trim();
-  let kategori = document.getElementById("kategoriProduk").value;
-  let gambar = document.getElementById("gambarProduk").value.trim();
-  let bestSeller = document.getElementById("bestSeller").checked;
+let nama = document.getElementById("namaProduk").value.trim();
+let harga = document.getElementById("hargaProduk").value.trim();
+let kategori = document.getElementById("kategoriProduk").value;
+let gambar = document.getElementById("gambarProduk").value.trim();
 
-  if (nama == "" || harga == "" || gambar == "") {
-    alert("Semua data harus diisi!");
-    return;
-  }
+if (nama == "" || harga == "" || gambar == "") {
+alert("Semua data harus diisi!");
+return;
+}
 
-  if (editIndex == -1) {
+if (editIndex == -1) {
 
-    produk.push({
-    nama: nama,
-    harga: harga,
-    kategori: kategori,
-    gambar: gambar,
-    bestSeller: bestSeller
-    });
+produk.push({
+nama: nama,
+harga: harga,
+kategori: kategori,
+gambar: gambar
+});
 
-  } else {
+} else {
 
-    produk[editIndex] = {
-      nama: nama,
-      harga: harga,
-      kategori: kategori,
-      gambar: gambar
-    };
+produk[editIndex] = {
+nama: nama,
+harga: harga,
+kategori: kategori,
+gambar: gambar
+};
 
-  }
+}
 
-  simpanData();
-  tampilkanProduk();
-  resetForm();
+simpanData();
+tampilkanProduk();
+resetForm();
 
-  
+
 }
 
 function editProduk(index) {
 
-  document.getElementById("namaProduk").value = produk[index].nama;
-  document.getElementById("hargaProduk").value = produk[index].harga;
-  document.getElementById("kategoriProduk").value = produk[index].kategori;
-  document.getElementById("gambarProduk").value = produk[index].gambar;
+document.getElementById("namaProduk").value = produk[index].nama;
+document.getElementById("hargaProduk").value = produk[index].harga;
+document.getElementById("kategoriProduk").value = produk[index].kategori;
+document.getElementById("gambarProduk").value = produk[index].gambar;
 
-  editIndex = index;
+editIndex = index;
 }
 
 function hapusProduk(index) {
-  if (confirm("Yakin ingin menghapus produk ini?")) {
-    produk.splice(index, 1);
-    simpanData();
-    tampilkanProduk();
-  }
+if (confirm("Yakin ingin menghapus produk ini?")) {
+produk.splice(index, 1);
+simpanData();
+tampilkanProduk();
+}
 }
 
 function tampilkanProduk() {
 
-  let daftar = document.getElementById("daftarProduk");
-  daftar.innerHTML = "";
+let daftar = document.getElementById("daftarProduk");
+daftar.innerHTML = "";
 
-  produk.forEach(function(item, index) {
+produk.forEach(function(item, index) {
 
-    daftar.innerHTML += `
-    <div class="card">
+daftar.innerHTML += `
+<div class="card">
 
-      <b>${item.nama}</b><br>
-      Kategori: ${item.kategori}<br>
-      Rp ${Number(item.harga).toLocaleString("id-ID")}<br>
-      ${item.gambar}<br><br>
+<b>
 
-      <button onclick="editProduk(${index})">
-      ✏️ Edit
-      </button>
+{item.kategori}<br>
+Rp 
+{item.gambar}<br><br>
 
-      <button onclick="hapusProduk(${index})">
-      🗑️ Hapus
-      </button>
+<button onclick="editProduk($`{index})">
+✏️ Edit
+</button>
 
-    </div>
-    `;
+<button onclick="hapusProduk(`${index})">
+🗑️ Hapus
+</button>
 
-  });
+</div>
+`;
+
+});
 
 }
 
