@@ -105,13 +105,9 @@ localStorage.setItem("produk", JSON.stringify(produk));
 }
 
 function resetForm() {
-let nama =
 document.getElementById("namaProduk").value = "";
-let harga =
 document.getElementById("hargaProduk").value = "";
 document.getElementById("kategoriProduk").selectedIndex = 0;
-document.getElementById("kategoriProduk").value = "";
-let gambar =
 document.getElementById("gambarProduk").value;
 
 editIndex = -1;
@@ -183,17 +179,16 @@ produk.forEach(function(item, index) {
 daftar.innerHTML += `
 <div class="card">
 
-<b>
+<b>{item.kategori}<br>
+Kategori : ${item.kayegori}<br>
+Harga : Rp ${item.harga}<br>
+Gambar : ${item.gambar}<br><br>
 
-{item.kategori}<br>
-Rp 
-{item.gambar}<br><br>
-
-<button onclick="editProduk($`{index})">
+<button onclick="editProduk(${index})">
 ✏️ Edit
 </button>
 
-<button onclick="hapusProduk(`${index})">
+<button onclick="hapusProduk(${index})">
 🗑️ Hapus
 </button>
 
