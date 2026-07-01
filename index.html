@@ -371,7 +371,7 @@ daftar.innerHTML += `
 
 <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
-<button onclick="tambahKeKeranjang(${index})">
+<button onclick="tambahKeKeranjang('${item.nama}', ${item.harga})">
 
 🛒 Tambah
 </button>
