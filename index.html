@@ -238,15 +238,39 @@ function kirimWA() {
   );
 }
   let kategoriAktif = "Semua";
-  function cariProduk() {
+
+function cariProduk() {
 
   let input = document.getElementById("cariProduk").value.toLowerCase();
 
-  function filterKategori(kategori) {
+  let card = document.querySelectorAll(".card");
+
+  card.forEach(function(item) {
+
+    let nama = item.querySelector("h4").innerText.toLowerCase();
+    let kategori = item.querySelector("p").innerText;
+
+    let cocokNama = nama.includes(input);
+    let cocokKategori = (kategoriAktif === "Semua") || kategori.includes(kategoriAktif);
+
+    if (cocokNama && cocokKategori) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+
+  });
+
+}
+
+function filterKategori(kategori) {
   kategoriAktif = kategori;
   cariProduk();
-  }
+}
+
 function tampilkanProdukAdmin() {
+
+  let daftar = document.getElementById("daftarProduk");
 
   let daftar = document.getElementById("daftarProduk");
 
