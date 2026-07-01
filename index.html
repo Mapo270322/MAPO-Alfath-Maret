@@ -169,12 +169,19 @@ margin-top: 5px;
   placeholder="🔍 Cari produk..."
   onkeyup="cariProduk()"
   style="width:95%;padding:15px;margin:10px;border-radius:8px;border:1px solid #ccc;">
+  <div class="kategori-filter">
+  <button onclick="filterKategori('Semua')">Semua</button>
+  <button onclick="filterKategori('Beras')">🌾 Beras</button>
+  <button onclick="filterKategori('Minyak Goreng')">🛢️ Minyak</button>
+  <button onclick="filterKategori('Telur')">🥚 Telur</button>
+</div>
 <!-- JUDUL -->
 <div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
 <h3 style="text-align:center;">Daftar Menu</h3>
 </div>
 <div class="container">
-<div class="grid" id="daftarProduk">
+  <div class="grid" id="daftarProduk">
+  </div>
   <!-- PRODUK -->
 </div>
   
