@@ -125,6 +125,7 @@ function tambahProduk() {
   let harga = document.getElementById("hargaProduk").value.trim();
   let kategori = document.getElementById("kategoriProduk").value;
   let gambar = document.getElementById("gambarProduk").value.trim();
+  let bestSeller = document.getElementById("bestSeller").checked;
 
   if (nama == "" || harga == "" || gambar == "") {
     alert("Semua data harus diisi!");
@@ -134,10 +135,11 @@ function tambahProduk() {
   if (editIndex == -1) {
 
     produk.push({
-      nama: nama,
-      harga: harga,
-      kategori: kategori,
-      gambar: gambar
+    nama: nama,
+    harga: harga,
+    kategori: kategori,
+    gambar: gambar,
+    bestSeller: bestSeller
     });
 
   } else {
