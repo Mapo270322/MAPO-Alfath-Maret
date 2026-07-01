@@ -101,7 +101,7 @@ let produk = JSON.parse(localStorage.getItem("produk")) || [];
 let editIndex = -1;
 
 function simpanData() {
-localStorage.setItem("produk", JSON.stringify(produk));
+localStorage.removeItem("produk");
 }
 
 function resetForm() {
