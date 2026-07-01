@@ -317,6 +317,25 @@ function kirimWA() {
     }
   });
   }
+  function filterKategori(kategori) {
+
+  let card = document.querySelectorAll(".card");
+
+  card.forEach(function(item) {
+
+    let teksKategori = item.querySelector("p").innerText;
+
+    if (kategori === "Semua") {
+      item.style.display = "";
+    } else if (teksKategori.includes(kategori)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+
+  });
+
+}
 function tampilkanProdukAdmin() {
 
   let daftar = document.getElementById("daftarProduk");
