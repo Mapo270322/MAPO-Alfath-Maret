@@ -360,11 +360,11 @@ let produk = JSON.parse(localStorage.getItem("produk")) || [];
 
 daftar.innerHTML = "";
 
-produk.forEach(function(item){
+produk.forEach(function(item, index){
 
 daftar.innerHTML += `
 <div class="card">
-<img src="${item.gambar}" alt=${item.nama}">
+<img src="${item.gambar}" alt="${item.nama}">
 <h4>${item.nama}</h4>
 
 <p><b>Kategori:</b> ${item.kategori}</p>
