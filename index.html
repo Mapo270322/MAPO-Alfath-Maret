@@ -117,6 +117,21 @@ padding: 5px 10px;
 border-radius: 5px;
 width: auto;
 }
+  .kategori-filter{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:10px;
+}
+
+.kategori-filter button{
+  width:auto;
+  white-space:nowrap;
+  background:#28a745;
+  color:white;
+  padding:8px 15px;
+  border-radius:20px;
+}
 </style>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0a8f08">
@@ -142,7 +157,7 @@ width: auto;
 <button onclick="document.getElementById('lagu').play()">
 ▶️ Putar Lagu MAPO
 </button>
-</div>
+
 
 <!-- DOWNLOAD -->
 <div style="text-align:center; margin-bottom:10px;">
@@ -163,7 +178,6 @@ width: auto;
 🗑 Kosongkan Keranjang
 </button>
 
-</div>
 <input
 type="text"
 id="cariProduk"
