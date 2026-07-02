@@ -332,7 +332,6 @@ let daftar = document.getElementById("daftarProduk");
 
 if (!daftar) return;
 
-let produk = JSON.parse(localStorage.getItem("produk")) || [];
 const produk = [
   {
 
@@ -367,7 +366,7 @@ navigator.serviceWorker.register("service-worker.js");
 
 tampilkanKeranjang();
 
-
+<script src="produk.js"></script>
 
 </script>
 
