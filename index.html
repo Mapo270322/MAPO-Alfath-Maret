@@ -199,7 +199,7 @@ style="width:95%;padding:15px;margin:10px;border-radius:8px;border:1px solid #cc
 </div>
 <!-- PRODUK -->
 </div>
-
+<script src="produk.js"></script>
 <script>
 
 let keranjang =
@@ -319,7 +319,7 @@ function cariProduk() {
 
 let input = document.getElementById("cariProduk").value.toLowerCase();
 
-
+}
 
 function filterKategori(kategori) {
   kategoriAktif = kategori;
@@ -333,9 +333,8 @@ let daftar = document.getElementById("daftarProduk");
 
 if (!daftar) return;
 
-const produk = [
+  
   {
-
 daftar.innerHTML = "";
 
 produk.forEach(function(item, index){
@@ -366,8 +365,6 @@ navigator.serviceWorker.register("service-worker.js");
 }
 
 tampilkanKeranjang();
-
-<script src="produk.js"></script>
 
 </script>
 
