@@ -287,6 +287,33 @@ function tampilkanProduk(){
 // ======================================
 
 function tambahKeKeranjang(index){
+  function tampilkanKeranjang(){
+
+  let list = document.getElementById("listKeranjang");
+  let total = document.getElementById("totalBelanja");
+
+  list.innerHTML = "";
+
+  let jumlahTotal = 0;
+
+  keranjang.forEach(function(item,index){
+
+    jumlahTotal += item.harga * item.jumlah;
+
+    list.innerHTML += `
+      <li>
+        <b>${item.nama}</b><br>
+        Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
+      </li>
+    `;
+
+  });
+
+  total.innerHTML = "<b>Total: Rp " +
+    jumlahTotal.toLocaleString("id-ID") +
+    "</b>";
+
+  }
 
   let item = produk[index];
 
