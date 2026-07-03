@@ -310,12 +310,9 @@ function tambahKeKeranjang(index){
   }
 
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
-  console.log(produk);
-alert("Jumlah produk: " + produk.length);
   tampilkanProduk();
   tampilkanKeranjang();
 
-  tampilkanNotif("✅ " + item.nama + " ditambahkan");
 
 }
 
