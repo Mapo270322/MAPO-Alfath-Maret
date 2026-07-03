@@ -436,12 +436,12 @@ daftar.innerHTML += `
 });
 
 }
+tampilkanProduk();
+tampilkanKeranjang();
 
 if ("serviceWorker" in navigator) {
-navigator.serviceWorker.register("service-worker.js");
+  navigator.serviceWorker.register("service-worker.js");
 }
-
-tampilkanKeranjang();
 
 </script>
 
