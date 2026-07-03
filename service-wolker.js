@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "mapo-v2";
+const CACHE_NAME = "mapo-v3";
 
 const urlsToCache = [
   "/MAPO-Alfath-Maret/",
