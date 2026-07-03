@@ -214,7 +214,42 @@ let kategoriAktif = "Semua";
 // =====================================
 // Tampilkan Produk
 // =====================================
+function tampilkanProduk() {
 
+  let daftar = document.getElementById("daftarProduk");
+  daftar.innerHTML = "";
+
+  produk.forEach(function(item, index) {
+
+    let badge = "";
+
+    if (item.bestSeller) {
+      badge = '<div style="background:red;color:white;padding:4px;border-radius:5px;text-align:center;font-size:12px;">⭐ Best Seller</div>';
+    }
+
+    daftar.innerHTML += `
+      <div class="card">
+
+        ${badge}
+
+        <img src="${item.gambar}" alt="${item.nama}">
+
+        <h4>${item.nama}</h4>
+
+        <p><b>${item.kategori}</b></p>
+
+        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+
+        <button onclick="tambahKeKeranjang(${index})">
+          🛒 Tambah
+        </button>
+
+      </div>
+    `;
+
+  });
+
+}
 
 // =====================================
 // Keranjang Belanja
@@ -239,7 +274,7 @@ let kategoriAktif = "Semua";
 // =====================================
 // Inisialisasi
 // =====================================
-
+tampilkanProduk();
 let keranjang =
 JSON.parse(localStorage.getItem("keranjang")) || [];
 function tambahKeKeranjang(nama, harga) {
