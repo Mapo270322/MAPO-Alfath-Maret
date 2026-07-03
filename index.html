@@ -274,12 +274,6 @@ function tampilkanProduk() {
 // Inisialisasi
 // =====================================
 
-tampilkanProduk();
-tampilkanKeranjang();
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
 let keranjang =
 JSON.parse(localStorage.getItem("keranjang")) || [];
 function tambahKeKeranjang(nama, harga) {
@@ -404,38 +398,6 @@ function filterKategori(kategori) {
   cariProduk();
 }
 
-function tampilkanProdukAdmin() {
-alert("tampilkanProdukAdmin berjalan");
-
-let daftar = document.getElementById("daftarProduk");
-
-if (!daftar) return;
-
-  
-  {
-daftar.innerHTML = "";
-
-produk.forEach(function(item, index){
-
-daftar.innerHTML += `
-<div class="card">
-<img src="${item.gambar}" alt="${item.nama}">
-<h4>${item.nama}</h4>
-
-<p><b>Kategori:</b> ${item.kategori}</p>
-
-<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
-
-<button onclick="tambahKeKeranjang('${item.nama}', ${item.harga})">
-
-🛒 Tambah
-</button>
-</div>
-`;
-
-});
-
-}
 tampilkanProduk();
 tampilkanKeranjang();
 
