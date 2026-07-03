@@ -322,9 +322,9 @@ function tampilkanKeranjang(){
     return p.nama === item.nama;
   });
 
-  if(ada){
+  if (ada){
     ada.jumlah++;
-  }else{
+  } else {
     keranjang.push({
       nama: item.nama,
       harga: item.harga,
@@ -337,7 +337,7 @@ function tampilkanKeranjang(){
   tampilkanKeranjang();
 
   tampilkanNotif("✅ " + item.nama + " ditambahkan");
-  }
+}
   let item = produk[index];
 
   let ada = keranjang.find(function(p){
@@ -365,10 +365,8 @@ function cariProduk(){
 }
 
 function filterKategori(kategori){
-
   kategoriAktif = kategori;
   tampilkanProduk();
-
 }
 
 tampilkanProduk();
