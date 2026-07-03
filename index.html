@@ -274,64 +274,119 @@ function tampilkanProduk() {
 // Inisialisasi
 // =====================================
 
-let keranjang =
-JSON.parse(localStorage.getItem("keranjang")) || [];
-function tambahKeKeranjang(nama, harga) {
+// ======================================
+// MAPO Maret v1.0 Stable
+// ======================================
 
-let item = keranjang.find(p => p.nama === nama);
+// Variabel Global
 
-if (item) {
-item.jumlah++;
-} else {
-keranjang.push({
-nama: nama,
-harga: harga,
-jumlah: 1
-});
-}
+let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+let kategoriAktif = "Semua";
 
-localStorage.setItem("keranjang", JSON.stringify(keranjang));
-tampilkanKeranjang();
-}
 
-function hapusDariKeranjang(index) {
-keranjang.splice(index, 1);
-localStorage.setItem("keranjang", JSON.stringify(keranjang));
-tampilkanKeranjang();
-}
+// ======================================
+// NOTIFIKASI
+// ======================================
 
-function tambahJumlah(index) {
-keranjang[index].jumlah++;
+function tampilkanNotif(teks){
 
-localStorage.setItem("keranjang", JSON.stringify(keranjang));
-tampilkanKeranjang();
-}
+  let notif = document.getElementById("notif");
 
-function kurangJumlah(index) {
-if (keranjang[index].jumlah > 1) {
-keranjang[index].jumlah--;
-} else {
-keranjang.splice(index, 1);
-}
+  notif.innerHTML = teks;
+  notif.style.display = "block";
 
-localStorage.setItem("keranjang", JSON.stringify(keranjang));
-tampilkanKeranjang();
-}
+  setTimeout(function(){
 
-function kosongkanKeranjang() {
-if (confirm("Yakin ingin mengosongkan keranjang?")) {
-keranjang = [];
-localStorage.removeItem("keranjang");
-tampilkanKeranjang();
+    notif.style.display = "none";
 
+  },1500);
 
 }
 
 
-localStorage.setItem("keranjang", JSON.stringify(keranjang));
-tampilkanKeranjang();
-}
+// ======================================
+// TAMPILKAN PRODUK
+// ======================================
 
+function tampilkanProduk(){
+
+  let daftar = document.getElementById("daftarProduk");
+
+  daftar.innerHTML = "";
+
+  produk.forEach(function(item,index){
+
+    let badge = "";
+
+    if(item.bestSeller){
+
+      badge =
+      '<div style="background:red;color:white;padding:5px;border-radius:6px;text-align:center;font-size:12px;margin-bottom:5px;">⭐ Best Seller</div>';
+
+    }
+
+    daftar.innerHTML += `
+
+    <div class="card">
+
+      ${badge}
+
+      <img src="${item.gambar}" alt="${item.nama}">
+
+      <h4>${item.nama}</h4>
+
+      <p>${item.kategori}</p>
+
+      <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+
+      <button onclick="tambahKeKeranjang(${index})">
+
+      🛒 Tambah
+
+      </button>
+
+    </div>
+
+    `;
+
+  });
+
+}
+  // ======================================
+// TAMBAH KE KERANJANG
+// ======================================
+
+function tambahKeKeranjang(index){
+
+  let item = produk[index];
+
+  let ada = keranjang.find(function(p){
+    return p.nama === item.nama;
+  });
+
+  if(ada){
+
+    ada.jumlah++;
+
+  }else{
+
+    keranjang.push({
+      nama: item.nama,
+      harga: item.harga,
+      gambar: item.gambar,
+      jumlah: 1
+    });
+
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+  tampilkanNotif("✅ " + item.nama + " ditambahkan");
+
+}
+  
 function tampilkanKeranjang() {
 let list = document.getElementById("listKeranjang");
 list.innerHTML = "";
