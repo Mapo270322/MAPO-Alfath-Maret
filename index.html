@@ -293,7 +293,8 @@ function tampilkanProduk(){
 // ======================================
 
 function tambahKeKeranjang(index){
-  function tampilkanKeranjang(){
+  
+function tampilkanKeranjang(){
 
   let list = document.getElementById("listKeranjang");
   let total = document.getElementById("totalBelanja");
@@ -315,12 +316,35 @@ function tambahKeKeranjang(index){
 
   });
 
-  total.innerHTML = "<b>Total: Rp " +
-    jumlahTotal.toLocaleString("id-ID") +
-    "</b>";
+  total.innerHTML =
+  "<b>Total: Rp " +
+  jumlahTotal.toLocaleString("id-ID") +
+  "</b>";
+}
+  function tambahKeKeranjang(index){
 
+  let item = produk[index];
+
+  let ada = keranjang.find(function(p){
+    return p.nama === item.nama;
+  });
+
+  if(ada){
+    ada.jumlah++;
+  }else{
+    keranjang.push({
+      nama: item.nama,
+      harga: item.harga,
+      jumlah: 1
+    });
   }
 
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+  tampilkanNotif("✅ " + item.nama + " ditambahkan");
+  }
   let item = produk[index];
 
   let ada = keranjang.find(function(p){
