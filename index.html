@@ -294,20 +294,22 @@ function tambahKeKeranjang(index){
     return p.nama === item.nama;
   });
 
-  if(ada){
-
+  if (ada) {
     ada.jumlah++;
-
-  }else{
-
+  } else {
     keranjang.push({
       nama: item.nama,
       harga: item.harga,
-      gambar: item.gambar,
       jumlah: 1
     });
-
   }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+  tampilkanNotif("✅ " + item.nama + " ditambahkan");
+}
 
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
   tampilkanProduk();
