@@ -263,32 +263,24 @@ if (kategoriAktif != "Semua" && item.kategori != kategoriAktif) {
     }
 
     daftar.innerHTML += `
+<div class="card">
 
-    <div class="card">
+<p>TES GAMBAR</p>
 
-      ${badge}
+<img src="https://mapo270322.github.io/MAPO-Alfath-Maret/beras.jpg">
 
-      <img src="${item.gambar}" alt="${item.nama}">
+<h4>${item.nama}</h4>
 
-      <h4>${item.nama}</h4>
+<p>${item.kategori}</p>
 
-      <p>${item.kategori}</p>
+<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
-      <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+<button onclick="tambahKeKeranjang(${index})">
+🛒 Tambah
+</button>
 
-      <button onclick="tambahKeKeranjang(${index})">
-
-      🛒 Tambah
-
-      </button>
-
-    </div>
-
-    `;
-
-  });
-
-      }
+</div>
+`;
   // ======================================
 // TAMBAH KE KERANJANG
 // ======================================
@@ -371,18 +363,22 @@ function tampilkanKeranjang(){
 function cariProduk(){
   tampilkanProduk();
 }
-  function filterKategori(kategori){
+
+function filterKategori(kategori){
 
   kategoriAktif = kategori;
-
   tampilkanProduk();
 
-  }
+}
+
 tampilkanProduk();
 tampilkanKeranjang();
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
 }
 </script>
 
 </body>
 </html>
+
