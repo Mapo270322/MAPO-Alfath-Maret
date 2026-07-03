@@ -237,15 +237,21 @@ function tampilkanNotif(teks){
 // TAMPILKAN PRODUK
 // ======================================
 
+
 function tampilkanProduk(){
 
   let daftar = document.getElementById("daftarProduk");
-  alert(daftar);
-
   daftar.innerHTML = "";
+
+  let kataCari = document.getElementById("cariProduk").value.toLowerCase();
 
   produk.forEach(function(item,index){
 
+    if (!item.nama.toLowerCase().includes(kataCari)) {
+      return;
+    }
+
+    // kode yang menampilkan card produk
     let badge = "";
 
     if(item.bestSeller){
@@ -337,7 +343,9 @@ function tambahKeKeranjang(index){
 
   tampilkanNotif("✅ " + item.nama + " ditambahkan");
 }
-
+function cariProduk(){
+  tampilkanProduk();
+}
 tampilkanProduk();
 tampilkanKeranjang();
 
