@@ -246,6 +246,13 @@ function tampilkanProduk(){
   let kataCari = document.getElementById("cariProduk").value.toLowerCase();
 
   produk.forEach(function(item,index){
+    if (!item.nama.toLowerCase().includes(kataCari)) {
+  return;
+}
+
+if (kategoriAktif != "Semua" && item.kategori != kategoriAktif) {
+  return;
+}
 
     if (!item.nama.toLowerCase().includes(kataCari)) {
       return;
@@ -370,6 +377,13 @@ function tampilkanKeranjang(){
 function cariProduk(){
   tampilkanProduk();
 }
+  function filterKategori(kategori){
+
+  kategoriAktif = kategori;
+
+  tampilkanProduk();
+
+  }
 tampilkanProduk();
 tampilkanKeranjang();
 
