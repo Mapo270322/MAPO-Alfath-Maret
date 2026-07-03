@@ -270,10 +270,16 @@ function tampilkanProduk() {
 // =====================================
 
 
-// =====================================
+  // =====================================
 // Inisialisasi
 // =====================================
+
 tampilkanProduk();
+tampilkanKeranjang();
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
 let keranjang =
 JSON.parse(localStorage.getItem("keranjang")) || [];
 function tambahKeKeranjang(nama, harga) {
@@ -430,7 +436,6 @@ daftar.innerHTML += `
 });
 
 }
-tampilkanProdukAdmin();
 
 if ("serviceWorker" in navigator) {
 navigator.serviceWorker.register("service-worker.js");
