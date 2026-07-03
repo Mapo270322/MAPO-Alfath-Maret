@@ -202,79 +202,7 @@ style="width:95%;padding:15px;margin:10px;border-radius:8px;border:1px solid #cc
 </div>
 <script src="produk.js"></script>
 <script>
-  // =====================================
-// MAPO Maret v1.0 Stable
-// =====================================
-
-// Variabel Global
-let keranjang = [];
-let kategoriAktif = "Semua";
-
-// =====================================
-// Tampilkan Produk
-// =====================================
-function tampilkanProduk() {
-
-  let daftar = document.getElementById("daftarProduk");
-  daftar.innerHTML = "";
-
-  produk.forEach(function(item, index) {
-
-    let badge = "";
-
-    if (item.bestSeller) {
-      badge = '<div style="background:red;color:white;padding:4px;border-radius:5px;text-align:center;font-size:12px;">⭐ Best Seller</div>';
-    }
-
-    daftar.innerHTML += `
-      <div class="card">
-
-        ${badge}
-
-        <img src="${item.gambar}" alt="${item.nama}">
-
-        <h4>${item.nama}</h4>
-
-        <p><b>${item.kategori}</b></p>
-
-        <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
-
-        <button onclick="tambahKeKeranjang(${index})">
-          🛒 Tambah
-        </button>
-
-      </div>
-    `;
-
-  });
-
-}
-
-// =====================================
-// Keranjang Belanja
-// =====================================
-
-
-// =====================================
-// WhatsApp
-// =====================================
-
-
-// =====================================
-// Pencarian & Filter
-// =====================================
-
-
-// =====================================
-// Notifikasi
-// =====================================
-
-
-  // =====================================
-// Inisialisasi
-// =====================================
-
-// ======================================
+  // ======================================
 // MAPO Maret v1.0 Stable
 // ======================================
 
@@ -303,6 +231,55 @@ function tampilkanNotif(teks){
 
 }
 
+
+// ======================================
+// TAMPILKAN PRODUK
+// ======================================
+
+function tampilkanProduk(){
+
+  let daftar = document.getElementById("daftarProduk");
+
+  daftar.innerHTML = "";
+
+  produk.forEach(function(item,index){
+
+    let badge = "";
+
+    if(item.bestSeller){
+
+      badge =
+      '<div style="background:red;color:white;padding:5px;border-radius:6px;text-align:center;font-size:12px;margin-bottom:5px;">⭐ Best Seller</div>';
+
+    }
+
+    daftar.innerHTML += `
+
+    <div class="card">
+
+      ${badge}
+
+      <img src="${item.gambar}" alt="${item.nama}">
+
+      <h4>${item.nama}</h4>
+
+      <p>${item.kategori}</p>
+
+      <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
+
+      <button onclick="tambahKeKeranjang(${index})">
+
+      🛒 Tambah
+
+      </button>
+
+    </div>
+
+    `;
+
+  });
+
+      }
   // ======================================
 // TAMBAH KE KERANJANG
 // ======================================
@@ -331,88 +308,12 @@ function tambahKeKeranjang(index){
   }
 
   localStorage.setItem("keranjang", JSON.stringify(keranjang));
-
+  console.log(produk);
+alert("Jumlah produk: " + produk.length);
+  tampilkanProduk();
   tampilkanKeranjang();
 
   tampilkanNotif("✅ " + item.nama + " ditambahkan");
 
 }
-  
-function tampilkanKeranjang() {
-let list = document.getElementById("listKeranjang");
-list.innerHTML = "";
-
-let total = 0;
-
-keranjang.forEach((item, index) => {
-
-let li = document.createElement("li");
-
-li.innerHTML =
-"<b>" + item.nama + "</b><br>" +
-"Rp " + Number(item.harga).toLocaleString("id-ID") +
-"<br>" +
-'<button onclick="kurangJumlah(' + index + ')">-</button> ' +
-item.jumlah +
-' <button onclick="tambahJumlah(' + index + ')">+</button> ' +
-' <button onclick="hapusDariKeranjang(' + index + ')">Hapus</button>';
-
-list.appendChild(li);
-
-total += Number(item.harga) * item.jumlah;
-});
-
-document.getElementById("totalBelanja").innerHTML =
-"<b>Total: Rp " +
-total.toLocaleString("id-ID") +
-"</b>";
-}
-
-function kirimWA() {
-
-let pesan = "Pesanan saya:%0A";
-let total = 0;
-
-keranjang.forEach((item, i) => {
-pesan +=
-(i + 1) +
-". " +
-item.nama +
-" - Rp " +
-item.harga +
-"%0A";
-
-total += Number(item.harga);
-});
-
-pesan += "%0ATotal: Rp " + total;
-
-window.open(
-"https://wa.me/6287762803657?text=" + pesan
-
-);
-}
-let kategoriAktif = "Semua";
-function cariProduk() {
-
-let input = document.getElementById("cariProduk").value.toLowerCase();
-
-}
-
-function filterKategori(kategori) {
-  kategoriAktif = kategori;
-  cariProduk();
-}
-
-tampilkanProduk();
-tampilkanKeranjang();
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-
-</script>
-
-</body>
-</html>
 
