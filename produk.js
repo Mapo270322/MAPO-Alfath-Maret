@@ -17,7 +17,7 @@ const produk = [
     nama: "DUA MERPATI",
     harga: 83999,
     kategori: "Beras",
-    gambar: "duamerpati.jpg",
+    gambar: "beras.jpg",
     bestSeller: false
   },
   {
