@@ -120,13 +120,13 @@ td{
 <label>Kategori</label>
 <select id="kategori">
     <option value="Beras">Beras</option>
-    <option value="Beras">Minyak Goreng</option>
+    <option value="Minyak Goreng">Minyak Goreng</option>
     <option value="Telur">Telur</option>
 </select>
 
 <label>Gambar (nama file)</label>
 <input type="text" id="gambar">
-
+<button onclick="tambah()"> Tambah</button> 
 <label>
 <input type="checkbox" id="bestSeller">
  Best Seller
@@ -232,7 +232,6 @@ function tampilkanProduk(){
             <td>${item.bestSeller ? "⭐" : "-"}</td>
             <td>
                 <button onclick="editProduk(${index})">Edit</button>
-                <button onclick="tambah(${index})">Tambah</button>
                  <button onclick="hapusProduk(${index})">Hapus</button>
             </td>
         </tr>
