@@ -1,60 +1,177 @@
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin MAPO</title>
+
+<title>Admin MAPO Maret</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f2f2f2;
-margin:0;
+
+    background:#f5f5f5;
+
+    font-family:Arial,Helvetica,sans-serif;
+
 }
 
 .header{
-background:green;
-color:white;
-text-align:center;
-padding:15px;
+
+    background:#28a745;
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
 }
 
 .container{
-padding:15px;
-}
 
-input{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:6px;
-border:1px solid #ccc;
-box-sizing:border-box;
-}
+    max-width:1000px;
 
-button{
-width:100%;
-padding:12px;
-background:orange;
-color:black;
-border:none;
-border-radius:6px;
-font-weight:bold;
-margin-top:10px;
-}
+    margin:20px auto;
 
-#daftarProduk{
-margin-top:20px;
+    padding:15px;
+
 }
 
 .card{
-background:white;
-padding:10px;
-margin-top:10px;
-border-radius:8px;
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
 }
+
+h2{
+
+    margin-bottom:15px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-top:10px;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+}
+
+input[type="checkbox"]{
+
+    width:auto;
+
+}
+
+button{
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    padding:12px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:#28a745;
+
+    color:white;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table th{
+
+    background:#28a745;
+
+    color:white;
+
+    padding:10px;
+
+}
+
+table td{
+
+    border:1px solid #ddd;
+
+    padding:10px;
+
+    text-align:center;
+
+}
+
+.preview{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+}
+
+@media(max-width:700px){
+
+table{
+
+    display:block;
+
+    overflow-x:auto;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -62,145 +179,121 @@ border-radius:8px;
 <body>
 
 <div class="header">
-<h2>ADMIN MAPO</h2>
-<p>Kelola Produk MAPO Alfath Maret</p>
+
+<h1>Admin MAPO Maret</h1>
+
+<p>Kelola Produk Toko</p>
+
 </div>
 
 <div class="container">
 
-<input type="text" id="namaProduk" placeholder="Nama Produk">
+<!-- FORM -->
 
-<input type="number" id="hargaProduk" placeholder="Harga Produk">
+<div class="card">
+
+<h2>Tambah / Edit Produk</h2>
+
+<input type="hidden" id="editIndex">
+
+<label>Nama Produk</label>
+
+<input
+type="text"
+id="nama">
+
+<label>Harga</label>
+
+<input
+type="number"
+id="harga">
 
 <label>Kategori</label>
 
-<select id="kategoriProduk">
-<option value="Beras">🌾 Beras</option>
-<option value="Minyak Goreng">🛢️ Minyak Goreng</option>
-<option value="Minuman">🥤 Minuman</option>
-<option value="Mie Instan">🍜 Mie Instan</option>
-<option value="Biskuit">🍪 Biskuit</option>
-<option value="Bumbu Dapur">🧂 Bumbu Dapur</option>
-<option value="Sabun">🧼 Sabun & Deterjen</option>
-<option value="Lainnya">📦 Lainnya</option>
-<option value="Telur">📦 Telur</option>
+<select id="kategori">
+
+<option>Beras</option>
+
+<option>Minyak Goreng</option>
+
+<option>Telur</option>
+
 </select>
 
-<input type="text" id="gambarProduk" placeholder="Nama file gambar, contoh: beras.jpg">
+<label>Nama File Gambar</label>
 
-<button onclick="tambahProduk()">
-Tambah Produk
+<input
+type="text"
+id="gambar"
+placeholder="contoh : beras.jpg">
+
+<label>
+
+<input
+type="checkbox"
+id="bestSeller">
+
+Best Seller
+
+</label>
+
+<button
+class="btn"
+id="btnSimpan">
+
+💾 Simpan Produk
+
 </button>
-
-<div id="daftarProduk"></div>
 
 </div>
 
-<script>
-let produk = JSON.parse(localStorage.getItem("produk")) || [];
-let editIndex = -1;
+<!-- DAFTAR -->
 
-function simpanData() {
-localStorage.removeItem("produk");
-}
-
-function resetForm() {
-document.getElementById("namaProduk").value = "";
-document.getElementById("hargaProduk").value = "";
-document.getElementById("kategoriProduk").selectedIndex = 0;
-document.getElementById("gambarProduk").value;
-
-editIndex = -1;
-}
-function tambahProduk() {
-
-let nama = document.getElementById("namaProduk").value.trim();
-let harga = document.getElementById("hargaProduk").value.trim();
-let kategori = document.getElementById("kategoriProduk").value;
-let gambar = document.getElementById("gambarProduk").value.trim();
-
-if (nama == "" || harga == "" || gambar == "") {
-alert("Semua data harus diisi!");
-return;
-}
-
-if (editIndex == -1) {
-
-produk.push({
-nama: nama,
-harga: harga,
-kategori: kategori,
-gambar: gambar
-});
-
-} else {
-
-produk[editIndex] = {
-nama: nama,
-harga: harga,
-kategori: kategori,
-gambar: gambar
-};
-
-}
-
-simpanData();
-tampilkanProduk();
-resetForm();
-
-
-}
-
-function editProduk(index) {
-
-document.getElementById("namaProduk").value = produk[index].nama;
-document.getElementById("hargaProduk").value = produk[index].harga;
-document.getElementById("kategoriProduk").value = produk[index].kategori;
-document.getElementById("gambarProduk").value = produk[index].gambar;
-
-editIndex = index;
-}
-
-function hapusProduk(index) {
-if (confirm("Yakin ingin menghapus produk ini?")) {
-produk.splice(index, 1);
-simpanData();
-tampilkanProduk();
-}
-
-function tampilkanProduk() {
-
-let daftar = document.getElementById("daftarProduk");
-daftar.innerHTML = "";
-
-produk.forEach(function(item, index) {
-
-daftar.innerHTML += `
 <div class="card">
 
-<b>${item.nama}</b><br>
-Kategori : ${item.kategori}<br>
-Harga : Rp ${item.harga}<br>
-Gambar : ${item.gambar}<br><br>
+<h2>Daftar Produk</h2>
 
-<button onclick="editProduk(${index})">
-✏️ Edit
-</button>
+<table>
 
-<button onclick="hapusProduk(${index})">
-🗑️ Hapus
-</button>
+<thead>
+
+<tr>
+
+<th>No</th>
+
+<th>Foto</th>
+
+<th>Nama</th>
+
+<th>Kategori</th>
+
+<th>Harga</th>
+
+<th>Best Seller</th>
+
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbodyProduk">
+
+<!-- Diisi JavaScript -->
+
+</tbody>
+
+</table>
 
 </div>
-`;
 
-});
+</div>
 
-}
+<!-- produk.js -->
+<script src="produk.js"></script>
 
-tampilkanProduk();
+<!-- JavaScript Admin Bagian 2 ditempatkan di sini -->
 
-</script>
 
 </body>
 </html>
