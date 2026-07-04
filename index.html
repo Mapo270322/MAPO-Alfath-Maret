@@ -7,277 +7,115 @@
 <style>
 body{
 margin:0;
-font-family: Arial;
-background: #f5f5f5;
-
+font-family:Arial;
+background:#f5f5f5;
+}
 
 .header{
 background:green;
 color:white;
 text-align:center;
-padding: 15px;
-}
-.header{
-background:green;
-color:white;
-text-align:center;
-padding: 15px;
-
-
-/* ↓ TARUH DI SINI */
-.logo-row{
-display:flex;
-justify-content: center;
-align-items: center;
-gap:10px;
-
-
-.logo-kiri{
-width:40px;
+padding:15px;
 }
 
-.logo{
-width:60px;
 .container{
 padding:10px;
 }
 
 .grid{
 display:grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns:1fr 1fr;
 gap:10px;
-
+}
 
 .card{
 background:white;
-border-radius: 10px;
-padding: 10px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
+padding:10px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
 
 .card img{
 width:100%;
-height: 150px;
-object-fit: cover;
-border-radius: 8px;
-
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
 
 .card h4{
-font-size:14px;
-margin: 5px 0;
-
+margin:5px 0;
+}
 
 .card p{
-margin: 5px 0;
-font-weight: bold;
-color: #28a745;
-
+color:green;
+font-weight:bold;
+}
 
 button{
 width:100%;
-background: orange;
-color:black;
+padding:10px;
+background:orange;
 border:none;
-padding: 10px;
-border-radius: 8px;
+border-radius:8px;
 margin-top:5px;
-
-.notif{
-position:fixed;
-bottom:20px;
-left:20px;
-transform: translateX(-50%);;
-background:black;
-color:white;
-padding: 10px 20px;
-border-radius: 20px;
-display:none;
-font-weight: bold;
-z-index:999;
-opacity: 0;
-transition: all 0.3s ease;
-.notif.show{
-opacity:1;
-
-#listKeranjang li{
-display:flex;
-justify-content: space-between;
-align-items:center;
-margin: 8px 0;
-
-
-#listKeranjang button{
-background:red;
-color:white;
-border:none;
-padding: 5px 10px;
-border-radius: 5px;
-width:auto;
 }
 </style>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a8f08"></head>
+
+</head>
 
 <body>
 
-<divclass="header">
-<divclass="logo-row">
-<imgsrc="fifa26.jpg"class="logo-kiri">
-<imgsrc="loo8.png"class="logo">
+<div class="header">
+<h2>MAPO MARET</h2>
+<p>Toko Sembako Sederhana</p>
 </div>
 
-<h2>MAPOMaret</h2>
-<p>Toko Kebutuhan Harian</p>
-<p>Mudah Dijangkau & Harga Terjankau</p>
-<p>JI.Sungai Siak 611 Ketang Baru Manado</p>
-</div>
-<audioid="lagu">
-<sourcesrc="mapo.mp3"type="audio/mpeg">
-</audio>
-<button
-onclick="document.getElementByld('lagu').play()"
->
-Putar Lagu MAPO
-</button>
-</div>
-
-<!--DOWNLOAD-->
-<div style="text-align:center;margin-
-bottom:10px;">
-<a href="https://drive.google.com/file/d/
-1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/
-view?usp=drivesdk"target="_blank">
-<button style="background:green;"> Download
-Aplikasi</button>
-</a>
-</div>
-
-<!-KERANJANG->
-<div style="background:#fff; padding:10px;
-border-radius:10px; margin-bottom:10px;">
-Keranjang</h3><h3>=
-<ulid="listKeranjang"></ul>
-<divid="totalBelanja"></div>
-</div>
-<buttononclick="kirimWA()">*Pesan via WhatsApp</button>
-
-<button onclick="kosongkanKeranjang()">
-Kosongkan Keranjang
-</button>
-
-</div>
-<input
-type="text"
-id="cariProduk"
-placeholder=" Cari produk..."
-onkeyup="cariProduk()"
-style="width:95%;padding:15px;margin:10px;bord er-radius:8px;border:1px solid #ccc;">
-<!--JUDUL-->
-<div style="background:#28a745; color:white;
-padding:10px; border-radius:10px;">
-<h3 style="text-align:center;">DaftarMenu</h3>
-</div>
 <div class="container">
-<divclass="grid"id="daftarProduk">
-<!--PRODUK-->
+<div class="grid" id="daftarProduk"></div>
 </div>
 
 <script>
-let keranjang =
-JSON.parse(localStorage.getItem("keranjang")) || [];
 
-function simpanKeranjang(){
-    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+// =====================
+// DATA PRODUK (TEST)
+// =====================
+
+let produk = [
+{
+nama:"Telur Ayam",
+harga:29000,
+gambar:"https://mapo270322.github.io/MAPO-Alfath-Maret/telurayam.jpg"
+},
+{
+nama:"Beras 5kg",
+harga:75000,
+gambar:"https://mapo270322.github.io/MAPO-Alfath-Maret/beras.jpg"
+},
+{
+nama:"Minyak Goreng",
+harga:18000,
+gambar:"https://mapo270322.github.io/MAPO-Alfath-Maret/bimoli.jpg"
 }
+];
 
-// =======================
-// TAMBAH
-// =======================
+// =====================
+// TAMPILKAN PRODUK
+// =====================
 
-function tambahKeKeranjang(nama,harga){
+function tampilkanProduk(){
 
-let item = keranjang.find(p=>p.nama===nama);
+let container = document.getElementById("daftarProduk");
 
-if(item){
-    item.jumlah++;
-}else{
-    keranjang.push({nama,harga,jumlah:1});
-}
-
-simpanKeranjang();
-tampilkanKeranjang();
-
-}
-
-// =======================
-// HAPUS
-// =======================
-
-function hapusDariKeranjang(index){
-
-keranjang.splice(index,1);
-simpanKeranjang();
-tampilkanKeranjang();
-
-}
-
-// =======================
-// TAMPILKAN KERANJANG
-// =======================
-
-function tampilkanKeranjang(){
-
-let list = document.getElementById("listKeranjang");
-list.innerHTML = "";
-
-let total = 0;
-
-keranjang.forEach((item,index)=>{
-
-let li = document.createElement("li");
-
-li.innerHTML =
-"<b>"+item.nama+"</b><br>"+
-"Rp "+Number(item.harga).toLocaleString("id-ID")+
-" x "+item.jumlah+
-" <button onclick='hapusDariKeranjang("+index+")'>Hapus</button>";
-
-list.appendChild(li);
-
-total += item.harga * item.jumlah;
-
-});
-
-document.getElementById("totalBelanja").innerHTML =
-"<b>Total: Rp "+total.toLocaleString("id-ID")+"</b>";
-
-}
-
-// =======================
-// PRODUK
-// =======================
-
-function tampilkanProdukAdmin(){
-
-let daftar = document.getElementById("daftarProduk");
-if(!daftar) return;
-
-let produk =
-JSON.parse(localStorage.getItem("produk")) || [];
-
-daftar.innerHTML = "";
+container.innerHTML = "";
 
 produk.forEach(item=>{
 
-daftar.innerHTML += `
+container.innerHTML += `
 <div class="card">
-<img src="${item.gambar}" onerror="this.src='noimage.png'">
+<img src="${item.gambar}">
 <h4>${item.nama}</h4>
-<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
-
-<button onclick="tambahKeKeranjang('${item.nama}',${item.harga})">
-Tambah
-</button>
+<p>Rp ${item.harga.toLocaleString("id-ID")}</p>
+<button>+ Keranjang</button>
 </div>
 `;
 
@@ -285,20 +123,9 @@ Tambah
 
 }
 
-// =======================
-// INIT
-// =======================
-
-tampilkanProdukAdmin();
-tampilkanKeranjang();
-
-if("serviceWorker" in navigator){
-navigator.serviceWorker.register("service-worker.js");
-}
-
+tampilkanProduk();
 
 </script>
 
 </body>
-
 </html>
