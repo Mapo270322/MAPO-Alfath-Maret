@@ -414,7 +414,423 @@ class="notif">
 </div>
 
 <script src="produk.js"></script>
+<script>
 
+// =====================================
+// MAPO Maret v2.0
+// =====================================
+
+// ---------------------------
+// DATA
+// ---------------------------
+
+let keranjang =
+JSON.parse(localStorage.getItem("keranjang")) || [];
+
+let kategoriAktif = "Semua";
+
+// ---------------------------
+// NOTIFIKASI
+// ---------------------------
+
+function tampilkanNotif(teks){
+
+    const notif = document.getElementById("notif");
+
+    notif.innerHTML = teks;
+
+    notif.classList.add("show");
+
+    setTimeout(function(){
+
+        notif.classList.remove("show");
+
+    },1500);
+
+}
+
+// ---------------------------
+// TAMPILKAN PRODUK
+// ---------------------------
+
+function tampilkanProduk(){
+
+    const daftar =
+    document.getElementById("daftarProduk");
+
+    const cari =
+    document
+    .getElementById("cariProduk")
+    .value
+    .toLowerCase();
+
+    daftar.innerHTML = "";
+
+    produk.forEach(function(item,index){
+
+        if(
+            !item.nama
+            .toLowerCase()
+            .includes(cari)
+        ){
+            return;
+        }
+
+        if(
+            kategoriAktif!="Semua" &&
+            item.kategori!=kategoriAktif
+        ){
+            return;
+        }
+
+        let badge="";
+
+        if(item.bestSeller){
+
+            badge=`
+            <div style="
+            background:red;
+            color:white;
+            padding:5px;
+            border-radius:5px;
+            text-align:center;
+            margin-bottom:6px;
+            font-size:12px;">
+            ⭐ Best Seller
+            </div>
+            `;
+
+        }
+
+        daftar.innerHTML += `
+
+        <div class="card">
+
+            ${badge}
+
+            <img
+            src="${item.gambar}"
+            alt="${item.nama}"
+            onerror="this.src='noimage.png'">
+
+            <h4>${item.nama}</h4>
+
+            <p>${item.kategori}</p>
+
+            <p class="harga">
+
+            Rp
+            ${Number(item.harga)
+            .toLocaleString("id-ID")}
+
+            </p>
+
+            <button
+            class="btn btn-orange"
+            onclick="tambahKeKeranjang(${index})">
+
+            🛒 Tambah
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+// ---------------------------
+// TAMBAH KE KERANJANG
+// ---------------------------
+
+function tambahKeKeranjang(index){
+
+    let item = produk[index];
+
+    let ada =
+    keranjang.find(function(p){
+
+        return p.nama==item.nama;
+
+    });
+
+    if(ada){
+
+        ada.jumlah++;
+
+    }
+
+    else{
+
+        keranjang.push({
+
+            nama:item.nama,
+
+            harga:item.harga,
+
+            jumlah:1
+
+        });
+
+    }
+
+    simpanKeranjang();
+
+    tampilkanKeranjang();
+
+    tampilkanNotif(
+        "✅ "+item.nama+" ditambahkan"
+    );
+
+}
+
+// ---------------------------
+// SIMPAN
+// ---------------------------
+
+function simpanKeranjang(){
+
+    localStorage.setItem(
+
+        "keranjang",
+
+        JSON.stringify(keranjang)
+
+    );
+
+}
+
+// ---------------------------
+// TAMPILKAN KERANJANG
+// ---------------------------
+
+function tampilkanKeranjang(){
+
+    const list =
+    document.getElementById("listKeranjang");
+
+    const total =
+    document.getElementById("totalBelanja");
+
+    list.innerHTML="";
+
+    let jumlahTotal=0;
+
+    keranjang.forEach(function(item,index){
+
+        jumlahTotal +=
+        item.harga * item.jumlah;
+
+        list.innerHTML += `
+
+        <li>
+
+            <div>
+
+            <b>${item.nama}</b><br>
+
+            Rp
+            ${item.harga.toLocaleString("id-ID")}
+
+            × ${item.jumlah}
+
+            </div>
+
+            <button
+            onclick="hapusItem(${index})">
+
+            ❌
+
+            </button>
+
+        </li>
+
+        `;
+
+    });
+
+    total.innerHTML=
+
+    "<b>Total : Rp "
+
+    +
+
+    jumlahTotal.toLocaleString("id-ID")
+
+    +
+
+    "</b>";
+
+}
+
+// ---------------------------
+// HAPUS ITEM
+// ---------------------------
+
+function hapusItem(index){
+
+    keranjang.splice(index,1);
+
+    simpanKeranjang();
+
+    tampilkanKeranjang();
+
+}
+
+// ---------------------------
+// KOSONGKAN
+// ---------------------------
+
+function kosongkanKeranjang(){
+
+    if(!confirm("Kosongkan keranjang?")){
+
+        return;
+
+    }
+
+    keranjang=[];
+
+    simpanKeranjang();
+
+    tampilkanKeranjang();
+
+}
+
+// ---------------------------
+// SEARCH
+// ---------------------------
+
+function cariProduk(){
+
+    tampilkanProduk();
+
+}
+
+// ---------------------------
+// FILTER
+// ---------------------------
+
+function filterKategori(kategori){
+
+    kategoriAktif = kategori;
+
+    tampilkanProduk();
+
+}
+
+// ---------------------------
+// WHATSAPP
+// ---------------------------
+
+function kirimWA(){
+
+    if(keranjang.length==0){
+
+        alert("Keranjang masih kosong");
+
+        return;
+
+    }
+
+    let pesan =
+    "Halo MAPO Maret%0A";
+
+    pesan +=
+    "Saya ingin memesan:%0A%0A";
+
+    let total=0;
+
+    keranjang.forEach(function(item){
+
+        let subtotal =
+        item.harga * item.jumlah;
+
+        total += subtotal;
+
+        pesan +=
+
+        "• "
+
+        +
+
+        item.nama
+
+        +
+
+        " x"
+
+        +
+
+        item.jumlah
+
+        +
+
+        " = Rp "
+
+        +
+
+        subtotal.toLocaleString("id-ID")
+
+        +
+
+        "%0A";
+
+    });
+
+    pesan +=
+
+    "%0A"
+
+    +
+
+    "Total : Rp "
+
+    +
+
+    total.toLocaleString("id-ID");
+
+    window.open(
+
+        "https://wa.me/6282293311345?text="+pesan,
+
+        "_blank"
+
+    );
+
+}
+
+// ---------------------------
+// START
+// ---------------------------
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+    tampilkanProduk();
+
+    tampilkanKeranjang();
+
+    if("serviceWorker" in navigator){
+
+        navigator.serviceWorker.register(
+
+        "service-worker.js"
+
+        );
+
+    }
+
+}
+
+);
+
+</script>
 <!-- JavaScript akan dimasukkan pada BAGIAN 2 -->
 
 </body>
