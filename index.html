@@ -1,451 +1,421 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MAPO Maret</title>
 
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a8f08">
+
 <style>
-body {
-margin: 0;
-font-family: Arial;
-background: #f5f5f5;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.header {
-background: green;
-color: white;
-text-align: center;
-padding: 15px;
-}
-.header {
-background: green;
-color: white;
-text-align: center;
-padding: 15px;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f5;
 }
 
-/* ⬇️ TARUH DI SINI */
-.logo-row {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 10px;
+/* ==========================
+HEADER
+========================== */
+
+.header{
+    background:green;
+    color:white;
+    text-align:center;
+    padding:15px;
 }
 
-.logo-kiri {
-width: 40px;
+.logo-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
 }
 
-.logo {
-width: 60px;
-}
-.container {
-padding: 10px;
+.logo-kiri{
+    width:40px;
 }
 
-.grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
+.logo{
+    width:60px;
 }
 
-.card {
-background: white;
-border-radius: 10px;
-padding: 10px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-  border-radius:8px;
+/* ==========================
+BUTTON
+========================== */
+
+button{
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-.card h4 {
-font-size: 14px;
-margin: 5px 0;
+.btn{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
 }
 
-.card p {
-margin: 5px 0;
-font-weight: bold;
-color: #28a745;
+.btn-green{
+    background:#28a745;
+    color:white;
 }
 
-button {
-width: 100%;
-background: orange;
-color: black;
-border: none;
-padding: 10px;
-border-radius: 8px;
-margin-top: 5px;
-}
-.notif {
-position: fixed;
-bottom: 20px;
-left: 20px;
-transform: translateX(-50%);;
-background: black;
-color: white;
-padding: 10px 20px;
-border-radius: 20px;
-display: none;
-font-weight: bold;
-z-index: 999;
-opacity: 0;
-transition : all 0.3s ease;
-}
-.notif.show {
-opacity: 1;
-}
-#listKeranjang li {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin: 8px 0;
+.btn-orange{
+    background:orange;
+    color:black;
 }
 
-#listKeranjang button {
-background: red;
-color: white;
-border: none;
-padding: 5px 10px;
-border-radius: 5px;
-width: auto;
+.btn-red{
+    background:red;
+    color:white;
 }
-  .kategori-filter{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:10px;
+
+/* ==========================
+CONTAINER
+========================== */
+
+.container{
+    padding:10px;
+}
+
+/* ==========================
+KERANJANG
+========================== */
+
+.keranjang{
+    background:white;
+    border-radius:10px;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+#listKeranjang{
+    list-style:none;
+    margin-top:10px;
+}
+
+#listKeranjang li{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin:8px 0;
+}
+
+#listKeranjang button{
+
+    width:auto;
+    padding:5px 10px;
+
+    background:red;
+    color:white;
+}
+
+/* ==========================
+SEARCH
+========================== */
+
+#cariProduk{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    margin:10px 0;
+
+}
+
+/* ==========================
+FILTER
+========================== */
+
+.kategori-filter{
+
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+
 }
 
 .kategori-filter button{
-  width:auto;
-  white-space:nowrap;
-  background:#28a745;
-  color:white;
-  padding:8px 15px;
-  border-radius:20px;
+
+    width:auto;
+
+    padding:8px 15px;
+
+    background:#28a745;
+
+    color:white;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
 }
+
+/* ==========================
+JUDUL
+========================== */
+
+.judul{
+
+    background:#28a745;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================
+GRID PRODUK
+========================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    display:block;
+
+}
+
+.card h4{
+
+    margin:8px 0;
+
+    font-size:15px;
+
+}
+
+.card p{
+
+    margin:4px 0;
+
+}
+
+.harga{
+
+    color:#28a745;
+
+    font-weight:bold;
+
+}
+
+/* ==========================
+NOTIFIKASI
+========================== */
+
+.notif{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:black;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    display:none;
+
+    z-index:999;
+
+}
+
+.show{
+
+    display:block;
+
+}
+
 </style>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a8f08">
+
 </head>
 
 <body>
 
 <div class="header">
-<div class="logo-row">
-<img src="fifa26.jpg" class="logo-kiri">
-<img src="logo8.png" class="logo">
+
+    <div class="logo-row">
+
+        <img src="fifa26.jpg" class="logo-kiri">
+
+        <img src="logo8.png" class="logo">
+
+    </div>
+
+    <h2>MAPO Maret</h2>
+
+    <p>Toko Kebutuhan Harian</p>
+
+    <p>Mudah Dijangkau & Harga Terjangkau</p>
+
+    <p>Jl. Sungai Siak 611 Ketang Baru Manado</p>
+
 </div>
 
-<h2>MAPO Maret</h2>
-<p>Toko Kebutuhan Harian</p>
-<p>Mudah Dijangkau & Harga Terjankau</p>
-<p>Jl.Sungai Siak 611 Ketang Baru Manado</p>
-</div>
 <audio id="lagu">
-<source src="mapo.mp3" type="audio/mpeg">
+
+    <source src="mapo.mp3" type="audio/mpeg">
+
 </audio>
 
-<button onclick="document.getElementById('lagu').play()">
+<button class="btn btn-orange"
+onclick="document.getElementById('lagu').play()">
+
 ▶️ Putar Lagu MAPO
+
 </button>
 
+<div class="container">
 
-<!-- DOWNLOAD -->
-<div style="text-align:center; margin-bottom:10px;">
-<a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk" target="_blank">
-<button style="background:green;">📥 Download Aplikasi</button>
+<a href="https://drive.google.com/file/d/1q8tme7-0YLtaZ4vVVEE5ZLXRIWzWMwX7/view?usp=drivesdk"
+target="_blank">
+
+<button class="btn btn-green">
+
+📥 Download Aplikasi
+
+</button>
+
 </a>
-</div>
 
-<!-- KERANJANG -->
-<div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
+<div class="keranjang">
+
 <h3>🛒 Keranjang</h3>
-<ul id="listKeranjang"></ul>
-<div id="totalBelanja"></div>
-</div>
-<button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
 
-<button onclick="kosongkanKeranjang()">
+<ul id="listKeranjang"></ul>
+
+<div id="totalBelanja"></div>
+
+</div>
+
+<button
+class="btn btn-green"
+onclick="kirimWA()">
+
+📲 Pesan via WhatsApp
+
+</button>
+
+<button
+class="btn btn-red"
+onclick="kosongkanKeranjang()">
+
 🗑 Kosongkan Keranjang
+
 </button>
 
 <input
-type="text"
 id="cariProduk"
+type="text"
 placeholder="🔍 Cari produk..."
-onkeyup="cariProduk()"
-style="width:95%;padding:15px;margin:10px;border-radius:8px;border:1px solid #ccc;">
+onkeyup="cariProduk()">
+
 <div class="kategori-filter">
-<button onclick="filterKategori('Semua')">Semua</button>
-<button onclick="filterKategori('Beras')">🌾 Beras</button>
-<button onclick="filterKategori('Minyak Goreng')">🛢️ Minyak</button>
-<button onclick="filterKategori('Telur')">🥚 Telur</button>
+
+<button onclick="filterKategori('Semua')">
+Semua
+</button>
+
+<button onclick="filterKategori('Beras')">
+🌾 Beras
+</button>
+
+<button onclick="filterKategori('Minyak Goreng')">
+🛢️ Minyak
+</button>
+
+<button onclick="filterKategori('Telur')">
+🥚 Telur
+</button>
+
 </div>
-<!-- JUDUL -->
-<div style="background:#28a745; color:white; padding:10px; border-radius:10px;">
-<h3 style="text-align:center;">Daftar Menu</h3>
+
+<div class="judul">
+
+<h3>Daftar Menu</h3>
+
 </div>
-<div class="container">
-<div class="grid" id="daftarProduk">
+
+<div
+class="grid"
+id="daftarProduk">
+
 </div>
-<div id="notif" class="notif"></div>
-<!-- PRODUK -->
+
 </div>
+
+<div
+id="notif"
+class="notif">
+
+</div>
+
 <script src="produk.js"></script>
 
-<script>
-// =======================================
-// MAPO Maret v2.0 Stable
-// =======================================
+<!-- JavaScript akan dimasukkan pada BAGIAN 2 -->
 
-let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
-let kategoriAktif = "Semua";
-
-// ==========================
-// NOTIFIKASI
-// ==========================
-function tampilkanNotif(teks){
-    const notif = document.getElementById("notif");
-
-    notif.innerHTML = teks;
-    notif.style.display = "block";
-    notif.classList.add("show");
-
-    setTimeout(()=>{
-        notif.classList.remove("show");
-        notif.style.display="none";
-    },1500);
-}
-
-// ==========================
-// TAMPILKAN PRODUK
-// ==========================
-function tampilkanProduk(){
-
-    const daftar = document.getElementById("daftarProduk");
-    const kataCari = document.getElementById("cariProduk").value.toLowerCase();
-
-    daftar.innerHTML="";
-
-    produk.forEach((item,index)=>{
-
-        if(!item.nama.toLowerCase().includes(kataCari)) return;
-
-        if(kategoriAktif!="Semua" && item.kategori!=kategoriAktif) return;
-
-        daftar.innerHTML += `
-        <div class="card">
-
-            ${item.bestSeller ? `
-            <div style="
-            background:red;
-            color:white;
-            padding:5px;
-            border-radius:5px;
-            text-align:center;
-            font-size:12px;
-            margin-bottom:5px;">
-            ⭐ Best Seller
-            </div>` : ""}
-
-            <img src="${item.gambar}"
-                 onerror="this.src='noimage.png'">
-
-            <h4>${item.nama}</h4>
-
-            <p>${item.kategori}</p>
-
-            <p>
-            Rp ${Number(item.harga).toLocaleString("id-ID")}
-            </p>
-
-            <button onclick="tambahKeKeranjang(${index})">
-            🛒 Tambah
-            </button>
-
-        </div>
-        `;
-
-    });
-
-}
-
-// ==========================
-// TAMBAH KE KERANJANG
-// ==========================
-function tambahKeKeranjang(index){
-
-    let item = produk[index];
-
-    let ada = keranjang.find(p=>p.nama==item.nama);
-
-    if(ada){
-        ada.jumlah++;
-    }else{
-
-        keranjang.push({
-            nama:item.nama,
-            harga:item.harga,
-            jumlah:1
-        });
-
-    }
-
-    localStorage.setItem(
-        "keranjang",
-        JSON.stringify(keranjang)
-    );
-
-    tampilkanKeranjang();
-
-    tampilkanNotif("✅ "+item.nama+" ditambahkan");
-
-}
-
-// ==========================
-// TAMPILKAN KERANJANG
-// ==========================
-function tampilkanKeranjang(){
-
-    const list = document.getElementById("listKeranjang");
-    const total = document.getElementById("totalBelanja");
-
-    list.innerHTML="";
-
-    let jumlahTotal=0;
-
-    keranjang.forEach((item,index)=>{
-
-        jumlahTotal += item.harga*item.jumlah;
-
-        list.innerHTML += `
-        <li>
-
-            <div>
-                <b>${item.nama}</b><br>
-                Rp ${item.harga.toLocaleString("id-ID")}
-                × ${item.jumlah}
-            </div>
-
-            <button onclick="hapusItem(${index})">
-            ❌
-            </button>
-
-        </li>
-        `;
-
-    });
-
-    total.innerHTML=
-    "<b>Total : Rp "+
-    jumlahTotal.toLocaleString("id-ID")+
-    "</b>";
-
-}
-
-// ==========================
-// HAPUS ITEM
-// ==========================
-function hapusItem(index){
-
-    keranjang.splice(index,1);
-
-    localStorage.setItem(
-        "keranjang",
-        JSON.stringify(keranjang)
-    );
-
-    tampilkanKeranjang();
-
-}
-
-// ==========================
-// KOSONGKAN
-// ==========================
-function kosongkanKeranjang(){
-
-    keranjang=[];
-
-    localStorage.removeItem("keranjang");
-
-    tampilkanKeranjang();
-
-}
-
-// ==========================
-// CARI
-// ==========================
-function cariProduk(){
-    tampilkanProduk();
-}
-
-// ==========================
-// FILTER
-// ==========================
-function filterKategori(kategori){
-
-    kategoriAktif=kategori;
-
-    tampilkanProduk();
-
-}
-
-// ==========================
-// WHATSAPP
-// ==========================
-function kirimWA(){
-
-    if(keranjang.length==0){
-
-        alert("Keranjang masih kosong.");
-
-        return;
-
-    }
-
-    let pesan="Halo MAPO Maret,%0ASaya ingin memesan:%0A%0A";
-
-    let total=0;
-
-    keranjang.forEach(item=>{
-
-        pesan +=
-        "- "+item.nama+
-        " x"+item.jumlah+
-        " = Rp "+
-        (item.harga*item.jumlah).toLocaleString("id-ID")+
-        "%0A";
-
-        total += item.harga*item.jumlah;
-
-    });
-
-    pesan += "%0ATotal : Rp "+total.toLocaleString("id-ID");
-
-    window.open(
-        "https://wa.me/6282293311345?text="+pesan,
-        "_blank"
-    );
-
-}
-
-// ==========================
-// START
-// ==========================
-tampilkanProduk();
-tampilkanKeranjang();
-
-if("serviceWorker" in navigator){
-
-    navigator.serviceWorker.register("service-worker.js");
-
-}
+</body>
+</html>
