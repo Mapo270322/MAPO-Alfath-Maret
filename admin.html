@@ -231,9 +231,9 @@ function tampilkanProduk(){
             <td>Rp ${rupiah(item.harga)}</td>
             <td>${item.bestSeller ? "⭐" : "-"}</td>
             <td>
-                <button onclick="editProduk(${i})">Edit</button>
-                <button onclick="tambah(${i})">Hapus</button>
-                 <button onclick="hapusProduk(${i})">Hapus</button>
+                <button onclick="editProduk(${index})">Edit</button>
+                <button onclick="tambah(${index})">Tambah</button>
+                 <button onclick="hapusProduk(${index})">Hapus</button>
             </td>
         </tr>
         `;
