@@ -508,10 +508,12 @@ function tampilkanProduk(){
 
             ${badge}
 
-            <img
-            src="${item.gambar}"
-            alt="${item.nama}"
-            onerror="this.src='noimage.png'">
+        <img
+    src="${item.gambar}"
+    alt="${item.nama}"
+    loading="lazy"
+    decoding="async"
+    onerror="this.src='noimage.png'">
 
             <h4>${item.nama}</h4>
 
