@@ -183,181 +183,121 @@ padding:10px; border-radius:10px;">
 </div>
 
 <script>
+let keranjang =
+JSON.parse(localStorage.getItem("keranjang")) || [];
 
-let keranjang=
-JSON.parse(localStorage.getltem("keranjang"))
-110;
+function simpanKeranjang(){
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+}
+
+// =======================
+// TAMBAH
+// =======================
+
 function tambahKeKeranjang(nama,harga){
 
-let item =keranjang.find(p=>p.nama===nama);
+let item = keranjang.find(p=>p.nama===nama);
 
-if (item){
-item.jumlah++;
+if(item){
+    item.jumlah++;
 }else{
-keranjang.push({
-nama:nama,
-harga:harga,
-jumlah:1
-});
+    keranjang.push({nama,harga,jumlah:1});
+}
 
-
-localStorage.setltem("keranjang",
-JSON.stringify(keranjang));
+simpanKeranjang();
 tampilkanKeranjang();
 
+}
+
+// =======================
+// HAPUS
+// =======================
 
 function hapusDariKeranjang(index){
+
 keranjang.splice(index,1);
-localStorage.setltem("keranjang",
-JSON.stringify(keranjang));
-tampilkanKeranjang();
-function tambahJumlah(index){
-keranjang[index].jumlah++;
-
-localStorage.setltem("keranjang",
-JSON.stringify(keranjang));
+simpanKeranjang();
 tampilkanKeranjang();
 
+}
 
-function kurangJumlah(index){
-if(keranjang[index].jumlah>1){
-keranjang[index].jumlah-;
-}else{
-keranjang.splice(index,1);
-
-
-localStorage.setltem("keranjang",
-JSON.stringify(keranjang));
-tampilkanKeranjang();
-function kosongkanKeranjang(){
-if (confirmn("Yakin ingin mengosongkan keranjang?")){
-keranjang=0;
-localStorage.removeltem("keranjang");
-tampilkanKeranjang();
-
-
-
-
-
-
-localStorage.setltem("keranjang",
-JSON.stringify(keranjang));
-tampilkanKeranjang();
-
+// =======================
+// TAMPILKAN KERANJANG
+// =======================
 
 function tampilkanKeranjang(){
-let list=
-document.getElementByld("listKeranjang");
-list.innerHTML=";
 
-lettotal=0;
+let list = document.getElementById("listKeranjang");
+list.innerHTML = "";
+
+let total = 0;
 
 keranjang.forEach((item,index)=>{
 
 let li = document.createElement("li");
 
-li.innerHTML=
+li.innerHTML =
 "<b>"+item.nama+"</b><br>"+
-"Rp "+ Number(item.harga).toLocaleString("id-
-ID")+
-"<br>"+
-'<button onclick="kurangJumlah('+index+')">-</button>'+
-item.jumlah +
-' <button onclick="tambahJumlah(' + index+
-')">+</button>'+
-'<button onclick="hapusDariKeranjang(' + index
-+')">Hapus</button>';
+"Rp "+Number(item.harga).toLocaleString("id-ID")+
+" x "+item.jumlah+
+" <button onclick='hapusDariKeranjang("+index+")'>Hapus</button>";
+
 list.appendChild(li);
 
-total+= Number(item.harga)*item.jumlah;
+total += item.harga * item.jumlah;
+
 });
 
-document.getElementByld("totalBelanja").innerH
-TML=
-"<b>Total:Rp"+
-total.toLocaleString("id-ID")+
-"</b>";
+document.getElementById("totalBelanja").innerHTML =
+"<b>Total: Rp "+total.toLocaleString("id-ID")+"</b>";
+
 }
 
+// =======================
+// PRODUK
+// =======================
 
-function kirimWA(){
-keranjang=0l;
-tampilkanKeranjang();
-
-let pesan = "Pesanan saya:%0A";
-lettotal=0;
-keranjang.forEach((item,i)=>{
-pesan+=
-(i+1)+
-"."+
-item.nama+
-"-Rp"+
-item.harga+
-"%0A";
-
-total+= Number(item.harga);
-});
-
-pesan += "%0ATotal: Rp "+ total;
-
-window.open(
-"https://wa.me/6287762803657?text="+pesan
-function cariProduk(){
-let input=
-document.getElementByld("cariProduk").value.to LowerCase();
-
-let card = document.querySelectorAll(".card");
-
-card.forEach(function(item){
-let nama=
-item.querySelector("h4").innerText.toLowerCase();
-
-if (nama.indexOf(input)>-1){
-item.style.display=";
-}else{
-item.style.display = "none";
-}
-});
-}
 function tampilkanProdukAdmin(){
-let daftar=
-document.getElementByld("daftarProduk");
 
-if (!daftar) return;
+let daftar = document.getElementById("daftarProduk");
+if(!daftar) return;
 
-let produk=
-JSON.parse(localStorage.getltem("produk")) || 0;
+let produk =
+JSON.parse(localStorage.getItem("produk")) || [];
 
-daftar.innerHTML=";
+daftar.innerHTML = "";
 
-produk.forEach(function(item){
+produk.forEach(item=>{
 
-daftar.innerHTML += &lt;div class="card"&gt;
-&lt;img src="${item.gambar}">
-<h4>${item.nama}&lt;/h4&gt; &lt;p&gt;Rp $
-{Number(item.harga).toLocaleString("id-ID")}</p>
+daftar.innerHTML += `
+<div class="card">
+<img src="${item.gambar}" onerror="this.src='noimage.png'">
+<h4>${item.nama}</h4>
+<p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
-<button onclick="tambahKeKeranjang("$
-{item.nama}', ${item.harga})">
+<button onclick="tambahKeKeranjang('${item.nama}',${item.harga})">
 Tambah
 </button>
-
 </div>
-
+`;
 
 });
 
 }
+
+// =======================
+// INIT
+// =======================
+
 tampilkanProdukAdmin();
-
-if("serviceWorker" in navigator) {
-navigator.serviceWorker.register("service-worker.js");
-
-
 tampilkanKeranjang();
+
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("service-worker.js");
+}
+
+
 </script>
-
-
 
 </body>
 
