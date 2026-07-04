@@ -201,13 +201,15 @@ style="width:95%;padding:15px;margin:10px;border-radius:8px;border:1px solid #cc
 <!-- PRODUK -->
 </div>
 <script src="produk.js"></script>
+
 <script>
-  // ======================================
-// MAPO Maret v1.0 Stable
+
+// ======================================
+// MAPO Maret v2.0
+// BAGIAN 1
 // ======================================
 
 // Variabel Global
-
 let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
 let kategoriAktif = "Semua";
 
@@ -219,55 +221,62 @@ function tampilkanNotif(teks){
 
   let notif = document.getElementById("notif");
 
+  if(!notif) return;
+
   notif.innerHTML = teks;
   notif.style.display = "block";
 
   setTimeout(function(){
-
     notif.style.display = "none";
-
   },1500);
 
 }
-
 
 // ======================================
 // TAMPILKAN PRODUK
 // ======================================
 
-
 function tampilkanProduk(){
 
   let daftar = document.getElementById("daftarProduk");
+
+  if(!daftar) return;
+
   daftar.innerHTML = "";
 
-  let kataCari = document.getElementById("cariProduk").value.toLowerCase();
+  let inputCari = document.getElementById("cariProduk");
+
+  let kataCari = "";
+
+  if(inputCari){
+    kataCari = inputCari.value.toLowerCase();
+  }
 
   produk.forEach(function(item,index){
-    if (!item.nama.toLowerCase().includes(kataCari)) {
-  return;
-}
 
-if (kategoriAktif != "Semua" && item.kategori != kategoriAktif) {
-  return;
-}
+    if(!item.nama.toLowerCase().includes(kataCari)){
+      return;
+    }
 
-    // kode yang menampilkan card produk
+    if(kategoriAktif != "Semua" &&
+       item.kategori != kategoriAktif){
+      return;
+    }
+
     let badge = "";
 
     if(item.bestSeller){
-
       badge =
       '<div style="background:red;color:white;padding:5px;border-radius:6px;text-align:center;font-size:12px;margin-bottom:5px;">⭐ Best Seller</div>';
-
     }
 
     daftar.innerHTML += `
+
 <div class="card">
 
-<p>TES GAMBAR</p>
+${badge}
 
-<img src="${item.gambar}" alt="${item.nama}" style="width:100%;height:180px;border:3px solid red;display:block;">
+<img src="${item.gambar}" alt="${item.nama}" class="gambarProduk">
 
 <h4>${item.nama}</h4>
 
@@ -276,107 +285,15 @@ if (kategoriAktif != "Semua" && item.kategori != kategoriAktif) {
 <p>Rp ${Number(item.harga).toLocaleString("id-ID")}</p>
 
 <button onclick="tambahKeKeranjang(${index})">
+
 🛒 Tambah
+
 </button>
 
 </div>
+
 `;
-  // ======================================
-// TAMBAH KE KERANJANG
-// ======================================
-
-function tambahKeKeranjang(index){
-  
-function tampilkanKeranjang(){
-
-  let list = document.getElementById("listKeranjang");
-  let total = document.getElementById("totalBelanja");
-
-  list.innerHTML = "";
-
-  let jumlahTotal = 0;
-
-  keranjang.forEach(function(item,index){
-
-    jumlahTotal += item.harga * item.jumlah;
-
-    list.innerHTML += `
-      <li>
-        <b>${item.nama}</b><br>
-        Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
-      </li>
-    `;
 
   });
 
-  total.innerHTML =
-  "<b>Total: Rp " +
-  jumlahTotal.toLocaleString("id-ID") +
-  "</b>";
 }
-  function tambahKeKeranjang(index){
-
-  let item = produk[index];
-
-  let ada = keranjang.find(function(p){
-    return p.nama === item.nama;
-  });
-
-  if (ada){
-    ada.jumlah++;
-  } else {
-    keranjang.push({
-      nama: item.nama,
-      harga: item.harga,
-      jumlah: 1
-    });
-  }
-
-  localStorage.setItem("keranjang", JSON.stringify(keranjang));
-
-  tampilkanKeranjang();
-
-  tampilkanNotif("✅ " + item.nama + " ditambahkan");
-}
-  let item = produk[index];
-
-  let ada = keranjang.find(function(p){
-    return p.nama === item.nama;
-  });
-
-  if (ada) {
-    ada.jumlah++;
-  } else {
-    keranjang.push({
-      nama: item.nama,
-      harga: item.harga,
-      jumlah: 1
-    });
-  }
-
-  localStorage.setItem("keranjang", JSON.stringify(keranjang));
-
-  tampilkanKeranjang();
-
-  tampilkanNotif("✅ " + item.nama + " ditambahkan");
-}
-function cariProduk(){
-  tampilkanProduk();
-}
-
-function filterKategori(kategori){
-  kategoriAktif = kategori;
-  tampilkanProduk();
-}
-
-tampilkanProduk();
-tampilkanKeranjang();
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-</script>
-
-</body>
-</html>
-
