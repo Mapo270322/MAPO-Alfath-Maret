@@ -172,7 +172,11 @@ FILTER
     white-space:nowrap;
 
 }
-
+.kategori-filter button.active{
+    background:#ff9800;
+    color:white;
+    font-weight:bold;
+}
 /* ==========================
 JUDUL
 ========================== */
@@ -217,8 +221,16 @@ GRID PRODUK
 
     box-shadow:0 2px 8px rgba(0,0,0,.1);
 
-}
+    transition:0.25s ease;
 
+}
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.2);
+
+}
 .card img{
 
     width:100%;
@@ -343,7 +355,10 @@ target="_blank">
 
 <div class="keranjang">
 
-<h3>🛒 Keranjang</h3>
+<h3 id="judulKeranjang">
+🛒 Keranjang (0)
+</h3>
+
 
 <ul id="listKeranjang"></ul>
 
@@ -428,6 +443,12 @@ let keranjang =
 JSON.parse(localStorage.getItem("keranjang")) || [];
 
 let kategoriAktif = "Semua";
+function rupiah(angka){
+
+    return Number(angka)
+    .toLocaleString("id-ID");
+
+}
 
 // ---------------------------
 // NOTIFIKASI
@@ -465,9 +486,12 @@ function tampilkanProduk(){
     .toLowerCase();
 
     daftar.innerHTML = "";
+const daftarProduk = [...produk].sort((a,b)=>{
 
-    produk.forEach(function(item,index){
+    return b.bestSeller - a.bestSeller;
 
+});
+daftarProduk.forEach(...)
         if(
             !item.nama
             .toLowerCase()
@@ -581,12 +605,26 @@ function tambahKeKeranjang(index){
     simpanKeranjang();
 
     tampilkanKeranjang();
+if(keranjang.length==0){
 
-    tampilkanNotif(
-        "✅ "+item.nama+" ditambahkan"
-    );
+    list.innerHTML=
+    "<center>Keranjang masih kosong</center>";
 
 }
+
+    simpanKeranjang();
+
+    tampilkanKeranjang();
+
+    tampilkanNotif(
+        "✅ " + item.nama + " ditambahkan"
+    );
+
+    if (navigator.vibrate) {
+        navigator.vibrate(100);
+    }
+
+    }
 
 // ---------------------------
 // SIMPAN
@@ -609,6 +647,19 @@ function simpanKeranjang(){
 // ---------------------------
 
 function tampilkanKeranjang(){
+
+
+    simpanKeranjang();
+
+    tampilkanKeranjang();
+
+    tampilkanNotif(
+        "✅ " + item.nama + " ditambahkan"
+    );
+
+    if (navigator.vibrate) {
+        navigator.vibrate(100);
+    }
 
     const list =
     document.getElementById("listKeranjang");
@@ -719,6 +770,12 @@ function filterKategori(kategori){
 
     kategoriAktif = kategori;
 
+    document
+        .querySelectorAll(".kategori-filter button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    event.target.classList.add("active");
+
     tampilkanProduk();
 
 }
@@ -817,6 +874,11 @@ function(){
     tampilkanProduk();
 
     tampilkanKeranjang();
+    const jumlahItem =
+keranjang.reduce((a,b)=>a+b.jumlah,0);
+
+document.getElementById("judulKeranjang").innerHTML =
+"🛒 Keranjang ("+jumlahItem+")";
 
     if("serviceWorker" in navigator){
 
