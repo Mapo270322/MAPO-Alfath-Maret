@@ -108,7 +108,7 @@ td{
 <div class="card">
 
 <h3>Tambah / Edit Produk</h3>
-
+<button onclick="tambah/editProduk(${i})">Tambah/Edit</button>
 <input type="hidden" id="editIndex">
 
 <label>Nama</label>
@@ -231,8 +231,8 @@ function tampilkanProduk(){
             <td>Rp ${rupiah(item.harga)}</td>
             <td>${item.bestSeller ? "⭐" : "-"}</td>
             <td>
-                <button onclick="editProduk(${index})">Edit</button>
-                 <button onclick="hapusProduk(${index})">Hapus</button>
+                <button onclick="editProduk(${i})">Edit</button>
+                 <button onclick="hapusProduk(${i})">Hapus</button>
             </td>
         </tr>
         `;
