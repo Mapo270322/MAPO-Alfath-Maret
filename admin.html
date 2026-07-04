@@ -161,7 +161,22 @@ td{
 
 </div>
 
-<script src="produk.js"></script>
+<script>
+
+let produkDefault = [
+  {
+    nama:"TELUR AYAM 10 btr",
+    harga:29000,
+    kategori:"Telur",
+    gambar:"telurayam.jpg",
+    bestSeller:true
+  }
+];
+
+let produk =
+JSON.parse(localStorage.getItem("produk")) || produkDefault;
+
+</script>
 
 <script>
 
