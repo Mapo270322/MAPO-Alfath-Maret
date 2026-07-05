@@ -31,7 +31,7 @@ const produk = [
     nama: "INDOMIE",
     harga: 3500,
     kategori: "MIE",
-    gambar: "indomie.jpg",
+    gambar: "Indomie.jpg",
     bestSeller: false
   },
 ];
