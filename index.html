@@ -462,16 +462,15 @@ function kirimWA(){
 
   let total = 0;
 
-  keranjang.forEach(function(item, no){
+  keranjang.forEach(function(item,no){
 
     let subtotal = item.harga * item.jumlah;
 
     pesan +=
     (no+1)+". "+item.nama+
-    "%0A   "+item.jumlah+" x Rp "+
-    item.harga.toLocaleString("id-ID")+
-    " = Rp "+
-    subtotal.toLocaleString("id-ID")+
+    "%0A   "+item.jumlah+
+    " x Rp "+item.harga.toLocaleString("id-ID")+
+    "%0A   = Rp "+subtotal.toLocaleString("id-ID")+
     "%0A%0A";
 
     total += subtotal;
@@ -481,10 +480,20 @@ function kirimWA(){
   pesan += "============================%0A";
   pesan += "TOTAL : Rp ";
   pesan += total.toLocaleString("id-ID");
-  pesan += "%0A%0ATerima kasih.";
+
+  let admin = confirm(
+    "Klik OK untuk Admin 1\n\n" +
+    "087762803657\n\n" +
+    "Klik Batal untuk Admin 2\n\n" +
+    "087898348509"
+  );
+
+  let nomor = admin
+      ? "6287762803657"
+      : "6287898348509";
 
   window.open(
-    "https://wa.me/6287762803657?text="+pesan,
+    "https://wa.me/"+nomor+"?text="+pesan,
     "_blank"
   );
 
