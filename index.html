@@ -374,6 +374,69 @@ function tambahKeKeranjang(index){
   tampilkanNotif("✅ " + item.nama + " ditambahkan");
 
 }
+    // ======================================
+// TAMBAH JUMLAH
+// ======================================
+
+function tambahJumlah(index){
+
+  keranjang[index].jumlah++;
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+}
+
+// ======================================
+// KURANG JUMLAH
+// ======================================
+
+function kurangJumlah(index){
+
+  if(keranjang[index].jumlah > 1){
+
+    keranjang[index].jumlah--;
+
+  }else{
+
+    keranjang.splice(index,1);
+
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+}
+
+// ======================================
+// HAPUS DARI KERANJANG
+// ======================================
+
+function hapusDariKeranjang(index){
+
+  keranjang.splice(index,1);
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+}
+
+// ======================================
+// KOSONGKAN KERANJANG
+// ======================================
+
+function kosongkanKeranjang(){
+
+  keranjang = [];
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+}
     function cariProduk(){
     tampilkanProduk();
 }
