@@ -437,6 +437,58 @@ function kosongkanKeranjang(){
   tampilkanKeranjang();
 
 }
+  // ======================================
+// PESAN VIA WHATSAPP
+// ======================================
+
+// ======================================
+// PESAN VIA WHATSAPP
+// ======================================
+
+function kirimWA(){
+
+  if(keranjang.length==0){
+
+    alert("Keranjang masih kosong.");
+
+    return;
+
+  }
+
+  let pesan =
+  "Assalamu'alaikum MAPO Alfath Maret%0A";
+  pesan += "============================%0A";
+  pesan += "Saya ingin memesan:%0A%0A";
+
+  let total = 0;
+
+  keranjang.forEach(function(item, no){
+
+    let subtotal = item.harga * item.jumlah;
+
+    pesan +=
+    (no+1)+". "+item.nama+
+    "%0A   "+item.jumlah+" x Rp "+
+    item.harga.toLocaleString("id-ID")+
+    " = Rp "+
+    subtotal.toLocaleString("id-ID")+
+    "%0A%0A";
+
+    total += subtotal;
+
+  });
+
+  pesan += "============================%0A";
+  pesan += "TOTAL : Rp ";
+  pesan += total.toLocaleString("id-ID");
+  pesan += "%0A%0ATerima kasih.";
+
+  window.open(
+    "https://wa.me/6287762803657?text="+pesan,
+    "_blank"
+  );
+
+}
     function cariProduk(){
     tampilkanProduk();
 }
