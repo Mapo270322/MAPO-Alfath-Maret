@@ -21,15 +21,15 @@ const produk = [
     bestSeller: false
   },
   {
-    nama: "BIMOLI 2L",
-    harga: 48500,
+    nama: "BIMOLI 1 ltr",
+    harga: 24500,
     kategori: "Minyak Goreng",
     gambar: "bimoli.jpg",
     bestSeller: true
   },
   {
     nama: "INDOMIE",
-    harga: 83999,
+    harga: 3500,
     kategori: "MIE",
     gambar: "indomie.jpg",
     bestSeller: false
