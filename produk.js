@@ -3,7 +3,7 @@ const produk = [
     nama: "TELUR AYAM 10 btr",
     harga: 29000,
     kategori: "Telur",
-    gambar: "telurayam.jpg",
+    gambar: "telurayam10.jpg",
     bestSeller: true
   },
   {
