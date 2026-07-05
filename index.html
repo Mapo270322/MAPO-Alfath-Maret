@@ -253,7 +253,85 @@ function tampilkanProduk(){
     if(!item.nama.toLowerCase().includes(kataCari)){
       return;
     }
+// ======================================
+// KERANJANG BELANJA
+// ======================================
 
+function tampilkanKeranjang(){
+
+  let list = document.getElementById("listKeranjang");
+  let total = document.getElementById("totalBelanja");
+
+  if(!list || !total) return;
+
+  list.innerHTML = "";
+
+  let jumlahTotal = 0;
+
+  keranjang.forEach(function(item,index){
+
+    jumlahTotal += item.harga * item.jumlah;
+
+    list.innerHTML += `
+      <li>
+
+        <b>${item.nama}</b><br>
+
+        Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
+
+        <br>
+
+        <button onclick="kurangJumlah(${index})">➖</button>
+
+        <button onclick="tambahJumlah(${index})">➕</button>
+
+        <button onclick="hapusDariKeranjang(${index})">🗑️</button>
+
+      </li>
+    `;
+
+  });
+
+  total.innerHTML =
+  "<b>Total : Rp " +
+  jumlahTotal.toLocaleString("id-ID") +
+  "</b>";
+
+}
+
+// ======================================
+// TAMBAH KE KERANJANG
+// ======================================
+
+function tambahKeKeranjang(index){
+
+  let item = produk[index];
+
+  let ada = keranjang.find(function(p){
+    return p.nama === item.nama;
+  });
+
+  if(ada){
+
+    ada.jumlah++;
+
+  }else{
+
+    keranjang.push({
+      nama: item.nama,
+      harga: item.harga,
+      jumlah: 1
+    });
+
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+  tampilkanNotif("✅ " + item.nama + " ditambahkan");
+
+}
     if(kategoriAktif != "Semua" &&
        item.kategori != kategoriAktif){
       return;
