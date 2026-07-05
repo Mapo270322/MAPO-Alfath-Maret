@@ -14,11 +14,18 @@ const produk = [
     bestSeller: true
   },
   {
-    nama: "DUA MERPATI",
+    nama: "DUA MERPATI 5kg",
     harga: 83999,
     kategori: "Beras",
     gambar: "beras.jpg",
     bestSeller: false
+  },
+  {
+    nama: "SPHP 5kg",
+    harga: 62000,
+    kategori: "Beras",
+    gambar: "sphp1",
+    bestSeller: fals
   },
   {
     nama: "BIMOLI 1 ltr",
@@ -29,9 +36,17 @@ const produk = [
   },
   {
     nama: "INDOMIE",
-    harga: 3500,
+    harga: 2500,
     kategori: "MIE",
     gambar: "Indomie.jpg",
     bestSeller: false
+  },
+  {
+    nama: "INDOMIE JUMBO",
+    harga: 4600,
+    kategori: "MIE",
+    gambar: "Indomiejumbo.jpg",
+    bestSeller: false
+
   },
 ];
