@@ -83,6 +83,18 @@ padding: 10px;
 border-radius: 8px;
 margin-top: 5px;
 }
+.btn-admin{
+  width:100%;
+  background:#25D366;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  margin-top:8px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
 .notif {
 position: fixed;
 bottom: 20px;
@@ -172,7 +184,20 @@ border-radius:20px;
 <div id="totalBelanja"></div>
 </div>
 <button onclick="kirimWA()">📲 Pesan via WhatsApp</button>
+  
+<div id="pilihAdmin" style="display:none; margin-top:10px;">
 
+  <button onclick="kirimAdmin('6287762803657')" class="btn-admin">
+  🟢 Admin 1<br>
+  087762803657
+  </button>
+
+  <button onclick="kirimAdmin('6287898348509')" class="btn-admin">
+  🟢 Admin 2<br>
+  087898348509
+  </button>
+
+</div>
 <button onclick="kosongkanKeranjang()">
 🗑 Kosongkan Keranjang
 </button>
