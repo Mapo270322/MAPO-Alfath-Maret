@@ -33,5 +33,5 @@ const produk = [
     kategori: "MIE",
     gambar: "indomie.jpg",
     bestSeller: false
-  }
+  },
 ];
