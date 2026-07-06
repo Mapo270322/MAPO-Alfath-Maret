@@ -24,7 +24,7 @@ const produk = [
     nama: "SPHP 5kg",
     harga: 62000,
     kategori: "Beras",
-    gambar: "sphp1",
+    gambar: "sphp1.jpg",
     bestSeller: fals
   },
   {
@@ -45,7 +45,7 @@ const produk = [
     nama: "INDOMIE JUMBO",
     harga: 4600,
     kategori: "MIE",
-    gambar: "Indomiejumbo.jpg",
+    gambar: "indomiejumbo.jpg",
     bestSeller: false
 
   },
