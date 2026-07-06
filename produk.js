@@ -21,13 +21,6 @@ const produk = [
     bestSeller: false
   },
   {
-    nama: "SPHP 5kg",
-    harga: 62000,
-    kategori: "Beras",
-    gambar: "sphp1.jpg",
-    bestSeller: fals
-  },
-  {
     nama: "BIMOLI 1 ltr",
     harga: 24500,
     kategori: "Minyak Goreng",
@@ -47,6 +40,5 @@ const produk = [
     kategori: "MIE",
     gambar: "indomiejumbo.jpg",
     bestSeller: false
-
   },
 ];
