@@ -34,11 +34,4 @@ const produk = [
     gambar: "Indomie.jpg",
     bestSeller: false
   },
-  {
-    nama: "INDOMIE JUMBO",
-    harga: 4600,
-    kategori: "MIE",
-    gambar: "indomiejumbo.jpg",
-    bestSeller: false
-  },
 ];
