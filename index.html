@@ -441,16 +441,36 @@ function kurangJumlah(index){
 }
 
 // ======================================
+// TAMBAH JUMLAH
+// ======================================
+
+function tambahJumlah(index){
+
+  keranjang[index].jumlah++;
+
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+  tampilkanKeranjang();
+
+}
+
+// ======================================
 // HAPUS DARI KERANJANG
 // ======================================
 
 function hapusDariKeranjang(index){
 
-  keranjang.splice(index,1);
+  if(confirm("Hapus produk ini dari keranjang?")){
 
-  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    keranjang.splice(index,1);
 
-  tampilkanKeranjang();
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+    tampilkanKeranjang();
+
+    tampilkanNotif("🗑️ Produk dihapus");
+
+  }
 
 }
 
@@ -460,13 +480,60 @@ function hapusDariKeranjang(index){
 
 function kosongkanKeranjang(){
 
-  keranjang = [];
+  if(keranjang.length==0){
 
-  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    alert("Keranjang sudah kosong.");
+
+    return;
+
+  }
+
+  if(confirm("Kosongkan seluruh keranjang?")){
+
+    keranjang=[];
+
+    localStorage.removeItem("keranjang");
+
+    tampilkanKeranjang();
+
+    tampilkanNotif("🧹 Keranjang dikosongkan");
+
+  }
+
+}
+// ======================================
+// FILTER KATEGORI
+// ======================================
+
+function filterKategori(kategori){
+
+  kategoriAktif = kategori;
+
+  tampilkanProduk();
+
+}
+
+// ======================================
+// CARI PRODUK
+// ======================================
+
+function cariProduk(){
+
+  tampilkanProduk();
+
+}
+
+// ======================================
+// SAAT APLIKASI DIBUKA
+// ======================================
+
+window.onload = function(){
+
+  tampilkanProduk();
 
   tampilkanKeranjang();
 
-}
+};
   // ======================================
 // PESAN VIA WHATSAPP
 // ======================================
