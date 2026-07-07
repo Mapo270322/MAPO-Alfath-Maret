@@ -25,7 +25,7 @@ const produk = [
     harga: 24500,
     kategori: "Minyak Goreng",
     gambar: "bimoli.jpg",
-    bestSeller: true
+    bestSeller: false
   },
   {
     nama: "INDOMIE",
