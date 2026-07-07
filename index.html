@@ -578,21 +578,11 @@ function kirimWA(){
   pesan += "TOTAL : Rp ";
   pesan += total.toLocaleString("id-ID");
 
-  let admin = confirm(
-    "Klik OK untuk Admin 1\n\n" +
-    "087762803657\n\n" +
-    "Klik Batal untuk Admin 2\n\n" +
-    "087898348509"
-  );
+  // Simpan isi pesan
+window.pesanWA = pesan;
 
-  let nomor = admin
-      ? "6287762803657"
-      : "6287898348509";
-
-  window.open(
-    "https://wa.me/"+nomor+"?text="+pesan,
-    "_blank"
-  );
+// Tampilkan pilihan admin
+tampilkanPilihanAdmin();
 
 }
     // ======================================
@@ -622,6 +612,16 @@ function tutupPilihanAdmin(){
   }
 
 }
+    function kirimAdmin(nomor){
+
+  window.open(
+    "https://wa.me/" + nomor + "?text=" + window.pesanWA,
+    "_blank"
+  );
+
+  tutupPilihanAdmin();
+
+    }
     function cariProduk(){
     tampilkanProduk();
 }
