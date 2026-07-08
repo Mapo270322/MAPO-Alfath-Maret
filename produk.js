@@ -35,10 +35,38 @@ const produk = [
     bestSeller: false
   },
   {
-    nama: "INDOMIE JUMBO",
-    harga: 4600,
+    nama: "MINYAK GORENG FORTUN 1 ltr",
+    harga: 21500,
+    kategori: "Minyak Goreng",
+    gambar: "Fortun.jpg",
+    bestSeller: false
+    },
+    {
+    nama: "MINYAK GORENG FILMA 1 ltr",
+    harga: 24000,
+    kategori: "Minyak Goreng",
+    gambar: "filma.jpg",
+    bestSeller: true
+    },
+   {
+    nama: "MINYAK GORENG BIMOLI 1 ltr",
+    harga: 24500,
+    kategori: "Minyak Goreng",
+    gambar: "bimoli.jpg",
+    bestSeller: false
+    },
+   {
+    nama: "MINYAK GORENG SOVIA 1 ltr",
+    harga: 22000,
     kategori: "MIE",
-    gambar: "indomiejumbo.jpg",
+    gambar: "sovia.jpg",
+    bestSeller: false
+    },
+   {
+    nama: "MINYAK GORENG SUNCO 1LTR",
+    harga: 24000,
+    kategori: "Minyak Goreng",
+    gambar: "sovia.jpg",
     bestSeller: false
     },
     {
@@ -46,13 +74,6 @@ const produk = [
     harga: 29000,
     kategori: "Telur",
     gambar: "telurayam10.jpg",
-    bestSeller: true
-    },
-   {
-    nama: "BIMOLI 1 ltr",
-    harga: 24500,
-    kategori: "Minyak Goreng",
-    gambar: "bimoli.jpg",
     bestSeller: false
     },
    {
@@ -61,5 +82,12 @@ const produk = [
     kategori: "MIE",
     gambar: "Indomie.jpg",
     bestSeller: false
+     },
+   {
+    nama: "INDOMIE JUMBO",
+    harga: 4600,
+    kategori: "MIE",
+    gambar: "indomiejumbo.jpg",
+    bestSeller: false 
   },
 ];
