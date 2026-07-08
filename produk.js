@@ -178,7 +178,7 @@ const produk = [
     nama: "SUNLIGHT",
     harga: 15000,
     kategori: "Sabun",
-    gambar: "sunlight.jpg",
+    gambar: "Sunlight.jpg",
     bestSeller: false 
    },
    {
