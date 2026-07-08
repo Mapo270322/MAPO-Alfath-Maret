@@ -171,7 +171,7 @@ const produk = [
     nama: "GULA PASIR 1 kgr",
     harga: 20000,
     kategori: "Gula",
-    gambar: "gulabulog.png",
+    gambar: "gulapasirbulog.png",
     bestSeller: false  
   },
 ];
