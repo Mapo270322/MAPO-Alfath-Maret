@@ -189,17 +189,24 @@ const produk = [
     bestSeller: false 
      },
    {
-    nama: "TERIGU",
+    nama: "TEPUNG TERIGU SANIA",
     harga: 15000,
     kategori: "Terigu",
-    gambar: "terigu.jpg",
+    gambar: "tepungterigu.jpg",
     bestSeller: false 
    },
+   {
+    nama: "TEPUNG TERIGU LENCANA MERAH",
+    harga: 10000,
+    kategori: "Lain-lain",
+    gambar: "tepungterigu.jpg",
+    bestSeller: false 
+     },
    {
     nama: "TEH SARI WANGI",
     harga: 10000,
     kategori: "Lain-lain",
     gambar: "tehsariwangi.jpg",
-    bestSeller: false   
+    bestSeller: false    
   },
 ];
