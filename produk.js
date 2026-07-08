@@ -100,28 +100,28 @@ const produk = [
    {
     nama: "INDOMIE JUMBO",
     harga: 4600,
-    kategori: "Mie Instan",
+    kategori: "Mie",
     gambar: "indomiejumbo.jpg",
     bestSeller: false
     },
    {
     nama: "INDOMIE",
     harga: 2500,
-    kategori: "Mie Instan",
+    kategori: "Mie",
     gambar: "Indomie.jpg",
     bestSeller: false
     },
    {
     nama: "SUPERMIE",
     harga: 4500,
-    kategori: "Mie Instan",
+    kategori: "Mie",
     gambar: "supermi.jpg",
     bestSeller: false 
    },
    {
     nama: "MIE SEDAP",
     harga: 2500,
-    kategori: "Mie Instan",
+    kategori: "Mie",
     gambar: "miesedap.jpg",
     bestSeller: false 
     },
