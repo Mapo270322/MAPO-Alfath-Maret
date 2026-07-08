@@ -191,15 +191,15 @@ const produk = [
    {
     nama: "TEPUNG TERIGU SANIA",
     harga: 15000,
-    kategori: "Terigu",
-    gambar: "tepungterigu.jpg",
+    kategori: "Lain-lain",
+    gambar: "terigu.jpg",
     bestSeller: false 
    },
    {
     nama: "TEPUNG TERIGU LENCANA MERAH",
     harga: 10000,
     kategori: "Lain-lain",
-    gambar: "tepungterigu.jpg",
+    gambar: "terigu.jpg",
     bestSeller: false 
      },
    {
