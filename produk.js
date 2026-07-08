@@ -151,6 +151,27 @@ const produk = [
     harga: 10000,
     kategori: "Air",
     gambar: "leminera.png",
+    bestSeller: false 
+     },
+   {
+    nama: "GULA MERAH 1 batok",
+    harga: 22000,
+    kategori: "Gula",
+    gambar: "gulamerah.jpg",
+    bestSeller: false
+    },
+   {
+    nama: "GULAKU 1 kg",
+    harga: 20000,
+    kategori: "Gula",
+    gambar: "gulaku.jpg",
+    bestSeller: false 
+   },
+   {
+    nama: "GULA PASIR 1 kgr",
+    harga: 20000,
+    kategori: "Gula",
+    gambar: "gulabulog.png",
     bestSeller: false  
   },
 ];
