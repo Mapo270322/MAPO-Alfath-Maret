@@ -172,6 +172,20 @@ const produk = [
     harga: 20000,
     kategori: "Gula",
     gambar: "gulabulog.jpeg",
-    bestSeller: false  
+    bestSeller: false 
+     },
+   {
+    nama: "SUNLIGHT",
+    harga: 15000,
+    kategori: "Sabun",
+    gambar: "sunlight.jpg",
+    bestSeller: false 
+   },
+   {
+    nama: "SOKLIN",
+    harga: 6000,
+    kategori: "Soklin",
+    gambar: "soklin.jpg",
+    bestSeller: false   
   },
 ];
