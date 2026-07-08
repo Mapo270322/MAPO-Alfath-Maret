@@ -128,14 +128,14 @@ const produk = [
    {
     nama: "AIR ISI ULANG GALON",
     harga: 5000,
-    kategori: "AIR",
+    kategori: "Minuman",
     gambar: "airmineral.jpg",
     bestSeller: false
     },
    {
     nama: "LEMINERAL 260 ml",
     harga: 1500,
-    kategori: "Air",
+    kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false
     },
@@ -149,7 +149,7 @@ const produk = [
    {
     nama: "LEMINERAL 1 ltr",
     harga: 10000,
-    kategori: "Air",
+    kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
      },
