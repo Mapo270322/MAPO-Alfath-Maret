@@ -136,21 +136,21 @@ const produk = [
     nama: "LEMINERAL 260 ml",
     harga: 1500,
     kategori: "Air",
-    gambar: "lemineral.png",
+    gambar: "leminera.png",
     bestSeller: false
     },
    {
     nama: "LEMINERAL 600 ml",
     harga: 4000,
     kategori: "Air",
-    gambar: "lemineral.png",
+    gambar: "leminera.png",
     bestSeller: false 
    },
    {
     nama: "LEMINERAL 1 ltr",
     harga: 10000,
     kategori: "Air",
-    gambar: "lemineral.jpg",
+    gambar: "leminera.jpg",
     bestSeller: false  
   },
 ];
