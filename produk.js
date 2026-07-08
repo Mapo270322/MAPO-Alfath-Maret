@@ -77,17 +77,38 @@ const produk = [
     bestSeller: false
     },
    {
-    nama: "INDOMIE",
-    harga: 2500,
-    kategori: "MIE",
-    gambar: "Indomie.jpg",
+    nama: "TELUR AYAM 1 baki",
+    harga: 50000,
+    kategori: "Telur",
+    gambar: "telurayam.jpg",
     bestSeller: false
      },
+   {
+    nama: "TELUR AYAM 1 btr",
+    harga: 1600,
+    kategori: "Telur",
+    gambar: "telurayam.jpg",
+    bestSeller: false
+     },
+   {
+    nama: "TELUR PUYUH 1 Mika",
+    harga: 11900,
+    kategori: "Telur",
+    gambar: "telurpuyu.jpg",
+    bestSeller: false
+      },
    {
     nama: "INDOMIE JUMBO",
     harga: 4600,
     kategori: "MIE",
     gambar: "indomiejumbo.jpg",
-    bestSeller: false 
+    bestSeller: false
+       },
+   {
+    nama: "INDOMIE",
+    harga: 2500,
+    kategori: "MIE",
+    gambar: "Indomie.jpg",
+    bestSeller: false
   },
 ];
