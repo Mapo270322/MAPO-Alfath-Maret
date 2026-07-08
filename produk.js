@@ -186,6 +186,20 @@ const produk = [
     harga: 6000,
     kategori: "Soklin",
     gambar: "soklin.jpg",
+    bestSeller: false 
+     },
+   {
+    nama: "TERIGU",
+    harga: 15000,
+    kategori: "Terigu",
+    gambar: "terigu.jpg",
+    bestSeller: false 
+   },
+   {
+    nama: "TEH SARI WANGI",
+    harga: 10000,
+    kategori: "Lain-lain",
+    gambar: "tehsariwangi.jpg",
     bestSeller: false   
   },
 ];
