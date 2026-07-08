@@ -150,7 +150,7 @@ const produk = [
     nama: "LEMINERAL 1 ltr",
     harga: 10000,
     kategori: "Air",
-    gambar: "leminera.jpg",
+    gambar: "leminera.png",
     bestSeller: false  
   },
 ];
