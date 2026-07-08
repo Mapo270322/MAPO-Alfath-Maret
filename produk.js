@@ -45,8 +45,8 @@ const produk = [
     nama: "MINYAK GORENG FILMA 1 ltr",
     harga: 24000,
     kategori: "Minyak Goreng",
-    gambar: "filma.jpg",
-    bestSeller: true
+    gambar: "migorfilma.jpg",
+    bestSeller: false
     },
    {
     nama: "MINYAK GORENG BIMOLI 1 ltr",
@@ -58,7 +58,7 @@ const produk = [
    {
     nama: "MINYAK GORENG SOVIA 1 ltr",
     harga: 22000,
-    kategori: "MIE",
+    kategori: "Minyak Goreng",
     gambar: "sovia.jpg",
     bestSeller: false
     },
@@ -66,7 +66,7 @@ const produk = [
     nama: "MINYAK GORENG SUNCO 1LTR",
     harga: 24000,
     kategori: "Minyak Goreng",
-    gambar: "sovia.jpg",
+    gambar: "sunco.jpg",
     bestSeller: false
     },
     {
