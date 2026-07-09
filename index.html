@@ -345,26 +345,21 @@ function tampilkanKeranjang(){
   keranjang.forEach(function(item,index){
 
     jumlahTotal += item.harga * item.jumlah;
+list.innerHTML += `
+<li>
+<div>
+<b>${item.nama}</b><br>
+Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
+</div>
 
-    list.innerHTML += `
-      <li>
-
-        <b>${item.nama}</b><br>
-
-        Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
-
-        <br>
-
-      <button onclick="kurangJumlah(${index})"
-style="background:red;color:white;font-size:22px;font-weight:bold;width:40px;height:35px;border:none;border-radius:5px;">−</button>
-
-<button onclick="tambahJumlah(${index})"
-style="background:red;color:white;font-size:22px;font-weight:bold;width:40px;height:35px;border:none;border-radius:5px;">+</button>
-
-<button onclick="hapusDariKeranjang(${index})"
-style="background:red;color:white;font-size:18px;width:40px;height:35px;border:none;border-radius:5px;">🗑</button>
-
-      </li>
+<div>
+<button onclick="kurangJumlah(${index})">-</button>
+<button onclick="tambahJumlah(${index})">+</button>
+<button onclick="hapusDariKeranjang(${index})">🗑</button>
+</div>
+</li>
+`;
+    
     `;
 
   });
