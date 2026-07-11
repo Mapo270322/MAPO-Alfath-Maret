@@ -349,14 +349,15 @@ function tampilkanKeranjang(){
 list.innerHTML += `
 <li>
 
-
+<div>
 <b>${item.nama}</b><br>
 Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
-
-
+</div>
+<div>
 <button onclick="kurangJumlah(${index})">-</button>
 <button onclick="tambahJumlah(${index})">+</button>
 <button onclick="hapusDariKeranjang(${index})">🗑</button>
+</div>
 </li>
     
     `;
