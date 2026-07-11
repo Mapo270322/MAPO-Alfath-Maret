@@ -1,17 +1,17 @@
 const produk = [
   {
-    nama: " BERAS SPHP",
+    nama: "BERAS SPHP",
     harga: 62000,
     kategori: "Beras",
     gambar: "sphp1.jpg",
-    bestSeller: true
+    bestSeller: false
   },
   {
     nama: "ISTANA PANGAN 5 kg",
     harga: 84000,
     kategori: "Beras",
     gambar: "istanapangan.jpg",
-    bestSeller: true
+    bestSeller: false
   },
   {
     nama: "DUA MERPATI 5 kg",
