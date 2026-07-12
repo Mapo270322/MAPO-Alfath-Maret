@@ -333,41 +333,44 @@ function tampilkanProduk(){
 
 function tampilkanKeranjang(){
 
-  let list = document.getElementById("listKeranjang");
-  let total = document.getElementById("totalBelanja");
+    const list = document.getElementById("listKeranjang");
+    const total = document.getElementById("totalBelanja");
 
-  if(!list || !total) return;
+    list.innerHTML = "";
 
-  list.innerHTML = "";
+    let jumlahTotal = 0;
 
-  let jumlahTotal = 0;
+    keranjang.forEach((item,index)=>{
 
-  keranjang.forEach(function(item,index){
-    console.log (item)
+        jumlahTotal += Number(item.harga) * Number(item.jumlah);
 
-    jumlahTotal += item.harga * item.jumlah;
-list.innerHTML += `
-<li>
+        const li = document.createElement("li");
 
-<div>
-<b>${item.nama}</b><br>
-Rp ${item.harga.toLocaleString("id-ID")} × ${item.jumlah}
-</div>
-<div>
-<button onclick="kurangJumlah(${index})">-</button>
-<button onclick="tambahJumlah(${index})">+</button>
-<button onclick="hapusDariKeranjang(${index})">🗑</button>
-</div>
-</li>
-    
-    `;
+        li.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
 
-  });
+            <div style="flex:1;">
+                <b>${item.nama}</b><br>
+                Rp ${Number(item.harga).toLocaleString("id-ID")} × ${item.jumlah}
+            </div>
 
-  total.innerHTML =
-  "<b>Total : Rp " +
-  jumlahTotal.toLocaleString("id-ID") +
-  "</b>";
+            <div>
+                <button onclick="kurangJumlah(${index})">-</button>
+                <button onclick="tambahJumlah(${index})">+</button>
+                <button onclick="hapusDariKeranjang(${index})">🗑</button>
+            </div>
+
+        </div>
+        `;
+
+        list.appendChild(li);
+
+    });
+
+    total.innerHTML =
+    "<b>Total : Rp " +
+    jumlahTotal.toLocaleString("id-ID") +
+    "</b>";
 
 }
 
