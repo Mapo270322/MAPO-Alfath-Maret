@@ -100,28 +100,28 @@ const produk = [
    {
     nama: "INDOMIE JUMBO",
     harga: 4600,
-    kategori: "Mie",
+    kategori: "Mie Instan",
     gambar: "indomiejumbo.jpg",
     bestSeller: false
     },
    {
     nama: "INDOMIE",
     harga: 2500,
-    kategori: "Mie",
+    kategori: "Mie Instan",
     gambar: "Indomie.jpg",
     bestSeller: false
     },
    {
     nama: "SUPERMIE",
     harga: 4500,
-    kategori: "Mie",
+    kategori: "Mie Instan",
     gambar: "supermi.jpg",
     bestSeller: false 
    },
    {
     nama: "MIE SEDAP",
     harga: 2500,
-    kategori: "Mie",
+    kategori: "Mie Instan",
     gambar: "miesedap.jpg",
     bestSeller: false 
     },
@@ -142,7 +142,7 @@ const produk = [
    {
     nama: "LEMINERAL 600 ml",
     harga: 4000,
-    kategori: "Air",
+    kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
    },
@@ -184,28 +184,28 @@ const produk = [
    {
     nama: "SOKLIN",
     harga: 6000,
-    kategori: "Soklin",
+    kategori: "Sabun",
     gambar: "soklin.jpg",
     bestSeller: false 
      },
    {
     nama: "TEPUNG TERIGU SANIA",
     harga: 15500,
-    kategori: "Lain-lain",
+    kategori: "Lainnya",
     gambar: "tepung.jpg",
     bestSeller: false 
    },
    {
     nama: "TEPUNG TERIGU LENCANA MERAH",
     harga: 11000,
-    kategori: "Lain-lain",
+    kategori: "Lainnya",
     gambar: "tepung.jpg",
     bestSeller: false 
      },
    {
     nama: "TEH SARI WANGI",
     harga: 10000,
-    kategori: "Lain-lain",
+    kategori: "Lainnya",
     gambar: "tehsariwangi.jpg",
     bestSeller: false    
   },
