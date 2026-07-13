@@ -207,6 +207,20 @@ const produk = [
     harga: 10000,
     kategori: "Lainnya",
     gambar: "tehsariwangi.jpg",
+    bestSeller: false 
+     },
+   {
+    nama: "TOPCOFFE",
+    harga: 3000,
+    kategori: "Lainnya",
+    gambar: "topcoffe.jpg",
+    bestSeller: false 
+     },
+   {
+    nama: "KECAP BANGO",
+    harga: 10000,
+    kategori: "Lainnya",
+    gambar: "kecapbango.jpg",
     bestSeller: false    
   },
 ];
