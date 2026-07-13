@@ -21,7 +21,7 @@ const produk = [
     bestSeller: false
   },
   {
-    nama: "SUA MERPATI 2 kg",
+    nama: "DUA MERPATI 2 kg",
     harga: 34000,
     kategori: "Beras",
     gambar: "beras.jpg",
