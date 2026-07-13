@@ -48,7 +48,11 @@ background: white;
 border-radius: 10px;
 padding: 10px;
 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+transition:0.3s;
 }
+  .card:hover{
+    transform:scale(1.02);
+  }
 
 .card img {
 width: 100%;
@@ -117,13 +121,15 @@ opacity: 1;
     border-bottom: 1px solid #ddd;
 }
 
-#listKeranjang button {
-background: red;
-color:white;
-border: none;
-padding: 5px 10px;
-border-radius: 5px;
-width: auto;
+#listKeranjang button{
+    width:35px;
+    height:35px;
+    margin-left:4px;
+    border-radius:6px;
+    font-weight:bold;
+    background:red;
+    color:white;
+    border:none;
 }
 .kategori-filter{
 display:flex;
@@ -185,7 +191,9 @@ border-radius:20px;
 
 <!-- KERANJANG -->
 <div style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px;">
-<h3 style="color:#000;">🛒 Keranjang</h3>
+  <h3 style="text-align:center; color:#000; margin-bottom:15px;">
+🛒 Keranjang Belanja
+  </h3>
 <ul id="listKeranjang"></ul>
 <div id="totalBelanja"></div>
 </div>
