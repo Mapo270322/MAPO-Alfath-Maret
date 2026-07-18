@@ -141,14 +141,14 @@ const produk = [
     },
    {
     nama: "LEMINERAL 600 ml",
-    harga: 4000,
+    harga: 3600,
     kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
    },
    {
     nama: "LEMINERAL 1 ltr",
-    harga: 10000,
+    harga: 9500,
     kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
@@ -217,8 +217,8 @@ const produk = [
     bestSeller: false 
      },
    {
-    nama: "KECAP BANGO",
-    harga: 10000,
+    nama: "KECAP BANGO 950g",
+    harga: 26500,
     kategori: "Lainnya",
     gambar: "kecapbango.jpg",
     bestSeller: false    
