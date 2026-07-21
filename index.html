@@ -208,9 +208,57 @@ Belanja Aman • Halal • Terpercaya
 <ul id="listKeranjang"></ul>
 <div id="totalBelanja"></div>
 </div>
-<button class="wa" onclick="kirimWA()">
-📲 PESAN VIA WHATSAPP
+<button onclick="bukaFormPelanggan()">
+📲 Pesan via WhatsApp
 </button>
+
+<!-- FORM DATA PELANGGAN -->
+<div id="formPelanggan"
+style="
+display:none;
+background:white;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.2);
+">
+
+<h3>📝 Data Pemesan</h3>
+
+<input
+id="namaPelanggan"
+type="text"
+placeholder="Nama Lengkap"
+style="width:95%;padding:10px;margin:5px 0;">
+
+<input
+id="alamatPelanggan"
+type="text"
+placeholder="Alamat Lengkap"
+style="width:95%;padding:10px;margin:5px 0;">
+
+<input
+id="waPelanggan"
+type="tel"
+placeholder="Nomor WhatsApp"
+style="width:95%;padding:10px;margin:5px 0;">
+
+<label>
+<input
+type="checkbox"
+id="simpanData"
+checked>
+Simpan data pelanggan
+</label>
+
+<br><br>
+
+<button onclick="lanjutPesan()"
+style="background:#25D366;color:white;">
+LANJUT
+</button>
+
+</div>
   
 <div id="pilihAdmin" style="display:none; margin-top:10px;">
 
@@ -552,13 +600,12 @@ window.onload = function(){
   tampilkanKeranjang();
 
 };
-  // ======================================
-// PESAN VIA WHATSAPP
-// ======================================
 
-// ======================================
-// PESAN VIA WHATSAPP
-// ======================================
+function bukaFormPelanggan(){
+
+    document.getElementById("formPelanggan").style.display = "block";
+
+}
 
 function kirimWA(){
 
