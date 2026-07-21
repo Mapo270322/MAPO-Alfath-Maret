@@ -606,6 +606,33 @@ function bukaFormPelanggan(){
     document.getElementById("formPelanggan").style.display = "block";
 
 }
+function lanjutPesan(){
+
+    let nama = document.getElementById("namaPelanggan").value.trim();
+    let alamat = document.getElementById("alamatPelanggan").value.trim();
+    let wa = document.getElementById("waPelanggan").value.trim();
+
+    if(nama=="" || alamat=="" || wa==""){
+
+        alert("Silakan lengkapi data pemesan.");
+
+        return;
+
+    }
+
+    if(document.getElementById("simpanData").checked){
+
+        localStorage.setItem("namaPelanggan",nama);
+        localStorage.setItem("alamatPelanggan",alamat);
+        localStorage.setItem("waPelanggan",wa);
+
+    }
+
+    document.getElementById("formPelanggan").style.display="none";
+
+    tampilkanPilihanAdmin();
+
+}
 
 function kirimWA(){
 
