@@ -687,23 +687,10 @@ function lanjutPesan(){
 
     document.getElementById("formPelanggan").style.display="none";
 
-    kirimWA();
+    kirimWA().
 
 }
-    if(document.getElementById("simpanData").checked){
-
-        localStorage.setItem("namaPelanggan",nama);
-        localStorage.setItem("alamatPelanggan",alamat);
-        localStorage.setItem("waPelanggan",wa);
-
-    }
-
-    document.getElementById("formPelanggan").style.display="none";
-
-    tampilkanPilihanAdmin();
-
-}
-
+  
 function kirimWA(){
 
     if(keranjang.length==0){
