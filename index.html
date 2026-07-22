@@ -761,41 +761,6 @@ function kirimWA(){
     window.pesanWA = pesan;
 
     tampilkanPilihanAdmin();
-
-}
-
-  let pesan =
-  "Assalamu'alaikum MAPO Maret%0A";
-  pesan += "============================%0A";
-  pesan += "Saya ingin memesan:%0A%0A";
-
-  let total = 0;
-
-  keranjang.forEach(function(item,no){
-
-    let subtotal = item.harga * item.jumlah;
-
-    pesan +=
-    (no+1)+". "+item.nama+
-    "%0A   "+item.jumlah+
-    " x Rp "+item.harga.toLocaleString("id-ID")+
-    "%0A   = Rp "+subtotal.toLocaleString("id-ID")+
-    "%0A%0A";
-
-    total += subtotal;
-
-  });
-
-  pesan += "============================%0A";
-  pesan += "TOTAL : Rp ";
-  pesan += total.toLocaleString("id-ID");
-
-  // Simpan isi pesan
-window.pesanWA = pesan;
-
-// Tampilkan pilihan admin
-tampilkanPilihanAdmin();
-
 }
     // ======================================
 // PILIH ADMIN
