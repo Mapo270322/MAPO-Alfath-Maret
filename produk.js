@@ -189,10 +189,10 @@ const produk = [
     bestSeller: false 
      },
    {
-    nama: "TEPUNG TERIGU SANIA",
-    harga: 11500,
+    nama: "TEPUNG TERIGU KOMPAS",
+    harga: 12500,
     kategori: "Tepung",
-    gambar: "tepung.jpg",
+    gambar: "kompas.jpg",
     bestSeller: false 
    },
    {
