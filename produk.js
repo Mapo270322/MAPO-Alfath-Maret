@@ -22,7 +22,7 @@ const produk = [
   },
   {
     nama: "DUA MERPATI 2 kg",
-    harga: 34000,
+    harga: 37000,
     kategori: "Beras",
     gambar: "beras.jpg",
     bestSeller: false
