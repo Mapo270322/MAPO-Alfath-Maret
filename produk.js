@@ -1,9 +1,9 @@
 const produk = [
   {
-    nama: "BERAS SPHP",
-    harga: 62000,
-    kategori: "Beras",
-    gambar: "sphp1.jpg",
+    nama: "PROMO PAKET KEMERDEKAAN",
+    harga: 100000,
+    kategori: "Lainnya",
+    gambar: "promomerdeka.jpg",
     bestSeller: false
   },
   {
