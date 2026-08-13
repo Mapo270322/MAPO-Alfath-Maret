@@ -105,8 +105,8 @@ const produk = [
     bestSeller: false
     },
    {
-    nama: "INDOMIE",
-    harga: 2500,
+    nama: "INDOMIE AYAM BAWANG",
+    harga: 3500,
     kategori: "Mie Instan",
     gambar: "Indomie.jpg",
     bestSeller: false
