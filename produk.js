@@ -16,14 +16,14 @@ const produk = [
   {
     nama: "DUA MERPATI 5 kg",
     harga: 83999,
-    kategori: "Beras",
+    kategori: "duamerpati",
     gambar: "beras.jpg",
     bestSeller: false
   },
   {
     nama: "DUA MERPATI 2 kg",
     harga: 37000,
-    kategori: "Beras",
+    kategori: "duamerpati",
     gambar: "beras.jpg",
     bestSeller: false
     },
@@ -71,14 +71,14 @@ const produk = [
     },
     {
     nama: "TELUR AYAM 10 btr",
-    harga: 22000,
+    harga: 25000,
     kategori: "Telur",
     gambar: "telurayam10.jpg",
     bestSeller: false
     },
    {
     nama: "TELUR AYAM 1 baki",
-    harga: 60000,
+    harga: 67000,
     kategori: "Telur",
     gambar: "telurayam.jpg",
     bestSeller: false
@@ -210,10 +210,10 @@ const produk = [
     bestSeller: false 
      },
    {
-    nama: "TOPCOFFE",
+    nama: "DRINK BENG-BENH",
     harga: 3000,
     kategori: "Lainnya",
-    gambar: "topcoffe.jpg",
+    gambar: "drinkbeng.jpg",
     bestSeller: false 
      },
    {
