@@ -8,7 +8,7 @@ const produk = [
   },
   {
     nama: "ISTANA PANGAN 5 kg",
-    harga: 90900,
+    harga: 0,
     kategori: "Beras",
     gambar: "istanapangan.jpg",
     bestSeller: false
@@ -29,14 +29,14 @@ const produk = [
     },
   {
     nama: "BERAS BUNAKEN INDAH 5 kg",
-    harga: 62000,
+    harga: 0,
     kategori: "Beras",
     gambar: "bunakenindah.jpg",
     bestSeller: false
   },
   {
     nama: "MINYAK GORENG FORTUN 1 ltr",
-    harga: 21500,
+    harga: 0,
     kategori: "Minyak Goreng",
     gambar: "Fortun.jpg",
     bestSeller: false
@@ -50,21 +50,21 @@ const produk = [
     },
    {
     nama: "MINYAK GORENG BIMOLI 1 ltr",
-    harga: 24500,
+    harga: 0,
     kategori: "Minyak Goreng",
     gambar: "bimoli.jpg",
     bestSeller: false
     },
    {
     nama: "MINYAK GORENG SOVIA 1 ltr",
-    harga: 22000,
+    harga: 0,
     kategori: "Minyak Goreng",
     gambar: "sovia.jpg",
     bestSeller: false
     },
    {
     nama: "MINYAK GORENG SUNCO 1LTR",
-    harga: 24000,
+    harga: 0,
     kategori: "Minyak Goreng",
     gambar: "Sunco.jpg",
     bestSeller: false
@@ -113,14 +113,14 @@ const produk = [
     },
    {
     nama: "SUPERMIE",
-    harga: 4500,
+    harga: 0,
     kategori: "Mie Instan",
     gambar: "supermi.jpg",
     bestSeller: false 
    },
    {
     nama: "MIE SEDAP",
-    harga: 2500,
+    harga: 0,
     kategori: "Mie Instan",
     gambar: "miesedap.jpg",
     bestSeller: false 
@@ -134,28 +134,28 @@ const produk = [
     },
    {
     nama: "LEMINERAL 260 ml",
-    harga: 1500,
+    harga: 0,
     kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false
     },
    {
     nama: "LEMINERAL 600 ml",
-    harga: 3600,
+    harga: 0,
     kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
    },
    {
     nama: "LEMINERAL 1 ltr",
-    harga: 9500,
+    harga: 0,
     kategori: "Minuman",
     gambar: "leminera.png",
     bestSeller: false 
      },
    {
     nama: "GULA MERAH 1 batok",
-    harga: 22000,
+    harga: 0,
     kategori: "Gula",
     gambar: "gulamerah.jpg",
     bestSeller: false
@@ -176,14 +176,14 @@ const produk = [
      },
    {
     nama: "SUNLIGHT",
-    harga: 15000,
+    harga: 0,
     kategori: "Sabun",
     gambar: "Sunlight.jpg",
     bestSeller: false 
    },
    {
     nama: "SOKLIN",
-    harga: 6000,
+    harga: 0,
     kategori: "Sabun",
     gambar: "soklin.jpg",
     bestSeller: false 
@@ -197,7 +197,7 @@ const produk = [
    },
    {
     nama: "TEPUNG TERIGU LENCANA MERAH",
-    harga: 11000,
+    harga: 0,
     kategori: "Tepung",
     gambar: "tepung.jpg",
     bestSeller: false 
@@ -218,7 +218,7 @@ const produk = [
      },
    {
     nama: "KECAP BANGO 950g",
-    harga: 26500,
+    harga: 0,
     kategori: "Lainnya",
     gambar: "kecapbango.jpg",
     bestSeller: false    
