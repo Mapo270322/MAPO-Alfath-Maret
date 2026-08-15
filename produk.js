@@ -8,7 +8,7 @@ const produk = [
   },
   {
     nama: "ISTANA PANGAN 5 kg",
-    harga: 84000,
+    harga: 90900,
     kategori: "Beras",
     gambar: "istanapangan.jpg",
     bestSeller: false
@@ -162,7 +162,7 @@ const produk = [
     },
    {
     nama: "GULAKU 1 kg",
-    harga: 20000,
+    harga: 0,
     kategori: "Gula",
     gambar: "gulaku.jpg",
     bestSeller: false 
