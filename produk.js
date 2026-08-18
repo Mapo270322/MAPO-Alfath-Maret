@@ -45,7 +45,7 @@ const produk = [
     nama: "MINYAK GORENG FILMA 1 ltr",
     harga: 30000,
     kategori: "Minyak Goreng",
-    gambar: "filma.jpg",
+    gambar: "filmaedit.jpg",
     bestSeller: false
     },
    {
