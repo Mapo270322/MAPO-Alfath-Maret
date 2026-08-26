@@ -71,14 +71,14 @@ const produk = [
     },
     {
     nama: "TELUR AYAM 10 btr",
-    harga: 25000,
+    harga: 23000,
     kategori: "Telur",
     gambar: "telurayam10.jpg",
     bestSeller: false
     },
    {
     nama: "TELUR AYAM 1 baki",
-    harga: 67000,
+    harga: 60000,
     kategori: "Telur",
     gambar: "telurayam.jpg",
     bestSeller: false
