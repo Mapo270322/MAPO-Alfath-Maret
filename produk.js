@@ -1,9 +1,9 @@
 const produk = [
   {
-    nama: "PROMO PAKET",
-    harga: 0,
+    nama: "PROMO SEMBAKO MURAH",
+    harga: 50000,
     kategori: "Lainnya",
-    gambar: "promomerdeka.jpg",
+    gambar: "sembakomurah.png",
     bestSeller: false
   },
   {
