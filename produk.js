@@ -1,6 +1,6 @@
 const produk = [
   {
-    nama: "PROMO SEMBAKO MURAH",
+    nama: "SEMBAKO MURAH Beras 2kg Telur 5btr Indomie 3bks",
     harga: 50000,
     kategori: "Lainnya",
     gambar: "sembakomurah.png",
