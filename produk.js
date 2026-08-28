@@ -15,7 +15,7 @@ const produk = [
   },
   {
     nama: "DUA MERPATI 5 kg",
-    harga: 83999,
+    harga: 88000,
     kategori: "Beras",
     gambar: "duamerpati.jpg",
     bestSeller: false
