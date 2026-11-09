@@ -91,12 +91,19 @@ const produk = [
     bestSeller: false
      },
    {
-    nama: "TELUR PUYUH 1 Mika",
-    harga: 12000,
+    nama: "TELUR PUYUH 1 Mika isi 20 cqmpur ",
+    harga: 12500,
     kategori: "Telur",
     gambar: "telurpuyu.jpg",
     bestSeller: false
       },
+  {
+    nama: "TELUR PUYUH 1 Mika isi 20 sortir ",
+    harga: 13800,
+    kategori: "Telur"
+    ganbar: "telurpuyu.jpg",
+    bestSeller: false
+       },
    {
     nama: "INDOMIE JUMBO",
     harga: 4600,
