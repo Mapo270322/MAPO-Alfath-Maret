@@ -91,7 +91,7 @@ const produk = [
     bestSeller: false
      },
    {
-    nama: "TELUR PUYUH 1 Mika isi 20 cqmpur ",
+    nama: "TELUR PUYUH 1 Mika isi 20 cqmpur",
     harga: 12500,
     kategori: "Telur",
     gambar: "telurpuyu.jpg",
